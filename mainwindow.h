@@ -3,9 +3,14 @@
 
 #include <QMainWindow>
 #include <QWidget>
+#include "window2.h"
 #include "window.h"
 
+
 class QPushButton;
+class QRadioButton;
+class QGroupBox;
+class QGridLayout;
 
 namespace Ui {
 class MainWindow;
@@ -17,7 +22,6 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
 
 public slots:
    void openNewWindow();
@@ -25,7 +29,10 @@ public slots:
 private:
     Ui::MainWindow *ui;
     QPushButton *m_button;
+    QRadioButton *r_button;
     Window *window;
+    Window2 *window2;
+    QGroupBox *createFirstExclusiveGroup();
 };
 
 #endif // MAINWINDOW_H
