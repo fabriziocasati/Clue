@@ -17,12 +17,14 @@ SOURCES += main.cpp\
     window.cpp \
     window2.cpp \
     numberofplayers.cpp \
-    namesoftheplayers.cpp
+    namesoftheplayers.cpp \
+    numberofcardsforeachplayerwindow.cpp
 
 HEADERS  += mainwindow.h \
     window.h \
     window2.h \
     numberofplayers.h \
-    namesoftheplayers.h
+    namesoftheplayers.h \
+    numberofcardsforeachplayerwindow.h
 
 FORMS    += mainwindow.ui

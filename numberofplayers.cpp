@@ -22,7 +22,8 @@ QGroupBox *NumberOfPlayers::createNumberOfPlayersGroup()
 {
     QGroupBox *groupBox = new QGroupBox("Select the number of players for the new game");
 
-    QPushButton *m_button = new QPushButton("Ok", this);
+    m_button = new QPushButton("Ok", this);
+    m_button->setDisabled(true);
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNamesOfThePlayersWindow()));
 
     QHBoxLayout *vbox = new QHBoxLayout;
@@ -35,6 +36,7 @@ QGroupBox *NumberOfPlayers::createNumberOfPlayersGroup()
         std::string numberString = boost::lexical_cast<std::string>(i+MIN_NUMBER_OF_PLAYERS);
         QString numberQString = QString::fromStdString(numberString);
         numberOfPlayersRadioButton[i] = new QRadioButton(numberQString);
+        connect(numberOfPlayersRadioButton[i], SIGNAL (clicked()), this, SLOT (activateConfirmButton()));
         vbox->addWidget(numberOfPlayersRadioButton[i]);
     }
 
@@ -55,5 +57,11 @@ void NumberOfPlayers::openNamesOfThePlayersWindow()
     w->show();
 
     this->close();
+
+}
+
+void NumberOfPlayers::activateConfirmButton()
+{
+    m_button->setDisabled(false);
 
 }

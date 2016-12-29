@@ -2,8 +2,11 @@
 #define NAMESOFTHEPLAYERS_H
 
 #include <QWidget>
+#include <QHash>
 
 class QGroupBox;
+class QPushButton;
+class QLineEdit;
 
 class NamesOfThePlayers  : public QWidget
 {
@@ -12,10 +15,15 @@ class NamesOfThePlayers  : public QWidget
 public:
     NamesOfThePlayers(int numberOfPlayers, QWidget *parent = 0);
 public slots:
-    void openNamesOfThePlayersWindow();
+    void openNumberOfCardsForEachPlayerWindow();
+    void enableOrDisableConfirmButton(const QString &text);
 
 private:
         QGroupBox *createNumberOfPlayersGroup(int numberOfPlayers);
+        QPushButton *m_button;
+        int nonEmptyName[6];
+        int nonEmptyNames = 0;
+        QHash<QLineEdit**, int> hash;
 
 };
 
