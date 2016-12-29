@@ -8,8 +8,5 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    Window window;
-    window.show();
-
     return a.exec();
 }
