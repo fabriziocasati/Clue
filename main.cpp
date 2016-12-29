@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "numberofplayers.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -8,9 +7,6 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     w.show();
-
-    NumberOfPlayers numberOfPlayersWindow;
-    numberOfPlayersWindow.show();
 
     return a.exec();
 }

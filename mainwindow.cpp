@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "numberofplayers.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -11,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNewWindow()));
 
     window2 = new Window2();
-    window2->show();
+    //window2->show();
 
 
 
@@ -20,10 +21,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::openNewWindow() {
     window = new Window(); // Be sure to destroy you window somewhere
-    window->show();
+    //window->show();
 
     window2 = new Window2();
-    window2->show();
+    //window2->show();
+
+    NumberOfPlayers *numberOfPlayersWindow = new NumberOfPlayers();
+    numberOfPlayersWindow->show();
 
     this->hide();
     //this->setDisabled(true);

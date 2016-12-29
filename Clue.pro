@@ -16,11 +16,13 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     window.cpp \
     window2.cpp \
-    numberofplayers.cpp
+    numberofplayers.cpp \
+    namesoftheplayers.cpp
 
 HEADERS  += mainwindow.h \
     window.h \
     window2.h \
-    numberofplayers.h
+    numberofplayers.h \
+    namesoftheplayers.h
 
 FORMS    += mainwindow.ui
