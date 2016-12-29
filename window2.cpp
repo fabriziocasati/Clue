@@ -18,24 +18,74 @@ Window2::Window2(QWidget *parent)
 
     setWindowTitle(tr("Group Boxes"));
     resize(480, 320);
+
+
+
+    QGroupBox *groupBox = new QGroupBox("Number of players");
+
+    QRadioButton *radio1 = new QRadioButton(groupBox->title());
+    QRadioButton *radio2 = new QRadioButton("4");
+
+
+    //radio1->setChecked(true);
+
+    QVBoxLayout *vbox = new QVBoxLayout;
+    vbox->addWidget(radio1);
+    vbox->addWidget(radio2);
+    vbox->addStretch(1);
+    groupBox->setLayout(vbox);
+
+
+    QGroupBox *groupBox2 = new QGroupBox("Number of players");
+
+    radio3 = new QRadioButton("5");
+    QRadioButton *radio4 = new QRadioButton("6");
+
+
+    QVBoxLayout *vbox2 = new QVBoxLayout;
+    vbox2->addWidget(radio3);
+    vbox2->addWidget(radio4);
+    vbox2->addStretch(1);
+    groupBox2->setLayout(vbox2);
+
+    grid->addWidget(groupBox, 3, 0);
+    grid->addWidget(groupBox2, 3, 1);
+
+    //radio4->setDisabled(true);
+
+    connect(radio1, SIGNAL (clicked()), this, SLOT (OnRadioButton1()));
+
+
+
+
+}
+
+void Window2::OnRadioButton1()
+{
+    radio3->setEnabled(not(radio3->isEnabled()));
+    radio3->setChecked(false);
 }
 
 QGroupBox *Window2::createNumberOfPlayersGroup()
 {
     QGroupBox *groupBox = new QGroupBox("Number of players");
 
+    //QRadioButton *radio1 = new QRadioButton(groupBox->title());
     QRadioButton *radio1 = new QRadioButton("3");
     QRadioButton *radio2 = new QRadioButton("4");
     QRadioButton *radio3 = new QRadioButton("5");
     QRadioButton *radio4 = new QRadioButton("6");
 
+    QPushButton *m_button = new QPushButton("Create New Game", this);
+
     radio1->setChecked(true);
 
-    QVBoxLayout *vbox = new QVBoxLayout;
+    QHBoxLayout *vbox = new QHBoxLayout;
     vbox->addWidget(radio1);
     vbox->addWidget(radio2);
     vbox->addWidget(radio3);
     vbox->addWidget(radio4);
+    vbox->addWidget(m_button);
     vbox->addStretch(1);
     groupBox->setLayout(vbox);
 
@@ -74,6 +124,13 @@ QGroupBox *Window2::createNumberOfCardsOfThePlayersGroup()
 {
     QGroupBox *groupBox = new QGroupBox("Number of cards for each player");
 
+    /*
+    groupBox->setStyleSheet("QGroupBox {"
+                             "border: 1px solid gray;}"
+            "QGroupBox::title {"
+                             "color: blue;}");
+                             */
+
     QRadioButton *radio1 = new QRadioButton("3");
     QRadioButton *radio2 = new QRadioButton("4");
     QRadioButton *radio3 = new QRadioButton("5");
@@ -98,6 +155,14 @@ QGroupBox *Window2::createCardsOfTheUserGroup()
     QGroupBox *groupBox = new QGroupBox("Your cards");
     QGroupBox *groupBox2 = new QGroupBox("Your cards");
     QGroupBox *groupBox3 = new QGroupBox("Your cards");
+
+    /*
+    groupBox2->setStyleSheet("QGroupBox {"
+                             "border: 1px solid gray;}"
+            "QGroupBox::title {"
+                             "color: blue;}");
+    groupBox3->setStyleSheet("QGroupBox {  border: 1px solid gray;}");
+    */
 
     QCheckBox *checkBox1 = new QCheckBox("Checkbox 1");
     QCheckBox *checkBox2 = new QCheckBox("Checkbox 2");

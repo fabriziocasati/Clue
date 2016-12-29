@@ -4,6 +4,7 @@
 #include <QWidget>
 
 class QGroupBox;
+class QRadioButton;
 
 class Window2 : public QWidget
 {
@@ -11,6 +12,7 @@ class Window2 : public QWidget
 
 public:
     Window2(QWidget *parent = 0);
+    QRadioButton *radio3;
 
 private:
     QGroupBox *createFirstExclusiveGroup();
@@ -21,6 +23,11 @@ private:
     QGroupBox *createNamesOfThePlayersGroup();
     QGroupBox *createNumberOfCardsOfThePlayersGroup();
     QGroupBox *createCardsOfTheUserGroup();
-};
+
+
+public slots:
+    void OnRadioButton1();
+
+ };
 
 #endif

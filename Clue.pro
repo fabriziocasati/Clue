@@ -13,12 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+    mainwindow.cpp \
     window.cpp \
-    window2.cpp
+    window2.cpp \
+    numberofplayers.cpp
 
 HEADERS  += mainwindow.h \
     window.h \
-    window2.h
+    window2.h \
+    numberofplayers.h
 
 FORMS    += mainwindow.ui
