@@ -89,6 +89,7 @@ void NamesOfThePlayers::openNumberOfCardsForEachPlayerWindow()
 {
     NumberOfCardsForEachPlayerWindow *w = new NumberOfCardsForEachPlayerWindow();
     w->show();
+    this->close();
 }
 
 void NamesOfThePlayers::enableOrDisableConfirmButton(const QString &text)
