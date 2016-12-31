@@ -1,8 +1,6 @@
 # Clue Solver
 
-**Solver for the board game Clue.**
-
-## Description ##
+## Overview ##
 
 *Clue Solver* is intended to be used during a Clue play to help the user play better by providing deductions. The user, by means of a GUI, is supposed to continously insert new information (e.g.: which cards are searched by another player during an inquery phase and which player showed him a card, etc.) to allow *Clue Solver* to continuously make deductions about the current play (e.g.: understand which cards are held by a certain adversary player, etc.); the user can also use the GUI to check which deductions *Clue Solver* has successfully made up to now, so that he can use this knowledge to play better during his turns (e.g.: make better inqueries, decide which room is more convient for him to reach, etc.).
 
