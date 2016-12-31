@@ -7,6 +7,8 @@ Game::Game()
     playerName[1] = "Cristina";
     playerName[2] = "Nerone";
     playerName[3] = "Grigina";
+
+
 }
 
 
