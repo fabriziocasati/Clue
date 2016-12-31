@@ -15,4 +15,4 @@ Note: the official name of the software program is *Clue Solver*, but to avoid p
 
 ## Reasons for creating *Clue Solver*##
 
-There are already plenty of programs on the web with the same functionalities of *Clue Solver*: my aim is not to create an original and innovative program, but it is just meant as a free time activity to make some practice with the C++ language, the Qt framework, and so on.
+There are already plenty of programs on the web with the same functionalities of *Clue Solver*, for computers, tablets and smartphones (and possibly also with the same name, in some cases): my *Clue Solver* doesn't have the aim of being an innovative program or a better version of an already esisting one, it is just meant as a free time activity to make some practice with the C++ language, the Qt framework, and so on.
