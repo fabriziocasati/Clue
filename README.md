@@ -6,7 +6,7 @@
 
 *Clue Solver* does not allow to directly play Clue on the computer: it only provides reasoning support to the user, therefore the players still need the board game to play.
 
-A sketch of the game rules can be found on Wikipedia: <https://en.wikipedia.org/wiki/Cluedo>. It is assumed that the players will use the rules of the classical version of the game (at the moment *Clue Solver* does not support variants).
+A sketch of the game rules can be found on Wikipedia: <https://en.wikipedia.org/wiki/Cluedo>. It is assumed that the players use the rules of the classical version of the game (at the moment *Clue Solver* does not support variants).
 
 Note: the official name of the software program is *Clue Solver*, but to avoid problems with the space character in the name during computations, the Qt project and the GitHub repository are named *Clue_Solver* (i.e., an underscore replaces the space).
 
