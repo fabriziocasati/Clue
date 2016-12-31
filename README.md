@@ -14,6 +14,6 @@ A sketch of the game rules can be found on Wikipedia: <https://en.wikipedia.org/
 There are already plenty of programs on the web with the same functionalities of *Clue Solver* for several devices (computers, tablets and smartphones), and some cases of homonymy may possibly exist. My *Clue Solver* doesn't have the aim of being an innovative program or a better version of an already esisting one, it is just meant as a free time activity to make some practice with the C++ language, the Qt framework, and so on.
 
 
-### Note ###
+## Notes ##
 
 The official name of the software program is *Clue Solver*, but to avoid problems with the space character in the name during computations, the Qt project and the GitHub repository are named *Clue_Solver* (i.e., an underscore replaces the space).
