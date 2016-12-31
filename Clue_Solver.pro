@@ -25,7 +25,12 @@ SOURCES += main.cpp\
     sheet.cpp \
     playercards.cpp \
     player.cpp \
-    solver.cpp
+    solver.cpp \
+    newgamecreator.cpp \
+    reasoner.cpp \
+    newinquirywindow.cpp \
+    inquiry.cpp \
+    gamewindow.cpp
 
 HEADERS  += mainwindow.h \
     window.h \
@@ -39,6 +44,11 @@ HEADERS  += mainwindow.h \
     sheet.h \
     playercards.h \
     player.h \
-    solver.h
+    solver.h \
+    newgamecreator.h \
+    reasoner.h \
+    newinquirywindow.h \
+    inquiry.h \
+    gamewindow.h
 
 FORMS    += mainwindow.ui

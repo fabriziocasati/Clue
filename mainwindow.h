@@ -25,7 +25,6 @@ public:
 
 public slots:
    void openNewWindow();
-   void openQueryListWindow();
 
 private:
     Ui::MainWindow *ui;
