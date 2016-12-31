@@ -53,8 +53,7 @@ QGroupBox *NamesOfThePlayers::createNumberOfPlayersGroup(int numberOfPlayers)
     vbox->addWidget(m_button);
     //vbox->addStretch(1);
 
-    QLineEdit *playerNameLineEdit[6];
-    QLabel *playerNameLabel[6];
+
 
     for(int i=0; i<6; i++) {
         QGroupBox *v = new QGroupBox("Player");
@@ -87,9 +86,14 @@ QGroupBox *NamesOfThePlayers::createNumberOfPlayersGroup(int numberOfPlayers)
 
 void NamesOfThePlayers::openNumberOfCardsForEachPlayerWindow()
 {
+    std::string playerName[6];
+    for(int i=0; i<6; i++) {
+        //playerName[i] = playerNameLineEdit[i]->selectedText();
+        playerNameLabel[i]->setText(playerNameLineEdit[i]->text());
+    }
     NumberOfCardsForEachPlayerWindow *w = new NumberOfCardsForEachPlayerWindow();
     w->show();
-    this->close();
+    //this->close();
 }
 
 void NamesOfThePlayers::enableOrDisableConfirmButton(const QString &text)
@@ -106,7 +110,7 @@ void NamesOfThePlayers::enableOrDisableConfirmButton(const QString &text)
             nonEmptyNames = nonEmptyNames + 1;
         }
     }
-    if(nonEmptyNames == 3)
+    if(nonEmptyNames > 0)
         m_button->setDisabled(false);
     else
         m_button->setDisabled(true);

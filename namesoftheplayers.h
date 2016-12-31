@@ -7,6 +7,7 @@
 class QGroupBox;
 class QPushButton;
 class QLineEdit;
+class QLabel;
 
 class NamesOfThePlayers  : public QWidget
 {
@@ -24,6 +25,8 @@ private:
         int nonEmptyName[6];
         int nonEmptyNames = 0;
         QHash<QLineEdit**, int> hash;
+        QLineEdit *playerNameLineEdit[6];
+        QLabel *playerNameLabel[6];
 
 };
 
