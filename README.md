@@ -13,6 +13,6 @@ A sketch of the game rules can be found on Wikipedia: <https://en.wikipedia.org/
 Note: the official name of the software program is *Clue Solver*, but to avoid problems with the space character in the name during computations, the Qt project and the GitHub repository are named *Clue_Solver* (i.e., an underscore replaces the space).
 
 
-## Reasons for creating this program ##
+## Reasons for creating *Clue Solver*##
 
 There are already plenty of programs on the web with the same functionalities of *Clue Solver*: my aim is not to create an original and innovative program, but it is just meant as a free time activity to make some practice with the C++ language, the Qt framework, and so on.
