@@ -1,3 +1,3 @@
 # Clue
 
-Implementation of the board game Clue.
+Solver for the board game Clue.
