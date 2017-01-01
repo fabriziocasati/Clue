@@ -3,5 +3,6 @@
 InquiryHistoryWindow::InquiryHistoryWindow()
 {
 
+
 }
 
