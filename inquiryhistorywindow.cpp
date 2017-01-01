@@ -1,5 +1,6 @@
 #include "inquiryhistorywindow.h"
 #include <boost/lexical_cast.hpp>
+#include <QHeaderView>
 
 InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
     : QWidget(parent)
@@ -10,9 +11,11 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
     inquiryHistoryTable = new QTableWidget(this);
 
     inquiryHistoryTable->setRowCount(100);
-    inquiryHistoryTable->setColumnCount(3);
-    //inquiryHistoryTable<<"#"<<"Name"<<"Text";
-    //inquiryHistoryTable->setHorizontalHeaderLabels(m_TableHeader);
+    inquiryHistoryTable->setColumnCount(6);
+    //inquiryHistoryTable->horizontalHeaderItem(0)->setText("Whatever");
+    QStringList m_TableHeader;
+    m_TableHeader<<"Turn"<<"Inquirer"<<"Room"<<"Suspect"<<"Weapon"<<"Giver";
+    inquiryHistoryTable->setHorizontalHeaderLabels(m_TableHeader);
     //inquiryHistoryTable->verticalHeader()->setVisible(false);
     //inquiryHistoryTable->verticalScrollBar()->setEnabled(true);
     inquiryHistoryTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -20,12 +23,12 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
     inquiryHistoryTable->setSelectionMode(QAbstractItemView::SingleSelection);
     //inquiryHistoryTable->setShowGrid(false);
     //inquiryHistoryTable->setStyleSheet("QTableView {selection-background-color: red; color: yellow; background: blue; border: 1px solid white}");
-    inquiryHistoryTable->resize(400,200);
+    inquiryHistoryTable->resize(700,400);
 
-    resize(600,400);
+    resize(750,400);
 
 
-    std::string numberString = boost::lexical_cast<std::string>(g->inquiryList->front()->i) ;
+    std::string numberString = boost::lexical_cast<std::string>(g->inquiryList->front()->turn) ;
     QString numberQString = QString::fromStdString(numberString);
 
     inquiryHistoryTable->setItem(0, 0, new QTableWidgetItem("Hello"));
@@ -38,7 +41,10 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
         std::string numberString = boost::lexical_cast<std::string>((*it)->turn) ;
         QString numberQString = QString::fromStdString(numberString);
 
-        inquiryHistoryTable->setItem(index, 0, new QTableWidgetItem("Hello"));
+        inquiryHistoryTable->setItem(index, 0, new QTableWidgetItem(numberQString));
+
+        numberString = boost::lexical_cast<std::string>((*it)->inquirer) ;
+        numberQString = QString::fromStdString(numberString);
         inquiryHistoryTable->setItem(index, 1, new QTableWidgetItem(numberQString));
     }
 
