@@ -35,7 +35,7 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
     std::list<Inquiry*>::iterator it=g->inquiryList->begin();
     int index=0;
     for (; it != g->inquiryList->end(); index++, ++it) {
-        std::string numberString = boost::lexical_cast<std::string>((*it)->i) ;
+        std::string numberString = boost::lexical_cast<std::string>((*it)->turn) ;
         QString numberQString = QString::fromStdString(numberString);
 
         inquiryHistoryTable->setItem(index, 0, new QTableWidgetItem("Hello"));

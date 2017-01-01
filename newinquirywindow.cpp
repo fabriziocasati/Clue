@@ -56,7 +56,7 @@ NewInquiryWindow::NewInquiryWindow(Game *g, GameWindow *gw, QWidget *parent)
 }
 
 void NewInquiryWindow::openNewWindow() {
-    Inquiry *q = new Inquiry(5);
+    Inquiry *q = new Inquiry(1, "a", "b", "c", "d", "e");
     game->addInquiry(q);
 
     gw->myupdate();

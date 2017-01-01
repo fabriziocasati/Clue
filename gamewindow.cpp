@@ -21,6 +21,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     label = new QLabel("Test");
     label->setGeometry(10, 10, 150, 30);
 
+    /*
     inquiryHistoryTable = new QTableWidget(this);
 
     inquiryHistoryTable->setRowCount(100);
@@ -35,7 +36,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     //inquiryHistoryTable->setShowGrid(false);
     //inquiryHistoryTable->setStyleSheet("QTableView {selection-background-color: red; color: yellow; background: blue; border: 1px solid white}");
     inquiryHistoryTable->resize(400,200);
-
+*/
     resize(600,300);
 
 }
@@ -51,13 +52,13 @@ void GameWindow::test() {
 }
 
 void GameWindow::myupdate() {
-
+/*
     std::string numberString = boost::lexical_cast<std::string>(game->inquiryList->front()->i) ;
     QString numberQString = QString::fromStdString(numberString);
 
     inquiryHistoryTable->setItem(0, 0, new QTableWidgetItem("Hello"));
     //inquiryHistoryTable->setItem(0, 1, new QTableWidgetItem("Hello"));
     inquiryHistoryTable->setItem(0, 1, new QTableWidgetItem(numberQString));
-
+*/
 }
 
