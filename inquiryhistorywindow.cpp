@@ -10,7 +10,7 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
 
     inquiryHistoryTable = new QTableWidget(this);
 
-    inquiryHistoryTable->setRowCount(100);
+    inquiryHistoryTable->setRowCount(g->inquiryList->size());
     inquiryHistoryTable->setColumnCount(6);
     //inquiryHistoryTable->horizontalHeaderItem(0)->setText("Whatever");
     QStringList m_TableHeader;
@@ -28,24 +28,28 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
     resize(750,400);
 
 
-    std::string numberString = boost::lexical_cast<std::string>(g->inquiryList->front()->turn) ;
-    QString numberQString = QString::fromStdString(numberString);
+    if(!(g->inquiryList->empty())) {
 
-    inquiryHistoryTable->setItem(0, 0, new QTableWidgetItem("Hello"));
-    //inquiryHistoryTable->setItem(0, 1, new QTableWidgetItem("Hello"));
-    inquiryHistoryTable->setItem(0, 1, new QTableWidgetItem(numberQString));
-
-    std::list<Inquiry*>::iterator it=g->inquiryList->begin();
-    int index=0;
-    for (; it != g->inquiryList->end(); index++, ++it) {
-        std::string numberString = boost::lexical_cast<std::string>((*it)->turn) ;
+        std::string numberString = boost::lexical_cast<std::string>(g->inquiryList->front()->turn) ;
         QString numberQString = QString::fromStdString(numberString);
 
-        inquiryHistoryTable->setItem(index, 0, new QTableWidgetItem(numberQString));
+        inquiryHistoryTable->setItem(0, 0, new QTableWidgetItem("Hello"));
+        //inquiryHistoryTable->setItem(0, 1, new QTableWidgetItem("Hello"));
+        inquiryHistoryTable->setItem(0, 1, new QTableWidgetItem(numberQString));
 
-        numberString = boost::lexical_cast<std::string>((*it)->inquirer) ;
-        numberQString = QString::fromStdString(numberString);
-        inquiryHistoryTable->setItem(index, 1, new QTableWidgetItem(numberQString));
+
+        std::list<Inquiry*>::iterator it=g->inquiryList->begin();
+        int index=0;
+        for (; it != g->inquiryList->end(); index++, ++it) {
+            std::string numberString = boost::lexical_cast<std::string>((*it)->turn) ;
+            QString numberQString = QString::fromStdString(numberString);
+
+            inquiryHistoryTable->setItem(index, 0, new QTableWidgetItem(numberQString));
+
+            numberString = boost::lexical_cast<std::string>((*it)->inquirer) ;
+            numberQString = QString::fromStdString(numberString);
+            inquiryHistoryTable->setItem(index, 1, new QTableWidgetItem(numberQString));
+        }
     }
 
 

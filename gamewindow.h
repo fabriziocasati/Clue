@@ -22,7 +22,7 @@ public:
     Game *game;
     QLabel *label;
     QPushButton *m_button2;
-    QTableWidget *inquiryHistoryTable;
+    QTableWidget *cardTable;
 
     void myupdate();
 
