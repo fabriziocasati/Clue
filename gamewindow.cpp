@@ -11,7 +11,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     m_button2 = new QPushButton("Show Query History", this);
     m_button2->setGeometry(400, 50, 150, 30);
-    connect(m_button2, SIGNAL (clicked()), this, SLOT (openQueryListWindow()));
+    connect(m_button2, SIGNAL (clicked()), this, SLOT (test()));
 
 
     QPushButton *m_button3 = new QPushButton("Insert New Query", this);
@@ -43,6 +43,11 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 void GameWindow::openQueryListWindow() {
     NewInquiryWindow *w = new NewInquiryWindow(game, this);
     w->show();
+}
+
+void GameWindow::test() {
+    InquiryHistoryWindow *h = new InquiryHistoryWindow(game);
+    h->show();
 }
 
 void GameWindow::myupdate() {

@@ -3,11 +3,18 @@
 
 #include <QObject>
 #include <QWidget>
+#include <QTableWidget>
+#include "game.h"
 
-class InquiryHistoryWindow
+class Game;
+
+class InquiryHistoryWindow : public QWidget
 {
 public:
-    InquiryHistoryWindow();
+    InquiryHistoryWindow(Game *g, QWidget *parent = 0);
+    Game *g;
+
+    QTableWidget *inquiryHistoryTable;
 };
 
 #endif // INQUIRYHISTORYWINDOW_H

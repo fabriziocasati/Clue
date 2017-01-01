@@ -7,6 +7,7 @@
 #include <game.h>
 #include <QLabel>
 #include <QTableWidget>
+#include <inquiryhistorywindow.h>
 
 class Game;
 class QPushButton;
@@ -27,6 +28,7 @@ public:
 
 public slots:
     void openQueryListWindow();
+    void test();
 };
 
 #endif // GAMEWINDOW_H
