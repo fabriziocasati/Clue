@@ -21,7 +21,6 @@ SOURCES += main.cpp\
     numberofcardsforeachplayerwindow.cpp \
     game.cpp \
     querylist.cpp \
-    query.cpp \
     sheet.cpp \
     playercards.cpp \
     player.cpp \
@@ -41,7 +40,6 @@ HEADERS  += mainwindow.h \
     numberofcardsforeachplayerwindow.h \
     game.h \
     querylist.h \
-    query.h \
     sheet.h \
     playercards.h \
     player.h \
