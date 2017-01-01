@@ -17,6 +17,7 @@ class GameWindow : public QWidget
 
 public:
     GameWindow(Game *game, QWidget *parent = 0);
+
     Game *game;
     QLabel *label;
     QPushButton *m_button2;
