@@ -6,6 +6,7 @@
 #include <newinquirywindow.h>
 #include <game.h>
 #include <QLabel>
+#include <QTableWidget>
 
 class Game;
 class QPushButton;
@@ -19,6 +20,7 @@ public:
     Game *game;
     QLabel *label;
     QPushButton *m_button2;
+    QTableWidget *inquiryHistoryTable;
 
     void myupdate();
 
