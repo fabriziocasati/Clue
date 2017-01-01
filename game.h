@@ -14,6 +14,9 @@ class Game
 public:
     Game();
     std::string playerName[6];
+    std::string roomCardName[9];
+    std::string suspectCardName[6];
+    std::string weaponCardName[6];
     int playerNumberOfCards[];
     int numberOfPlayers;
     std::list<Inquiry*> *inquiryList;
@@ -24,3 +27,4 @@ public:
 };
 
 #endif // GAME_H
+
