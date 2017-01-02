@@ -22,6 +22,9 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    void resizeEvent (QResizeEvent* event);
+    QPixmap* m_pPixmap;
+      QPalette* m_pPalette;
 
 public slots:
    void openNewWindow();

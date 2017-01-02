@@ -6,11 +6,35 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent) {
 
+
+
+    m_pPalette	= new QPalette();
+          m_pPixmap		= new QPixmap("/home/fabrizio/qt_workspace/Clue_Solver/img2.jpg");
+
+          m_pPalette->setBrush(QPalette::Background,QBrush(*m_pPixmap));
+          setPalette(*m_pPalette);
+
+          QWidget *centralWidget = new QWidget(this);
+          QGridLayout *layout = new QGridLayout();
+          centralWidget->setLayout(layout);
+
+    /*
+        QPixmap bkgnd("/home/fabrizio/qt_workspace/Clue_Solver/img.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+            QPalette palette;
+            palette.setBrush(QPalette::Background, bkgnd);
+            this->setPalette(palette);
+
+        QWidget *pic = new QWidget(this);
+        pic->setStyleSheet("background-image: url(/home/fabrizio/qt_workspace/Clue_Solver/img.jpg)");
+        pic->setGeometry(QRect(0,0,this->maximumWidth(),this->maximumHeight()));
+
+        */
+
     // Create and position the button
     m_button = new QPushButton("Create New Game", this);
     m_button->setGeometry(10, 10, 150, 30);
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNewWindow()));
-
 
 
 
@@ -40,4 +64,10 @@ void MainWindow::openNewWindow() {
 
     Game *g = new Game();
 }
+
+void MainWindow::resizeEvent (QResizeEvent* event)
+  {
+      m_pPalette->setBrush(QPalette::Background,QBrush(m_pPixmap->scaled(width(),height())));
+      setPalette(*m_pPalette);
+  };
 
