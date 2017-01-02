@@ -16,4 +16,4 @@ There are already plenty of programs on the web with the same functionalities of
 
 ## Notes ##
 
-The official name of the software is *Clue Solver*, but to avoid problems with the space character in the name during computations, the Qt project and the GitHub repository are named *Clue_Solver* (i.e., an underscore replaces the space).
+The official name of the software is *Clue Solver*, however, to avoid problems with the space character in the name during computations, the Qt project and the GitHub repository are named *Clue_Solver* (i.e., an underscore replaces the space).
