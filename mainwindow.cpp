@@ -9,6 +9,33 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent) {
 
+
+    QWidget *widget = new QWidget;
+    setCentralWidget(widget);
+
+    QWidget *topFiller = new QWidget;
+    topFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    QWidget *bottomFiller = new QWidget;
+    bottomFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->setMargin(5);
+    layout->addWidget(topFiller);
+    layout->addWidget(bottomFiller);
+    widget->setLayout(layout);
+
+    newAct = new QAction(tr("&New"), this);
+    createMenus();
+
+    QString message = tr("A context menu is available by right-clicking");
+    statusBar()->showMessage(message);
+
+    setWindowTitle(tr("Menus"));
+    setMinimumSize(160, 160);
+    resize(480, 320);
+
+
 /*
     m_pPalette	= new QPalette();
           m_pPixmap		= new QPixmap("/home/fabrizio/qt_workspace/Clue_Solver/img2.jpg");
@@ -93,6 +120,19 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+#ifndef QT_NO_CONTEXTMENU
+void MainWindow::contextMenuEvent(QContextMenuEvent *event)
+{
+    QMenu menu(this);
+    /*
+    menu.addAction(cutAct);
+    menu.addAction(copyAct);
+    menu.addAction(pasteAct);
+    menu.exec(event->globalPos());
+    */
+}
+#endif // QT_NO_CONTEXTMENU
+
 void MainWindow::openNewWindow() {
     window = new Window(); // Be sure to destroy you window somewhere
     //window->show();
@@ -128,3 +168,9 @@ void MainWindow::resizeEvent (QResizeEvent* event)
       */
   };
 
+void MainWindow::createMenus()
+{
+    fileMenu = menuBar()->addMenu(tr("&File"));
+    fileMenu->addAction(newAct);
+
+}

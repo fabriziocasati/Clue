@@ -30,12 +30,22 @@ public slots:
    void openNewWindow();
 
 private:
+    QMenu *fileMenu;
+    QAction *newAct;
+
     Ui::MainWindow *ui;
     QPushButton *m_button;
     QRadioButton *r_button;
     Window *window;
     Window2 *window2;
     QGroupBox *createFirstExclusiveGroup();
+
+    void createMenus();
+
+protected:
+#ifndef QT_NO_CONTEXTMENU
+    void contextMenuEvent(QContextMenuEvent *event) Q_DECL_OVERRIDE;
+#endif // QT_NO_CONTEXTMENU
 };
 
 #endif // MAINWINDOW_H
