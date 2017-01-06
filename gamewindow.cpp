@@ -2,6 +2,7 @@
 #include <QHeaderView>
 #include <boost/lexical_cast.hpp>
 
+
 GameWindow::GameWindow(Game *game, QWidget *parent)
     : QWidget(parent)
 {

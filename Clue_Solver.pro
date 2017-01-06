@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     newinquirywindow.cpp \
     inquiry.cpp \
     gamewindow.cpp \
-    inquiryhistorywindow.cpp
+    inquiryhistorywindow.cpp \
+    mysubwindow.cpp
 
 HEADERS  += mainwindow.h \
     window.h \
@@ -49,6 +50,7 @@ HEADERS  += mainwindow.h \
     newinquirywindow.h \
     inquiry.h \
     gamewindow.h \
-    inquiryhistorywindow.h
+    inquiryhistorywindow.h \
+    mysubwindow.h
 
 FORMS    += mainwindow.ui
