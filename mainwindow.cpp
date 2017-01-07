@@ -10,7 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent) {
 
 
-    QWidget *widget = new QWidget;
+    //QWidget *widget = new QWidget;
+    QMdiArea *widget = new QMdiArea;
     setCentralWidget(widget);
 
     QWidget *topFiller = new QWidget;
@@ -172,5 +173,6 @@ void MainWindow::createMenus()
 {
     fileMenu = menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(newAct);
+    connect(newAct, &QAction::triggered, this, &MainWindow::openNewWindow);
 
 }
