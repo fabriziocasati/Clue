@@ -5,6 +5,7 @@
 #include <QWidget>
 #include "window2.h"
 #include "window.h"
+#include <QMdiArea>
 
 
 class QPushButton;
@@ -32,6 +33,7 @@ public slots:
 private:
     QMenu *fileMenu;
     QAction *newAct;
+    QMdiArea *widget;
 
     Ui::MainWindow *ui;
     QPushButton *m_button;

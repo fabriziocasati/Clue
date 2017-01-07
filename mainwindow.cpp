@@ -11,9 +11,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     //QWidget *widget = new QWidget;
-    QMdiArea *widget = new QMdiArea;
-    setCentralWidget(widget);
+    widget = new QMdiArea;
+    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
+    /*
     QWidget *topFiller = new QWidget;
     topFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -25,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     layout->addWidget(topFiller);
     layout->addWidget(bottomFiller);
     widget->setLayout(layout);
+    */
 
     newAct = new QAction(tr("&New"), this);
     createMenus();
@@ -36,6 +38,11 @@ MainWindow::MainWindow(QWidget *parent) :
     setMinimumSize(160, 160);
     resize(480, 320);
 
+    /*
+    NumberOfPlayers *w = new NumberOfPlayers();
+    widget->addSubWindow(w);
+    setCentralWidget(widget);
+*/
 
 /*
     m_pPalette	= new QPalette();
@@ -69,8 +76,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNewWindow()));
 */
 
-    NumberOfPlayers *numberOfPlayersWindow = new NumberOfPlayers();
     /*
+    NumberOfPlayers *numberOfPlayersWindow = new NumberOfPlayers();
+
     QMdiArea area;
     area.setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
     area.addSubWindow(numberOfPlayersWindow);
@@ -83,14 +91,14 @@ MainWindow::MainWindow(QWidget *parent) :
     //window2->show();
 
 
-
+/*
     QMainWindow window;
     //window.setFixedSize(800,600);
 
     window.setWindowTitle(QString::fromUtf8("My QMdiWindow"));
     QMdiArea area;
     area.setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-
+*/
     /*
     //Create QMdiSubWindow
     QMdiSubWindow subWindow;
@@ -100,7 +108,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //area.addSubWindow(&subWindow);
     area.addSubWindow(&subWindow, Qt::FramelessWindowHint );
     */
-
+/*
     MySubWindow *subWindow = new MySubWindow();
 
     subWindow->setFixedSize(200,100);
@@ -109,11 +117,11 @@ MainWindow::MainWindow(QWidget *parent) :
     area.addSubWindow(subWindow);
     //area.addSubWindow(subWindow, Qt::FramelessWindowHint );
 
-
+/*
     window.setCentralWidget(&area);
     //window.show();
     window.showMaximized();
-
+*/
 
 
     resize(500,300);
@@ -135,10 +143,10 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 #endif // QT_NO_CONTEXTMENU
 
 void MainWindow::openNewWindow() {
-    window = new Window(); // Be sure to destroy you window somewhere
+    //window = new Window(); // Be sure to destroy you window somewhere
     //window->show();
 
-    window2 = new Window2();
+    //window2 = new Window2();
     //window2->show();
 
     NumberOfPlayers *numberOfPlayersWindow = new NumberOfPlayers();
@@ -149,16 +157,18 @@ void MainWindow::openNewWindow() {
     //this->setDisabled(true);
     // ...
 
-    QMdiArea area;
-    area.setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    area.addSubWindow(numberOfPlayersWindow);
 
-    this->setCentralWidget(&area);
-    this->update();
 
-    area.show();
+    QMdiArea *area = new QMdiArea();
+    area->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    NumberOfPlayers *subWindow = new NumberOfPlayers();
+    subWindow->setFixedSize(200,100);
+    area->addSubWindow(subWindow);
+    setCentralWidget(area);
 
-    Game *g = new Game();
+    //area.show();
+
+    //Game *g = new Game();
 }
 
 void MainWindow::resizeEvent (QResizeEvent* event)

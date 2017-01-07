@@ -36,6 +36,7 @@ QGroupBox *NumberOfPlayers::createNumberOfPlayersGroup()
         std::string numberString = boost::lexical_cast<std::string>(i+MIN_NUMBER_OF_PLAYERS);
         QString numberQString = QString::fromStdString(numberString);
         numberOfPlayersRadioButton[i] = new QRadioButton(numberQString);
+        //numberOfPlayersRadioButton[i] = new QRadioButton("Test");
         connect(numberOfPlayersRadioButton[i], SIGNAL (clicked()), this, SLOT (activateConfirmButton()));
         vbox->addWidget(numberOfPlayersRadioButton[i]);
     }
