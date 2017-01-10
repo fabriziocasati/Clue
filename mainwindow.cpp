@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //QWidget *widget = new QWidget;
     widget = new QMdiArea;
-    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    //widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     /*
     QWidget *topFiller = new QWidget;
@@ -35,16 +35,16 @@ MainWindow::MainWindow(QWidget *parent) :
     statusBar()->showMessage(message);
 
     setWindowTitle(tr("Menus"));
-    setMinimumSize(160, 160);
-    resize(480, 320);
+    //setMinimumSize(160, 160);
+    //resize(480, 320);
 
     /*
     NumberOfPlayers *w = new NumberOfPlayers();
     widget->addSubWindow(w);
     setCentralWidget(widget);
-*/
+    */
 
-/*
+    /*
     m_pPalette	= new QPalette();
           m_pPixmap		= new QPixmap("/home/fabrizio/qt_workspace/Clue_Solver/img2.jpg");
 
@@ -87,7 +87,7 @@ MainWindow::MainWindow(QWidget *parent) :
     */
 
 
-    window2 = new Window2();
+    //window2 = new Window2();
     //window2->show();
 
 
@@ -124,7 +124,7 @@ MainWindow::MainWindow(QWidget *parent) :
 */
 
 
-    resize(500,300);
+    //resize(500,300);
 
 
 }
@@ -149,7 +149,7 @@ void MainWindow::openNewWindow() {
     //window2 = new Window2();
     //window2->show();
 
-    NumberOfPlayers *numberOfPlayersWindow = new NumberOfPlayers();
+    //NumberOfPlayers *numberOfPlayersWindow = new NumberOfPlayers();
     //numberOfPlayersWindow->show();
 
 
@@ -163,8 +163,12 @@ void MainWindow::openNewWindow() {
     area->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
     NumberOfPlayers *subWindow = new NumberOfPlayers();
     //subWindow->setFixedSize(600,300);
+    subWindow->move(300,300);
+    subWindow->move(QPoint(300,300));
     area->addSubWindow(subWindow);
     setCentralWidget(area);
+    //subWindow->move(parentWidget()->window()->frameGeometry().topLeft() + parentWidget()->window()->rect().center() - rect().center());
+
 
     //area.show();
 

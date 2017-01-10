@@ -32,7 +32,6 @@ NamesOfThePlayers::NamesOfThePlayers(int numberOfPlayers, QWidget *parent)
     setWindowTitle("Number of Players");
     //resize(480, 320);
 
-
 }
 
 QGroupBox *NamesOfThePlayers::createNumberOfPlayersGroup(int numberOfPlayers)
@@ -41,7 +40,7 @@ QGroupBox *NamesOfThePlayers::createNumberOfPlayersGroup(int numberOfPlayers)
     std::string numberString = boost::lexical_cast<std::string>(numberOfPlayers);
     QString numberQString = QString::fromStdString(numberString);
 
-    QGroupBox *groupBox = new QGroupBox("Select the number of players for the new game");
+    QGroupBox *groupBox = new QGroupBox("Insert the names of the players");
 
     //QPushButton *m_button = new QPushButton(numberQString, this);
 
