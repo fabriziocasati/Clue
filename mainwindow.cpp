@@ -162,7 +162,7 @@ void MainWindow::openNewWindow() {
     QMdiArea *area = new QMdiArea();
     area->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
     NumberOfPlayers *subWindow = new NumberOfPlayers();
-    subWindow->setFixedSize(200,100);
+    subWindow->setFixedSize(600,300);
     area->addSubWindow(subWindow);
     setCentralWidget(area);
 
