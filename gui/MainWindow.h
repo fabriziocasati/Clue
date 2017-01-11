@@ -11,6 +11,7 @@ class QPushButton;
 class QRadioButton;
 class QGroupBox;
 class QGridLayout;
+class Main;
 
 
 class MainWindow : public QMainWindow

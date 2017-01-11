@@ -156,8 +156,9 @@ void MainWindow::createNewGame() {
     //this->hide();
     //this->setDisabled(true);
 
-    Game *g = main->createNewGame();
+    main->createNewGame();
 
+    /*
     QMdiArea *area = new QMdiArea;
     area->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
     NumberOfPlayers *subWindow = new NumberOfPlayers(this);
@@ -167,6 +168,7 @@ void MainWindow::createNewGame() {
     area->addSubWindow(subWindow);
     setCentralWidget(area);
     //subWindow->move(parentWidget()->window()->frameGeometry().topLeft() + parentWidget()->window()->rect().center() - rect().center());
+    */
 
 }
 

@@ -1,12 +1,16 @@
 #include "Main.h"
 #include "Game.h"
+#include "NewGameCreator.h"
 
 Main::Main()
 {
 
 }
 
-Game* Main::createNewGame() {
-    Game *g = new Game();
-    return g;
+void Main::createNewGame() {
+    NewGameCreator *newGameCreator = new NewGameCreator(mainWindow);
+}
+
+void Main::setMainWindow(MainWindow *mainWindow) {
+    this->mainWindow = mainWindow;
 }

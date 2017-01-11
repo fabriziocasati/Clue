@@ -2,12 +2,19 @@
 #define MAIN_H
 
 #include "Game.h"
+#include "gui/MainWindow.h"
+
+class MainWindow;
 
 class Main
 {
 public:
     Main();
-    Game *createNewGame();
+    void createNewGame();
+    void setMainWindow(MainWindow *mainWindow);
+
+private:
+    MainWindow *mainWindow;
 };
 
 #endif // MAIN_H

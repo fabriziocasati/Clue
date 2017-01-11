@@ -177,25 +177,20 @@ QGroupBox *NumberOfPlayers::createNumberOfPlayersGroup()
 
 void NumberOfPlayers::openNamesOfThePlayersWindow()
 {
-    int i;
-    for(i=0; i<MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1; i++) {
-        if(numberOfPlayersRadioButton[i]->isChecked())
+    int numberOfPlayers;
+    for(numberOfPlayers=0; numberOfPlayers<MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1; numberOfPlayers++) {
+        if(numberOfPlayersRadioButton[numberOfPlayers]->isChecked())
             break;
     }
 
-    QWidget *w = new NamesOfThePlayers(i + MIN_NUMBER_OF_PLAYERS, myp);
-    //((MainWindow*) this->parent())->setSubwindow();
-    //((MainWindow*) this->parent())->
+    QWidget *w = new NamesOfThePlayers(numberOfPlayers + MIN_NUMBER_OF_PLAYERS, myp);
     myp->setSubwindow(w);
-
-
-    //w->show();
-
 
 /*
     this->close();
     this->hide();
 */
+
 }
 
 void NumberOfPlayers::activateConfirmButton()

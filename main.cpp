@@ -9,8 +9,9 @@ int main(int argc, char *argv[])
 
     Main *main = new Main();
 
-    MainWindow *w = new MainWindow(main);
-    w->showMaximized();
+    MainWindow *mainWindow = new MainWindow(main);
+    mainWindow->showMaximized();
+    main->setMainWindow(mainWindow);
 
     return a.exec();
 }
