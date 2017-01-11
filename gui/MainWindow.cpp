@@ -133,29 +133,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
-void MainWindow::createNewGame() {
-    //window = new Window(); // Be sure to destroy you window somewhere
-
-    //this->hide();
-    //this->setDisabled(true);
-    // ...
-
-    QMdiArea *area = new QMdiArea;
-    area->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    NumberOfPlayers *subWindow = new NumberOfPlayers(this);
-    //subWindow->setFixedSize(600,300);
-    //subWindow->move(300,300);
-    //subWindow->move(QPoint(300,300));
-    area->addSubWindow(subWindow);
-    setCentralWidget(area);
-    //subWindow->move(parentWidget()->window()->frameGeometry().topLeft() + parentWidget()->window()->rect().center() - rect().center());
-
-
-    //area.show();
-
-    //Game *g = new Game();
-}
-
 void MainWindow::resizeEvent (QResizeEvent* event)
   {
     /*
@@ -170,6 +147,23 @@ void MainWindow::createMenus()
     QAction *newGameAction = new QAction(tr("&New Game"), this);
     fileMenu->addAction(newGameAction);
     connect(newGameAction, &QAction::triggered, this, &MainWindow::createNewGame);
+
+}
+
+void MainWindow::createNewGame() {
+    //window = new Window(); // Be sure to destroy you window somewhere
+    //this->hide();
+    //this->setDisabled(true);
+
+    QMdiArea *area = new QMdiArea;
+    area->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    NumberOfPlayers *subWindow = new NumberOfPlayers(this);
+    //subWindow->setFixedSize(600,300);
+    //subWindow->move(300,300);
+    //subWindow->move(QPoint(300,300));
+    area->addSubWindow(subWindow);
+    setCentralWidget(area);
+    //subWindow->move(parentWidget()->window()->frameGeometry().topLeft() + parentWidget()->window()->rect().center() - rect().center());
 
 }
 
