@@ -4,7 +4,7 @@
 #include <iostream>
 #include <list>
 #include "Inquiry.h"
-#include "player.h"
+#include "Player.h"
 #include "gui/GameWindow.h"
 
 class Inquiry;

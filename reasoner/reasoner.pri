@@ -1,4 +1,4 @@
 HEADERS += \
-    reasoner/solver.h
+    reasoner/Reasoner.h
 SOURCES += \
-    reasoner/solver.cpp
+    reasoner/Reasoner.cpp

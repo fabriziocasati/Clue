@@ -1,6 +1,6 @@
 #include "MainWindow.h"
 #include "gui/NumberOfPlayersWindow.h"
-#include "gui/newinquirywindow.h"
+#include "gui/NewInquiryWindow.h"
 #include <QMdiArea>
 #include <QMdiSubWindow>
 #include <QAction>

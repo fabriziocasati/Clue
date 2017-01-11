@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QPushButton>
-#include "gui/newinquirywindow.h"
+#include "gui/NewInquiryWindow.h"
 #include <Game.h>
 #include <QLabel>
 #include <QTableWidget>

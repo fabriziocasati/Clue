@@ -7,25 +7,17 @@ TEMPLATE = app
 
 
 SOURCES += \
-    querylist.cpp \
-    sheet.cpp \
-    playercards.cpp \
-    player.cpp \
     Game.cpp \
     Inquiry.cpp \
     Main.cpp \
     NewGameCreator.cpp \
-    Reasoner.cpp
+    Player.cpp
 
 HEADERS += \
-    querylist.h \
-    sheet.h \
-    playercards.h \
-    player.h \
     Game.h \
     Inquiry.h \
     NewGameCreator.h \
-    Reasoner.h
+    Player.h
 
 RESOURCES += \
     resources.qrc
