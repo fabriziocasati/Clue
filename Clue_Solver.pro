@@ -12,7 +12,8 @@ TARGET = Clue_Solver
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
+SOURCES += \
+    main.cpp \
     mainwindow.cpp \
     window.cpp \
     window2.cpp \
@@ -26,13 +27,13 @@ SOURCES += main.cpp\
     player.cpp \
     newgamecreator.cpp \
     reasoner.cpp \
-    newinquirywindow.cpp \
     inquiry.cpp \
     gamewindow.cpp \
     inquiryhistorywindow.cpp \
     mysubwindow.cpp
 
-HEADERS += mainwindow.h \
+HEADERS += \
+    mainwindow.h \
     window.h \
     window2.h \
     numberofplayers.h \
@@ -45,7 +46,6 @@ HEADERS += mainwindow.h \
     player.h \
     newgamecreator.h \
     reasoner.h \
-    newinquirywindow.h \
     inquiry.h \
     gamewindow.h \
     inquiryhistorywindow.h \
@@ -53,4 +53,9 @@ HEADERS += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
+RESOURCES += \
+    resources.qrc
+
+# Subfolders
 include(reasoner/reasoner.pri)
+include(gui/gui.pri)
