@@ -9,10 +9,11 @@
 #include <QMenu>
 #include <QMenuBar>
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(Main *main, QWidget *parent) :
     QMainWindow(parent)
 {
 
+    this->main = main;
 
 
     //QWidget *widget = new QWidget;
@@ -154,6 +155,8 @@ void MainWindow::createNewGame() {
     //window = new Window(); // Be sure to destroy you window somewhere
     //this->hide();
     //this->setDisabled(true);
+
+    Game *g = main->createNewGame();
 
     QMdiArea *area = new QMdiArea;
     area->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);

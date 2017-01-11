@@ -1,16 +1,12 @@
-#include "gui/MainWindow.h"
-#include <QApplication>
+#include "Main.h"
+#include "Game.h"
 
-int main(int argc, char *argv[])
+Main::Main()
 {
 
-    QApplication a(argc, argv);
+}
 
-
-    MainWindow w;
-
-    w.showMaximized();
-
-    return a.exec();
-
+Game* Main::createNewGame() {
+    Game *g = new Game();
+    return g;
 }

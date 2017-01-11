@@ -9,15 +9,19 @@ TEMPLATE = app
 SOURCES += \
     Game.cpp \
     Inquiry.cpp \
-    Main.cpp \
     NewGameCreator.cpp \
-    Player.cpp
+    Player.cpp \
+    ClueSolver.cpp \
+    main.cpp \
+    Main.cpp
 
 HEADERS += \
     Game.h \
     Inquiry.h \
     NewGameCreator.h \
-    Player.h
+    Player.h \
+    ClueSolver.h \
+    Main.h
 
 RESOURCES += \
     resources.qrc

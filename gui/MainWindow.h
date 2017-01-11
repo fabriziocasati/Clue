@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QWidget>
 #include <QMdiArea>
+#include "Main.h"
 
 
 class QPushButton;
@@ -17,7 +18,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(Main *main, QWidget *parent = 0);
     void resizeEvent (QResizeEvent* event);
     QPixmap* m_pPixmap;
     QPalette* m_pPalette;
@@ -28,6 +29,7 @@ public slots:
     void createNewGame();
 
 private:
+    Main *main;
     QMenu *fileMenu;
     QPushButton *m_button;
     QRadioButton *r_button;
