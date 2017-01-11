@@ -8,7 +8,9 @@ NumberOfPlayers::NumberOfPlayers(QWidget *parent)
     : QWidget(parent)
 {
 
-    move(300,300);
+    setAttribute(Qt::WA_DeleteOnClose);
+
+    //move(300,300);
 
     /*
     QGridLayout *grid = new QGridLayout;
@@ -180,6 +182,7 @@ void NumberOfPlayers::openNamesOfThePlayersWindow()
     w->show();
 
     this->close();
+    this->hide();
 
 }
 

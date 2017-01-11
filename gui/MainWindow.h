@@ -23,12 +23,10 @@ public:
     QPalette* m_pPalette;
 
 public slots:
-   void openNewWindow();
+   void createNewGame();
 
 private:
     QMenu *fileMenu;
-    QAction *newAct;
-    QMdiArea *widget;
 
     QPushButton *m_button;
     QRadioButton *r_button;
@@ -36,10 +34,6 @@ private:
 
     void createMenus();
 
-protected:
-#ifndef QT_NO_CONTEXTMENU
-    void contextMenuEvent(QContextMenuEvent *event) Q_DECL_OVERRIDE;
-#endif // QT_NO_CONTEXTMENU
 };
 
 #endif // MAINWINDOW_H

@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     //QWidget *widget = new QWidget;
-    widget = new QMdiArea;
+    //QMdiArea *area = new QMdiArea;
     //widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     /*
@@ -33,15 +33,11 @@ MainWindow::MainWindow(QWidget *parent) :
     */
 
 
-    newAct = new QAction(tr("&New"), this);
-
 
     createMenus();
 
-    QString message = tr("A context menu is available by right-clicking");
-    statusBar()->showMessage(message);
 
-    setWindowTitle(tr("Menus"));
+    setWindowTitle(tr("Clue Solver"));
     //setMinimumSize(160, 160);
     //resize(480, 320);
 
@@ -51,9 +47,9 @@ MainWindow::MainWindow(QWidget *parent) :
     setCentralWidget(widget);
     */
 
-    /*
+/*
     m_pPalette	= new QPalette();
-          m_pPixmap		= new QPixmap("/home/fabrizio/qt_workspace/Clue_Solver/img2.jpg");
+          m_pPixmap		= new QPixmap("img2.jpg");
 
           m_pPalette->setBrush(QPalette::Background,QBrush(*m_pPixmap));
           setPalette(*m_pPalette);
@@ -74,7 +70,7 @@ MainWindow::MainWindow(QWidget *parent) :
         pic->setStyleSheet("background-image: url(/home/fabrizio/qt_workspace/Clue_Solver/img.jpg)");
         pic->setGeometry(QRect(0,0,this->maximumWidth(),this->maximumHeight()));
 
-        */
+*/
 
     /*
     // Create and position the button
@@ -136,42 +132,19 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
-#ifndef QT_NO_CONTEXTMENU
-void MainWindow::contextMenuEvent(QContextMenuEvent *event)
-{
-    QMenu menu(this);
-    /*
-    menu.addAction(cutAct);
-    menu.addAction(copyAct);
-    menu.addAction(pasteAct);
-    menu.exec(event->globalPos());
-    */
-}
-#endif // QT_NO_CONTEXTMENU
-
-void MainWindow::openNewWindow() {
+void MainWindow::createNewGame() {
     //window = new Window(); // Be sure to destroy you window somewhere
-    //window->show();
-
-    //window2 = new Window2();
-    //window2->show();
-
-    //NumberOfPlayers *numberOfPlayersWindow = new NumberOfPlayers();
-    //numberOfPlayersWindow->show();
-
 
     //this->hide();
     //this->setDisabled(true);
     // ...
 
-
-
     QMdiArea *area = new QMdiArea();
     area->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
     NumberOfPlayers *subWindow = new NumberOfPlayers();
     //subWindow->setFixedSize(600,300);
-    subWindow->move(300,300);
-    subWindow->move(QPoint(300,300));
+    //subWindow->move(300,300);
+    //subWindow->move(QPoint(300,300));
     area->addSubWindow(subWindow);
     setCentralWidget(area);
     //subWindow->move(parentWidget()->window()->frameGeometry().topLeft() + parentWidget()->window()->rect().center() - rect().center());
@@ -192,8 +165,9 @@ void MainWindow::resizeEvent (QResizeEvent* event)
 
 void MainWindow::createMenus()
 {
-    fileMenu = menuBar()->addMenu(tr("&File"));
-    fileMenu->addAction(newAct);
-    connect(newAct, &QAction::triggered, this, &MainWindow::openNewWindow);
+    fileMenu = menuBar()->addMenu(tr("&Game"));
+    QAction *newGameAction = new QAction(tr("&New Game"), this);
+    fileMenu->addAction(newGameAction);
+    connect(newGameAction, &QAction::triggered, this, &MainWindow::createNewGame);
 
 }
