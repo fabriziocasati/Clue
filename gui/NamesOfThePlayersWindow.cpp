@@ -3,9 +3,10 @@
 #include <boost/lexical_cast.hpp>
 #include "NumberOfCardsForEachPlayerWindow.h"
 
-NamesOfThePlayers::NamesOfThePlayers(int numberOfPlayers, QWidget *parent)
+NamesOfThePlayers::NamesOfThePlayers(int numberOfPlayers, MainWindow *mainWindow, QWidget *parent)
     : QWidget(parent)
 {
+    this->mainWindow = mainWindow;
 
     QString key="1";
 
@@ -91,7 +92,8 @@ void NamesOfThePlayers::openNumberOfCardsForEachPlayerWindow()
         playerNameLabel[i]->setText(playerNameLineEdit[i]->text());
     }
     NumberOfCardsForEachPlayerWindow *w = new NumberOfCardsForEachPlayerWindow();
-    w->show();
+    //w->show();
+    mainWindow->setSubwindow(w);
     //this->close();
 }
 

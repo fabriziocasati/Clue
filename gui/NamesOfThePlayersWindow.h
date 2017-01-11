@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QHash>
+#include "gui/MainWindow.h"
 
 class QGroupBox;
 class QPushButton;
@@ -14,7 +15,7 @@ class NamesOfThePlayers  : public QWidget
      Q_OBJECT
 
 public:
-    NamesOfThePlayers(int numberOfPlayers, QWidget *parent = 0);
+    NamesOfThePlayers(int numberOfPlayers, MainWindow *mainWindow, QWidget *parent = 0);
 public slots:
     void openNumberOfCardsForEachPlayerWindow();
     void enableOrDisableConfirmButton(const QString &text);
@@ -27,6 +28,7 @@ private:
         QHash<QLineEdit**, int> hash;
         QLineEdit *playerNameLineEdit[6];
         QLabel *playerNameLabel[6];
+        MainWindow *mainWindow;
 
 };
 

@@ -43,7 +43,6 @@ NumberOfPlayers::NumberOfPlayers(MainWindow *myp, QWidget *parent)
     m_button = new QPushButton("Ok", this);
     m_button->setDisabled(true);
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNamesOfThePlayersWindow()));
-    QWidget *w = new NamesOfThePlayers(6);
     //connect(m_button, SIGNAL (clicked()), this->parent(), SLOT (setSubwindow(w)));
 
 
@@ -184,7 +183,7 @@ void NumberOfPlayers::openNamesOfThePlayersWindow()
             break;
     }
 
-    QWidget *w = new NamesOfThePlayers(i + MIN_NUMBER_OF_PLAYERS);
+    QWidget *w = new NamesOfThePlayers(i + MIN_NUMBER_OF_PLAYERS, myp);
     //((MainWindow*) this->parent())->setSubwindow();
     //((MainWindow*) this->parent())->
     myp->setSubwindow(w);
