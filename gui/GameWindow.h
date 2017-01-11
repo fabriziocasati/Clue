@@ -7,7 +7,7 @@
 #include <Game.h>
 #include <QLabel>
 #include <QTableWidget>
-#include <InquiryHistoryWindow.h>
+#include <gui/InquiryHistoryWindow.h>
 
 class Game;
 class QPushButton;

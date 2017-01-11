@@ -8,7 +8,7 @@
 #include <QCheckBox>
 #include <QHBoxLayout>
 #include <Game.h>
-#include <GameWindow.h>
+#include <gui/GameWindow.h>
 
 class Game;
 class GameWindow;

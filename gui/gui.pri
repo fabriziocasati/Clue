@@ -1,9 +1,17 @@
 HEADERS += \
-    gui/newinquirywindow.h \
-    gui/NumberOfPlayersWindow.h \
-    $$PWD/NamesOfThePlayersWindow.h
+    $$PWD/newinquirywindow.h \
+    $$PWD/NumberOfPlayersWindow.h \
+    $$PWD/NamesOfThePlayersWindow.h \
+    $$PWD/GameWindow.h \
+    $$PWD/InquiryHistoryWindow.h \
+    $$PWD/MainWindow.h \
+    $$PWD/NumberOfCardsForEachPlayerWindow.h \
 
 SOURCES += \
-    gui/newinquirywindow.cpp \
-    gui/NumberOfPlayersWindow.cpp \
-    $$PWD/NamesOfThePlayersWindow.cpp
+    $$PWD/newinquirywindow.cpp \
+    $$PWD/NumberOfPlayersWindow.cpp \
+    $$PWD/NamesOfThePlayersWindow.cpp \
+    $$PWD/GameWindow.cpp \
+    $$PWD/InquiryHistoryWindow.cpp \
+    $$PWD/MainWindow.cpp \
+    $$PWD/NumberOfCardsForEachPlayerWindow.cpp \

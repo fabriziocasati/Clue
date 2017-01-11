@@ -1,9 +1,3 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2016-12-28T23:34:58
-#
-#-------------------------------------------------
-
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -20,11 +14,7 @@ SOURCES += \
     playercards.cpp \
     player.cpp \
     mysubwindow.cpp \
-    InquiryHistoryWindow.cpp \
-    MainWindow.cpp \
-    NumberOfCardsForEachPlayerWindow.cpp \
     Game.cpp \
-    GameWindow.cpp \
     Inquiry.cpp \
     Main.cpp \
     NewGameCreator.cpp \
@@ -38,11 +28,7 @@ HEADERS += \
     playercards.h \
     player.h \
     mysubwindow.h \
-    InquiryHistoryWindow.h \
-    MainWindow.h \
-    NumberOfCardsForEachPlayerWindow.h \
     Game.h \
-    GameWindow.h \
     Inquiry.h \
     NewGameCreator.h \
     Reasoner.h

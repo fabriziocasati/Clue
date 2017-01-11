@@ -1,6 +1,6 @@
 #include <QtWidgets>
 #include "NumberOfPlayersWindow.h"
-#include "NamesOfThePlayers.h"
+#include "gui/NamesOfThePlayersWindow.h"
 #include <string>
 #include <boost/lexical_cast.hpp>
 
