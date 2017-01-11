@@ -1,10 +1,9 @@
 #include "NewGameCreator.h"
-#include "Game.h"
-#include "gui/NumberOfPlayersWindow.h"
 
 NewGameCreator::NewGameCreator(MainWindow *mainWindow)
 {
-    Game *game = new Game();
+    mainWindow = mainWindow;
+    game = new Game();
 
     NumberOfPlayers *numberOfPlayersWindow = new NumberOfPlayers(mainWindow);
     //numberOfPlayersWindow->setFixedSize(600,300);
