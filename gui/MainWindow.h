@@ -11,9 +11,6 @@ class QRadioButton;
 class QGroupBox;
 class QGridLayout;
 
-namespace Ui {
-class MainWindow;
-}
 
 class MainWindow : public QMainWindow
 {
@@ -33,7 +30,6 @@ private:
     QAction *newAct;
     QMdiArea *widget;
 
-    Ui::MainWindow *ui;
     QPushButton *m_button;
     QRadioButton *r_button;
     QGroupBox *createFirstExclusiveGroup();

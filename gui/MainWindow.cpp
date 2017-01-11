@@ -1,13 +1,17 @@
 #include "MainWindow.h"
 #include "gui/NumberOfPlayersWindow.h"
 #include "gui/newinquirywindow.h"
-#include "ui_mainwindow.h"
 #include <QMdiArea>
 #include <QMdiSubWindow>
-#include "mysubwindow.h"
+#include <QAction>
+#include <QStatusBar>
+#include <QMenu>
+#include <QMenuBar>
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent) {
+    QMainWindow(parent)
+{
+
 
 
     //QWidget *widget = new QWidget;
@@ -28,7 +32,10 @@ MainWindow::MainWindow(QWidget *parent) :
     widget->setLayout(layout);
     */
 
+
     newAct = new QAction(tr("&New"), this);
+
+
     createMenus();
 
     QString message = tr("A context menu is available by right-clicking");

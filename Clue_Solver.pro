@@ -11,7 +11,6 @@ SOURCES += \
     sheet.cpp \
     playercards.cpp \
     player.cpp \
-    mysubwindow.cpp \
     Game.cpp \
     Inquiry.cpp \
     Main.cpp \
@@ -23,13 +22,10 @@ HEADERS += \
     sheet.h \
     playercards.h \
     player.h \
-    mysubwindow.h \
     Game.h \
     Inquiry.h \
     NewGameCreator.h \
     Reasoner.h
-
-FORMS    += mainwindow.ui
 
 RESOURCES += \
     resources.qrc
