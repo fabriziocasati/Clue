@@ -7,8 +7,6 @@ TEMPLATE = app
 
 
 SOURCES += \
-    window.cpp \
-    window2.cpp \
     querylist.cpp \
     sheet.cpp \
     playercards.cpp \
@@ -21,8 +19,6 @@ SOURCES += \
     Reasoner.cpp
 
 HEADERS += \
-    window.h \
-    window2.h \
     querylist.h \
     sheet.h \
     playercards.h \

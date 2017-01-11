@@ -3,8 +3,6 @@
 
 #include <QMainWindow>
 #include <QWidget>
-#include "window2.h"
-#include "window.h"
 #include <QMdiArea>
 
 
@@ -38,8 +36,6 @@ private:
     Ui::MainWindow *ui;
     QPushButton *m_button;
     QRadioButton *r_button;
-    Window *window;
-    Window2 *window2;
     QGroupBox *createFirstExclusiveGroup();
 
     void createMenus();
