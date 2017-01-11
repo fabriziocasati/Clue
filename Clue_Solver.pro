@@ -24,7 +24,6 @@ SOURCES += main.cpp\
     sheet.cpp \
     playercards.cpp \
     player.cpp \
-    solver.cpp \
     newgamecreator.cpp \
     reasoner.cpp \
     newinquirywindow.cpp \
@@ -33,7 +32,7 @@ SOURCES += main.cpp\
     inquiryhistorywindow.cpp \
     mysubwindow.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS += mainwindow.h \
     window.h \
     window2.h \
     numberofplayers.h \
@@ -44,7 +43,6 @@ HEADERS  += mainwindow.h \
     sheet.h \
     playercards.h \
     player.h \
-    solver.h \
     newgamecreator.h \
     reasoner.h \
     newinquirywindow.h \
@@ -54,3 +52,5 @@ HEADERS  += mainwindow.h \
     mysubwindow.h
 
 FORMS    += mainwindow.ui
+
+include(reasoner/reasoner.pri)
