@@ -1,4 +1,4 @@
-#include "inquiry.h"
+#include "Inquiry.h"
 
 Inquiry::Inquiry(int turn, std::string inquirer, std::string giver, std::string room, std::string suspect, std::string weaopon)
 {

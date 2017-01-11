@@ -13,39 +13,39 @@ TEMPLATE = app
 
 
 SOURCES += \
-    main.cpp \
-    mainwindow.cpp \
     window.cpp \
     window2.cpp \
-    numberofcardsforeachplayerwindow.cpp \
-    game.cpp \
     querylist.cpp \
     sheet.cpp \
     playercards.cpp \
     player.cpp \
-    newgamecreator.cpp \
-    reasoner.cpp \
-    inquiry.cpp \
-    gamewindow.cpp \
-    inquiryhistorywindow.cpp \
     mysubwindow.cpp \
+    InquiryHistoryWindow.cpp \
+    MainWindow.cpp \
+    NumberOfCardsForEachPlayerWindow.cpp \
+    Game.cpp \
+    GameWindow.cpp \
+    Inquiry.cpp \
+    Main.cpp \
+    NewGameCreator.cpp \
+    Reasoner.cpp
 
 HEADERS += \
-    mainwindow.h \
     window.h \
     window2.h \
-    numberofcardsforeachplayerwindow.h \
-    game.h \
     querylist.h \
     sheet.h \
     playercards.h \
     player.h \
-    newgamecreator.h \
-    reasoner.h \
-    inquiry.h \
-    gamewindow.h \
-    inquiryhistorywindow.h \
     mysubwindow.h \
+    InquiryHistoryWindow.h \
+    MainWindow.h \
+    NumberOfCardsForEachPlayerWindow.h \
+    Game.h \
+    GameWindow.h \
+    Inquiry.h \
+    NewGameCreator.h \
+    Reasoner.h
 
 FORMS    += mainwindow.ui
 

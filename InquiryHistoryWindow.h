@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QWidget>
 #include <QTableWidget>
-#include "game.h"
+#include "Game.h"
 
 class Game;
 

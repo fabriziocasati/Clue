@@ -1,4 +1,4 @@
-#include "numberofcardsforeachplayerwindow.h"
+#include "NumberOfCardsForEachPlayerWindow.h"
 
 NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(QWidget *parent)
     : QWidget(parent)

@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "MainWindow.h"
 #include "gui/NumberOfPlayersWindow.h"
 #include "gui/newinquirywindow.h"
 #include "ui_mainwindow.h"

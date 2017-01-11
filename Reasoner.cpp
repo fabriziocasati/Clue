@@ -1,4 +1,4 @@
-#include "reasoner.h"
+#include "Reasoner.h"
 
 Reasoner::Reasoner()
 {

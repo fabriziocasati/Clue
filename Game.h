@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include <list>
-#include "inquiry.h"
+#include "Inquiry.h"
 #include "player.h"
-#include "gamewindow.h"
+#include "GameWindow.h"
 
 class Inquiry;
 

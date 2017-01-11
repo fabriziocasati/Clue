@@ -1,9 +1,9 @@
 HEADERS += \
     gui/newinquirywindow.h \
     gui/NumberOfPlayersWindow.h \
-    gui/NamesOfThePlayers.h \
+    $$PWD/NamesOfThePlayersWindow.h
 
 SOURCES += \
     gui/newinquirywindow.cpp \
     gui/NumberOfPlayersWindow.cpp \
-    gui/NamesOfThePlayers.cpp \
+    $$PWD/NamesOfThePlayersWindow.cpp

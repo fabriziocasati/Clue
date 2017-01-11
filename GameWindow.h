@@ -4,10 +4,10 @@
 #include <QWidget>
 #include <QPushButton>
 #include "gui/newinquirywindow.h"
-#include <game.h>
+#include <Game.h>
 #include <QLabel>
 #include <QTableWidget>
-#include <inquiryhistorywindow.h>
+#include <InquiryHistoryWindow.h>
 
 class Game;
 class QPushButton;

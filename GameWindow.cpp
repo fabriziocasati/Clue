@@ -1,4 +1,4 @@
-#include "gamewindow.h"
+#include "GameWindow.h"
 #include <QHeaderView>
 #include <boost/lexical_cast.hpp>
 

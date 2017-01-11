@@ -1,4 +1,4 @@
-#include "newgamecreator.h"
+#include "NewGameCreator.h"
 
 NewGameCreator::NewGameCreator()
 {

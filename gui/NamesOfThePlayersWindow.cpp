@@ -1,7 +1,7 @@
-#include "NamesOfThePlayers.h"
+#include "NamesOfThePlayersWindow.h"
 #include <QtWidgets>
 #include <boost/lexical_cast.hpp>
-#include "numberofcardsforeachplayerwindow.h"
+#include "NumberOfCardsForEachPlayerWindow.h"
 
 NamesOfThePlayers::NamesOfThePlayers(int numberOfPlayers, QWidget *parent)
     : QWidget(parent)

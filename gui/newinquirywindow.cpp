@@ -1,5 +1,5 @@
 #include "newinquirywindow.h"
-#include "inquiry.h"
+#include "Inquiry.h"
 
 NewInquiryWindow::NewInquiryWindow(Game *g, GameWindow *gw, QWidget *parent)
     : QWidget(parent)
