@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "numberofplayers.h"
+#include "gui/NumberOfPlayersWindow.h"
 #include "gui/newinquirywindow.h"
 #include "ui_mainwindow.h"
 #include <QMdiArea>

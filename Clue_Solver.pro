@@ -17,8 +17,6 @@ SOURCES += \
     mainwindow.cpp \
     window.cpp \
     window2.cpp \
-    numberofplayers.cpp \
-    namesoftheplayers.cpp \
     numberofcardsforeachplayerwindow.cpp \
     game.cpp \
     querylist.cpp \
@@ -30,14 +28,12 @@ SOURCES += \
     inquiry.cpp \
     gamewindow.cpp \
     inquiryhistorywindow.cpp \
-    mysubwindow.cpp
+    mysubwindow.cpp \
 
 HEADERS += \
     mainwindow.h \
     window.h \
     window2.h \
-    numberofplayers.h \
-    namesoftheplayers.h \
     numberofcardsforeachplayerwindow.h \
     game.h \
     querylist.h \
@@ -49,7 +45,7 @@ HEADERS += \
     inquiry.h \
     gamewindow.h \
     inquiryhistorywindow.h \
-    mysubwindow.h
+    mysubwindow.h \
 
 FORMS    += mainwindow.ui
 

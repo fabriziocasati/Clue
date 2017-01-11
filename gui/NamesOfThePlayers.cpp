@@ -1,4 +1,4 @@
-#include "namesoftheplayers.h"
+#include "NamesOfThePlayers.h"
 #include <QtWidgets>
 #include <boost/lexical_cast.hpp>
 #include "numberofcardsforeachplayerwindow.h"
