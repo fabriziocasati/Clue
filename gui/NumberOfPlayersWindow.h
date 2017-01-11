@@ -6,6 +6,7 @@
 
 #include <QMainWindow>
 #include <QWidget>
+#include "gui/MainWindow.h"
 
 class QGroupBox;
 class QRadioButton;
@@ -20,7 +21,8 @@ class NumberOfPlayers : public QWidget
     Q_OBJECT
 
 public:
-    explicit NumberOfPlayers(QWidget *parent = 0);
+    explicit NumberOfPlayers(MainWindow *myp, QWidget *parent = 0);
+    MainWindow *myp;
 
 public slots:
     void openNamesOfThePlayersWindow();

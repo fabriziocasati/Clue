@@ -4,9 +4,12 @@
 #include <string>
 #include <boost/lexical_cast.hpp>
 
-NumberOfPlayers::NumberOfPlayers(QWidget *parent)
+
+NumberOfPlayers::NumberOfPlayers(MainWindow *myp, QWidget *parent)
     : QWidget(parent)
 {
+
+    this->myp = myp;
 
     setAttribute(Qt::WA_DeleteOnClose);
 
@@ -40,6 +43,8 @@ NumberOfPlayers::NumberOfPlayers(QWidget *parent)
     m_button = new QPushButton("Ok", this);
     m_button->setDisabled(true);
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNamesOfThePlayersWindow()));
+    QWidget *w = new NamesOfThePlayers(6);
+    //connect(m_button, SIGNAL (clicked()), this->parent(), SLOT (setSubwindow(w)));
 
 
     QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
@@ -125,7 +130,8 @@ QGroupBox *NumberOfPlayers::createNumberOfPlayersGroup()
 
     m_button = new QPushButton("Ok", this);
     m_button->setDisabled(true);
-    connect(m_button, SIGNAL (clicked()), this, SLOT (openNamesOfThePlayersWindow()));
+    //connect(m_button, SIGNAL (clicked()), this, SLOT (openNamesOfThePlayersWindow()));
+
 
     /*
     QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -178,12 +184,19 @@ void NumberOfPlayers::openNamesOfThePlayersWindow()
             break;
     }
 
-    NamesOfThePlayers *w = new NamesOfThePlayers(i + MIN_NUMBER_OF_PLAYERS);
-    w->show();
+    QWidget *w = new NamesOfThePlayers(i + MIN_NUMBER_OF_PLAYERS);
+    //((MainWindow*) this->parent())->setSubwindow();
+    //((MainWindow*) this->parent())->
+    myp->setSubwindow(w);
 
+
+    //w->show();
+
+
+/*
     this->close();
     this->hide();
-
+*/
 }
 
 void NumberOfPlayers::activateConfirmButton()

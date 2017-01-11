@@ -22,17 +22,22 @@ public:
     QPixmap* m_pPixmap;
     QPalette* m_pPalette;
 
+    void setSubwindow(QWidget *q);
+
 public slots:
-   void createNewGame();
+    void createNewGame();
 
 private:
     QMenu *fileMenu;
-
     QPushButton *m_button;
     QRadioButton *r_button;
     QGroupBox *createFirstExclusiveGroup();
 
     void createMenus();
+
+
+private slots:
+
 
 };
 

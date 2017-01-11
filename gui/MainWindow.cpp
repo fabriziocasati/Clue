@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "gui/NumberOfPlayersWindow.h"
 #include "gui/NewInquiryWindow.h"
+#include "gui/NamesOfThePlayersWindow.h"
 #include <QMdiArea>
 #include <QMdiSubWindow>
 #include <QAction>
@@ -139,9 +140,9 @@ void MainWindow::createNewGame() {
     //this->setDisabled(true);
     // ...
 
-    QMdiArea *area = new QMdiArea();
+    QMdiArea *area = new QMdiArea;
     area->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    NumberOfPlayers *subWindow = new NumberOfPlayers();
+    NumberOfPlayers *subWindow = new NumberOfPlayers(this);
     //subWindow->setFixedSize(600,300);
     //subWindow->move(300,300);
     //subWindow->move(QPoint(300,300));
@@ -170,4 +171,10 @@ void MainWindow::createMenus()
     fileMenu->addAction(newGameAction);
     connect(newGameAction, &QAction::triggered, this, &MainWindow::createNewGame);
 
+}
+
+void MainWindow::setSubwindow(QWidget *q) {
+    QMdiArea *area = new QMdiArea;
+    area->addSubWindow(q);
+    this->setCentralWidget(area);
 }
