@@ -6,7 +6,7 @@ HEADERS += \
     $$PWD/MainWindow.h \
     $$PWD/NumberOfCardsForEachPlayerWindow.h \
     $$PWD/NewInquiryWindow.h \
-    $$PWD/CardsOfEachPlayerWindow.h
+    $$PWD/CardsOfTheUserWindow.h
 
 SOURCES += \
     $$PWD/NumberOfPlayersWindow.cpp \
@@ -16,4 +16,4 @@ SOURCES += \
     $$PWD/MainWindow.cpp \
     $$PWD/NumberOfCardsForEachPlayerWindow.cpp \
     $$PWD/NeWinquiryWindow.cpp \
-    $$PWD/CardsOfEachPlayerWindow.cpp
+    $$PWD/CardsOfTheUserWindow.cpp
