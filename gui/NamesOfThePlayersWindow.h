@@ -16,14 +16,14 @@ class NamesOfThePlayersWindow  : public QWidget
 {
      Q_OBJECT
 
-public:
-    NamesOfThePlayersWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
+    public:
+        NamesOfThePlayersWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
 
-public slots:
-    void openNumberOfCardsForEachPlayerWindow();
-    void enableOrDisableConfirmButton(const QString &text);
+    public slots:
+        void openNumberOfCardsForEachPlayerWindow();
+        void enableOrDisableConfirmButton(const QString &text);
 
-private:
+    private:
         QGroupBox *createNumberOfPlayersGroup(int numberOfPlayers);
         QPushButton *m_button;
         int nonEmptyName[6];
@@ -33,7 +33,6 @@ private:
         QLabel *playerNameLabel[6];
         MainWindow *mainWindow;
         NewGameCreator *newGameCreator;
-
 };
 
 #endif // NAMESOFTHEPLAYERSWINDOW_H
