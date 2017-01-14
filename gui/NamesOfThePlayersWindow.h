@@ -1,5 +1,5 @@
-#ifndef NAMESOFTHEPLAYERS_H
-#define NAMESOFTHEPLAYERS_H
+#ifndef NAMESOFTHEPLAYERSWINDOW_H
+#define NAMESOFTHEPLAYERSWINDOW_H
 
 #include <QWidget>
 #include <QHash>
@@ -36,4 +36,4 @@ private:
 
 };
 
-#endif // NAMESOFTHEPLAYERS_H
+#endif // NAMESOFTHEPLAYERSWINDOW_H
