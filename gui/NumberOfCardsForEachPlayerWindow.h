@@ -30,6 +30,7 @@ class NumberOfCardsForEachPlayerWindow : public QWidget
         QLabel *playerNameLabel[6];
         MainWindow *mainWindow;
 
+    private slots:
         void openNextWindow();
 };
 

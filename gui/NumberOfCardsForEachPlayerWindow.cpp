@@ -23,6 +23,7 @@ NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreato
     //std::string numberString = boost::lexical_cast<std::string>(hash["1"]);
     //QString numberQString = QString::fromStdString(numberString);
     m_button = new QPushButton("numberQString", this);
+    connect(m_button, SIGNAL (clicked()), this, SLOT (openNextWindow()));
 
 
     QGridLayout *grid = new QGridLayout;
@@ -42,8 +43,6 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup(int numb
     QString numberQString = QString::fromStdString(numberString);
 
     QGroupBox *groupBox = new QGroupBox("Insert the number of cards held by each player");
-
-    connect(m_button, SIGNAL (clicked()), this, SLOT (openNextWindow()));
 
     QVBoxLayout *vbox = new QVBoxLayout;
     //vbox->setAlignment(Qt::AlignLeft);

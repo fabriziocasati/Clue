@@ -18,13 +18,15 @@ public:
     int getNumberOfPlayers();
     void setNamesOfThePlayers(std::string *playerName);
 
-
 private:
     int numberOfOpenedWindows;
     Game *game;
     MainWindow *mainWindow;
     int numberOfPlayers;
     std::string *playerName;
+
+private slots:
+
 };
 
 #endif // NEWGAMECREATOR_H

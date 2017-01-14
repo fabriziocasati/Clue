@@ -33,6 +33,7 @@ class NamesOfThePlayersWindow  : public QWidget
         QLabel *playerNameLabel[6];
         MainWindow *mainWindow;
         NewGameCreator *newGameCreator;
+
 };
 
 #endif // NAMESOFTHEPLAYERSWINDOW_H

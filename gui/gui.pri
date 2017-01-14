@@ -5,7 +5,8 @@ HEADERS += \
     $$PWD/InquiryHistoryWindow.h \
     $$PWD/MainWindow.h \
     $$PWD/NumberOfCardsForEachPlayerWindow.h \
-    $$PWD/NewInquiryWindow.h
+    $$PWD/NewInquiryWindow.h \
+    $$PWD/CardsOfEachPlayerWindow.h
 
 SOURCES += \
     $$PWD/NumberOfPlayersWindow.cpp \
@@ -14,4 +15,5 @@ SOURCES += \
     $$PWD/InquiryHistoryWindow.cpp \
     $$PWD/MainWindow.cpp \
     $$PWD/NumberOfCardsForEachPlayerWindow.cpp \
-    $$PWD/NeWinquiryWindow.cpp
+    $$PWD/NeWinquiryWindow.cpp \
+    $$PWD/CardsOfEachPlayerWindow.cpp
