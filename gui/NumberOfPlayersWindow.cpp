@@ -5,13 +5,13 @@
 #include <boost/lexical_cast.hpp>
 
 
-NumberOfPlayers::NumberOfPlayers(MainWindow *myp, QWidget *parent)
+NumberOfPlayers::NumberOfPlayers(MainWindow *myp, NewGameCreator *newGameCreator, QWidget *parent)
     : QWidget(parent)
 {
-
     this->myp = myp;
+    this->newGameCreator = newGameCreator;
 
-    setAttribute(Qt::WA_DeleteOnClose);
+    //setAttribute(Qt::WA_DeleteOnClose);
 
     //move(300,300);
 
@@ -183,8 +183,9 @@ void NumberOfPlayers::openNamesOfThePlayersWindow()
             break;
     }
 
-    QWidget *w = new NamesOfThePlayers(numberOfPlayers + MIN_NUMBER_OF_PLAYERS, myp);
-    myp->setSubwindow(w);
+    newGameCreator->openNextWindow(numberOfPlayers);
+
+    //myp->setSubwindow(w);
 
 /*
     this->close();
