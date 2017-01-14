@@ -94,5 +94,5 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup(int numb
 }
 
 void NumberOfCardsForEachPlayerWindow::openNextWindow() {
-
+    newGameCreator->openNextWindow();
 }

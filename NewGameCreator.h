@@ -6,6 +6,7 @@
 #include "gui/NumberOfPlayersWindow.h"
 #include "gui/NamesOfThePlayersWindow.h"
 #include "gui/NumberOfCardsForEachPlayerWindow.h"
+#include "gui/CardsOfEachPlayerWindow.h"
 
 class MainWindow;
 

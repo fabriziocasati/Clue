@@ -1,13 +1,14 @@
-#ifndef CARDSOFEACHPLAYER_H
-#define CARDSOFEACHPLAYER_H
+#ifndef CARDSOFEACHPLAYERWINDOW_H
+#define CARDSOFEACHPLAYERWINDOW_H
 
 #include <QObject>
 #include <QWidget>
+#include "NewGameCreator.h"
 
-class CardsOfEachPlayer
+class CardsOfEachPlayerWindow : public QWidget
 {
 public:
-    CardsOfEachPlayer();
+    CardsOfEachPlayerWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
 };
 
-#endif // CARDSOFEACHPLAYER_H
+#endif // CARDSOFEACHPLAYERWINDOW_H

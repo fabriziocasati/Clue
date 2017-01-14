@@ -1,6 +1,7 @@
-#include "CardsOfEachPlayer.h"
+#include "CardsOfEachPlayerWindow.h"
 
-CardsOfEachPlayer::CardsOfEachPlayer()
+CardsOfEachPlayerWindow::CardsOfEachPlayerWindow(NewGameCreator *newGameCreator, QWidget *parent)
+    : QWidget(parent)
 {
 
 }

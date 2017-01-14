@@ -18,6 +18,7 @@ void NewGameCreator::openNextWindow() {
         case 0 : subWindow = new NumberOfPlayersWindow(this); break;
         case 1 : subWindow = new NamesOfThePlayersWindow(this); break;
         case 2 : subWindow = new NumberOfCardsForEachPlayerWindow(this); break;
+        case 3 : subWindow = new CardsOfEachPlayerWindow(this); break;
         default : break;
     }
 
