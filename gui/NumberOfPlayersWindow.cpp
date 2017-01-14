@@ -183,19 +183,14 @@ void NumberOfPlayers::openNamesOfThePlayersWindow()
             break;
     }
 
-    newGameCreator->openNextWindow(numberOfPlayers);
+    newGameCreator->setNumberOfPlayers(numberOfPlayers);
+    newGameCreator->openNextWindow();
 
     //myp->setSubwindow(w);
-
-/*
-    this->close();
-    this->hide();
-*/
 
 }
 
 void NumberOfPlayers::activateConfirmButton()
 {
     m_button->setDisabled(false);
-
 }

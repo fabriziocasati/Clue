@@ -3,18 +3,33 @@
 NewGameCreator::NewGameCreator(MainWindow *mainWindow)
 {
     this->mainWindow = mainWindow;
+    this->numberOfOpenedWindows = 0;
     game = new Game();
 
-    NumberOfPlayers *numberOfPlayersWindow = new NumberOfPlayers(mainWindow, this);
-    //numberOfPlayersWindow->setFixedSize(600,300);
-    //numberOfPlayersWindow->move(300,300);
-    //numberOfPlayersWindow->move(QPoint(300,300));
-    //numberOfPlayersWindow->move(parentWidget()->window()->frameGeometry().topLeft() + parentWidget()->window()->rect().center() - rect().center());
-    mainWindow->setSubwindow(numberOfPlayersWindow);
+    openNextWindow();
+
+
 }
 
-void NewGameCreator::openNextWindow(int numberOfPlayers) {
+void NewGameCreator::openNextWindow() {
+
+    QWidget *subWindow;
+
+    switch(numberOfOpenedWindows) {
+        case 0 : subWindow = new NumberOfPlayers(mainWindow, this); break;
+        case 1 : subWindow = new NamesOfThePlayers(numberOfPlayers + MIN_NUMBER_OF_PLAYERS, mainWindow, this); break;
+        case 2 : subWindow = new NumberOfCardsForEachPlayerWindow(); break;
+        default : break;
+    }
+
+    numberOfOpenedWindows++;
+    mainWindow->setSubwindow(subWindow);
+}
+
+void NewGameCreator::setNumberOfPlayers(int numberOfPlayers) {
     this->numberOfPlayers = numberOfPlayers;
-    QWidget *w = new NamesOfThePlayers(numberOfPlayers + MIN_NUMBER_OF_PLAYERS, mainWindow);
-    mainWindow->setSubwindow(w);
+}
+
+void NewGameCreator::setNamesOfThePlayers(std::string *playerName) {
+    this->playerName = playerName;
 }

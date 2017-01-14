@@ -4,18 +4,20 @@
 #include <QWidget>
 #include <QHash>
 #include "gui/MainWindow.h"
+#include "NewGameCreator.h"
 
 class QGroupBox;
 class QPushButton;
 class QLineEdit;
 class QLabel;
+class NewGameCreator;
 
 class NamesOfThePlayers  : public QWidget
 {
      Q_OBJECT
 
 public:
-    NamesOfThePlayers(int numberOfPlayers, MainWindow *mainWindow, QWidget *parent = 0);
+    NamesOfThePlayers(int numberOfPlayers, MainWindow *mainWindow, NewGameCreator *newGameCreator, QWidget *parent = 0);
 public slots:
     void openNumberOfCardsForEachPlayerWindow();
     void enableOrDisableConfirmButton(const QString &text);
@@ -29,6 +31,7 @@ private:
         QLineEdit *playerNameLineEdit[6];
         QLabel *playerNameLabel[6];
         MainWindow *mainWindow;
+        NewGameCreator *newGameCreator;
 
 };
 
