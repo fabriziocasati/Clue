@@ -93,7 +93,7 @@ void NamesOfThePlayers::openNumberOfCardsForEachPlayerWindow()
         playerNameLabel[i]->setText(playerNameLineEdit[i]->text());
     }
 
-    newGameCreator->setNamesOfThePlayers(playerName);
+    //newGameCreator->setNamesOfThePlayers(playerName);
     newGameCreator->openNextWindow();
 }
 
