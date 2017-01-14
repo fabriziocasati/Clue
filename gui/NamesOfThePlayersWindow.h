@@ -18,6 +18,8 @@ class NamesOfThePlayers  : public QWidget
 
 public:
     NamesOfThePlayers(int numberOfPlayers, MainWindow *mainWindow, NewGameCreator *newGameCreator, QWidget *parent = 0);
+    int getNumberOfPlayers();
+
 public slots:
     void openNumberOfCardsForEachPlayerWindow();
     void enableOrDisableConfirmButton(const QString &text);

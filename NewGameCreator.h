@@ -16,6 +16,7 @@ public:
     void openNextWindow();
     void setNumberOfPlayers(int numberOfPlayers);
     void setNamesOfThePlayers(std::string *playerName);
+    int getNumberOfPlayers();
 
 private:
     int numberOfOpenedWindows;

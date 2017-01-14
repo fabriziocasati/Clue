@@ -29,6 +29,10 @@ void NewGameCreator::setNumberOfPlayers(int numberOfPlayers) {
     this->numberOfPlayers = numberOfPlayers;
 }
 
+int NewGameCreator::getNumberOfPlayers() {
+    return this->numberOfPlayers;
+}
+
 void NewGameCreator::setNamesOfThePlayers(std::string *playerName) {
     this->playerName = playerName;
 }
