@@ -15,8 +15,9 @@ public:
     NewGameCreator(MainWindow *mainWindow);
     void openNextWindow();
     void setNumberOfPlayers(int numberOfPlayers);
-    void setNamesOfThePlayers(std::string *playerName);
     int getNumberOfPlayers();
+    void setNamesOfThePlayers(std::string *playerName);
+
 
 private:
     int numberOfOpenedWindows;

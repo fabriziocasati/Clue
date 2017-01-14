@@ -12,13 +12,12 @@ class QLineEdit;
 class QLabel;
 class NewGameCreator;
 
-class NamesOfThePlayers  : public QWidget
+class NamesOfThePlayersWindow  : public QWidget
 {
      Q_OBJECT
 
 public:
-    NamesOfThePlayers(int numberOfPlayers, MainWindow *mainWindow, NewGameCreator *newGameCreator, QWidget *parent = 0);
-    int getNumberOfPlayers();
+    NamesOfThePlayersWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
 
 public slots:
     void openNumberOfCardsForEachPlayerWindow();

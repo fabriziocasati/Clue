@@ -3,11 +3,13 @@
 #include <boost/lexical_cast.hpp>
 #include "NumberOfCardsForEachPlayerWindow.h"
 
-NamesOfThePlayers::NamesOfThePlayers(int numberOfPlayers, MainWindow *mainWindow, NewGameCreator *newGameCreator, QWidget *parent)
+NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator, QWidget *parent)
     : QWidget(parent)
 {
     this->mainWindow = mainWindow;
     this->newGameCreator = newGameCreator;
+
+    int numberOfPlayers = newGameCreator->getNumberOfPlayers();
 
     QString key="1";
 
@@ -36,7 +38,7 @@ NamesOfThePlayers::NamesOfThePlayers(int numberOfPlayers, MainWindow *mainWindow
 
 }
 
-QGroupBox *NamesOfThePlayers::createNumberOfPlayersGroup(int numberOfPlayers)
+QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup(int numberOfPlayers)
 {
 
     std::string numberString = boost::lexical_cast<std::string>(numberOfPlayers);
@@ -85,7 +87,7 @@ QGroupBox *NamesOfThePlayers::createNumberOfPlayersGroup(int numberOfPlayers)
     return groupBox;
 }
 
-void NamesOfThePlayers::openNumberOfCardsForEachPlayerWindow()
+void NamesOfThePlayersWindow::openNumberOfCardsForEachPlayerWindow()
 {
     std::string playerName[6];
     for(int i=0; i<6; i++) {
@@ -97,7 +99,7 @@ void NamesOfThePlayers::openNumberOfCardsForEachPlayerWindow()
     newGameCreator->openNextWindow();
 }
 
-void NamesOfThePlayers::enableOrDisableConfirmButton(const QString &text)
+void NamesOfThePlayersWindow::enableOrDisableConfirmButton(const QString &text)
 {
     QLineEdit** obj = (QLineEdit**) sender();
     if(text.isEmpty()) {

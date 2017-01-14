@@ -53,8 +53,8 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWi
 
 void NumberOfPlayersWindow::openNamesOfThePlayersWindow() {
     int numberOfPlayers;
-    for(numberOfPlayers=0; numberOfPlayers<MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1; numberOfPlayers++) {
-        if(numberOfPlayersRadioButton[numberOfPlayers]->isChecked())
+    for(numberOfPlayers = MIN_NUMBER_OF_PLAYERS; numberOfPlayers <= MAX_NUMBER_OF_PLAYERS; numberOfPlayers++) {
+        if(numberOfPlayersRadioButton[numberOfPlayers - MIN_NUMBER_OF_PLAYERS]->isChecked())
             break;
     }
 
