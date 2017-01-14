@@ -156,6 +156,8 @@ void MainWindow::createNewGame() {
     //this->hide();
     //this->setDisabled(true);
 
+    area = new QMdiArea;
+    setCentralWidget(area);
     main->createNewGame();
 
     /*
@@ -173,7 +175,14 @@ void MainWindow::createNewGame() {
 }
 
 void MainWindow::setSubwindow(QWidget *q) {
+    /*
     QMdiArea *area = new QMdiArea;
     area->addSubWindow(q);
     this->setCentralWidget(area);
+    */
+    area->addSubWindow(q);
+    //area->activateNextSubWindow();
+    area->activatePreviousSubWindow();
+    //area->show();
+    q->show();
 }

@@ -12,6 +12,7 @@ class QRadioButton;
 class QGroupBox;
 class QGridLayout;
 class Main;
+class QMdiArea;
 
 
 class MainWindow : public QMainWindow
@@ -35,6 +36,7 @@ private:
     QPushButton *m_button;
     QRadioButton *r_button;
     QGroupBox *createFirstExclusiveGroup();
+    QMdiArea *area;
 
     void createMenus();
 
