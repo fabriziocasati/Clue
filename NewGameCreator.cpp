@@ -8,7 +8,6 @@ NewGameCreator::NewGameCreator(MainWindow *mainWindow)
 
     openNextWindow();
 
-
 }
 
 void NewGameCreator::openNextWindow() {
