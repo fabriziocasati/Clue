@@ -14,16 +14,17 @@ void NewGameCreator::openNextWindow() {
 
     QWidget *subWindow;
 
-    switch(numberOfOpenedWindows) {
-        case 0 : subWindow = new NumberOfPlayersWindow(this); break;
-        case 1 : subWindow = new NamesOfThePlayersWindow(this); break;
-        case 2 : subWindow = new NumberOfCardsForEachPlayerWindow(this); break;
-        case 3 : subWindow = new CardsOfTheUserWindow(this); break;
-        default : break;
-    }
+    if(numberOfOpenedWindows < 4) {
+        switch(numberOfOpenedWindows) {
+            case 0 : subWindow = new NumberOfPlayersWindow(this); break;
+            case 1 : subWindow = new NamesOfThePlayersWindow(this); break;
+            case 2 : subWindow = new NumberOfCardsForEachPlayerWindow(this); break;
+            case 3 : subWindow = new CardsOfTheUserWindow(this); break;
+        }
 
-    numberOfOpenedWindows++;
-    mainWindow->setSubwindow(subWindow);
+        numberOfOpenedWindows++;
+        mainWindow->setSubwindow(subWindow);
+    }
 }
 
 void NewGameCreator::setNumberOfPlayers(int numberOfPlayers) {
