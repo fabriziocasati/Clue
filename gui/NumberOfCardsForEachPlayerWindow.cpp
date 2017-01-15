@@ -52,8 +52,8 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup()
     //vbox->setAlignment(Qt::AlignLeft);
     vbox->addWidget(m_button);
     //vbox->addStretch(1);
-
-    for(int i=0; i<numberOfPlayers; i++) {
+    int i, j;
+    for(i=0; i<numberOfPlayers; i++) {
         //std::string numberString = playerName[i] + " (Player #" + boost::lexical_cast<std::string>(i+1) + ")";
         std::string numberString = playerName[i];
         QString numberQString = QString::fromStdString(numberString);
@@ -61,11 +61,11 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup()
 
         QHBoxLayout *vl = new QHBoxLayout;
 
-        for(int i=3; i<=6; i++) {
-            std::string numberString = boost::lexical_cast<std::string>(i) + " cards";
+        for(j=3; j<=6; j++) {
+            std::string numberString = boost::lexical_cast<std::string>(j) + " cards";
             QString numberQString = QString::fromStdString(numberString);
-            QRadioButton *r = new QRadioButton(numberQString);
-            vl->addWidget(r);
+            radioButton[i][j-3] = new QRadioButton(numberQString);
+            vl->addWidget(radioButton[i][j-3]);
         }
 
 /*
@@ -101,5 +101,12 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup()
 }
 
 void NumberOfCardsForEachPlayerWindow::openNextWindow() {
+    int playerCardsNumber[6];
+    int i, j;
+    for(i=0; i<numberOfPlayers; i++)
+        for(j=0; j<=6-3; j++)
+            if(radioButton[i][j]->isChecked())
+                playerCardsNumber[i] = j+3;
+    newGameCreator->setNumberOfCardsForEachPlayer(playerCardsNumber);
     newGameCreator->openNextWindow();
 }

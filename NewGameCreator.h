@@ -7,6 +7,7 @@
 #include "gui/NamesOfThePlayersWindow.h"
 #include "gui/NumberOfCardsForEachPlayerWindow.h"
 #include "gui/CardsOfTheUserWindow.h"
+#include "gui/RecapWindow.h"
 
 class MainWindow;
 
@@ -19,7 +20,7 @@ public:
     int getNumberOfPlayers();
     void setNamesOfThePlayers(std::string *playerName);
     std::string* getNamesOfThePlayers();
-    void setNumberOfCardsForEachPlayer(int *numbers);
+    void setNumberOfCardsForEachPlayer(int numbers[]);
     void setCardsOfTheUser(std::string *str);
 
 private:
@@ -28,6 +29,7 @@ private:
     MainWindow *mainWindow;
     int numberOfPlayers;
     std::string *playerName;
+    int *playerCardsNumber;
 
 private slots:
 

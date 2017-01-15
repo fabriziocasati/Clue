@@ -5,7 +5,7 @@
 #include <QWidget>
 #include <QGroupBox>
 #include <QPushButton>
-
+#include <QRadioButton>
 #include <QHash>
 #include "gui/MainWindow.h"
 #include "NewGameCreator.h"
@@ -31,6 +31,7 @@ class NumberOfCardsForEachPlayerWindow : public QWidget
         MainWindow *mainWindow;
         std::string *playerName;
         int numberOfPlayers;
+        QRadioButton *radioButton[6][4];
 
     private slots:
         void openNextWindow();

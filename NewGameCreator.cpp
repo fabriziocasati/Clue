@@ -12,14 +12,14 @@ void NewGameCreator::openNextWindow() {
 
     QWidget *subWindow;
 
-    if(numberOfOpenedWindows < 4) {
+    if(numberOfOpenedWindows < 5) {
         switch(numberOfOpenedWindows) {
             case 0 : subWindow = new NumberOfPlayersWindow(this); break;
             case 1 : subWindow = new NamesOfThePlayersWindow(this); break;
             case 2 : subWindow = new NumberOfCardsForEachPlayerWindow(this); break;
             case 3 : subWindow = new CardsOfTheUserWindow(this); break;
+            case 4 : subWindow = new RecapWindow(this); break;
         }
-
         numberOfOpenedWindows++;
         mainWindow->setSubwindow(subWindow);
     } else
@@ -42,7 +42,7 @@ std::string* NewGameCreator::getNamesOfThePlayers() {
     return playerName;
 }
 
-void NewGameCreator::setNumberOfCardsForEachPlayer(int *numbers) {
+void NewGameCreator::setNumberOfCardsForEachPlayer(int numbers[]) {
 
 }
 
