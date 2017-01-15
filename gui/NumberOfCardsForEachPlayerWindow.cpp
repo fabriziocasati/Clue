@@ -10,8 +10,11 @@
 NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreator *newGameCreator, QWidget *parent)
     : QWidget(parent)
 {
+
     this->newGameCreator = newGameCreator;
-    //int numberOfPlayers = newGameCreator->getNumberOfPlayers();
+    this->numberOfPlayers = 0;
+    this->numberOfPlayers = newGameCreator->getNumberOfPlayers();
+    this->playerName = newGameCreator->getNamesOfThePlayers();
 
     QString key="1";
 
@@ -27,7 +30,7 @@ NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreato
 
 
     QGridLayout *grid = new QGridLayout;
-    grid->addWidget(createNumberOfPlayersGroup(6), 2, 0);
+    grid->addWidget(createNumberOfPlayersGroup(), 2, 0);
 
     setLayout(grid);
 
@@ -36,8 +39,9 @@ NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreato
 
 }
 
-QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup(int numberOfPlayers)
+QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup()
 {
+
 
     std::string numberString = boost::lexical_cast<std::string>(numberOfPlayers);
     QString numberQString = QString::fromStdString(numberString);
@@ -49,21 +53,22 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup(int numb
     vbox->addWidget(m_button);
     //vbox->addStretch(1);
 
-    for(int i=0; i<6; i++) {
-        std::string numberString = "Player #" + boost::lexical_cast<std::string>(i+1);
+    for(int i=0; i<numberOfPlayers; i++) {
+        //std::string numberString = playerName[i] + " (Player #" + boost::lexical_cast<std::string>(i+1) + ")";
+        std::string numberString = playerName[i];
         QString numberQString = QString::fromStdString(numberString);
         QGroupBox *v = new QGroupBox(numberQString);
 
         QHBoxLayout *vl = new QHBoxLayout;
 
-        for(int i=0; i<6; i++) {
-            std::string numberString = boost::lexical_cast<std::string>(i);
+        for(int i=3; i<=6; i++) {
+            std::string numberString = boost::lexical_cast<std::string>(i) + " cards";
             QString numberQString = QString::fromStdString(numberString);
             QRadioButton *r = new QRadioButton(numberQString);
             vl->addWidget(r);
         }
 
-        /*
+/*
         playerNameLineEdit[i] = new QLineEdit();
         //std::string numberString = "Name of the player #" + boost::lexical_cast<std::string>(i+1) + ":";
         std::string numberString = boost::lexical_cast<std::string>(&playerNameLabel[i]);
@@ -73,7 +78,7 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup(int numb
         //vbox->addWidget(playerNameLabel[i]);
         vl->addWidget(playerNameLabel[i]);
         vl->addWidget(playerNameLineEdit[i]);
-        */
+*/
 
         v->setLayout(vl);
         vbox->addWidget(v);
@@ -82,15 +87,17 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup(int numb
 
     }
 
+    /*
     for(int i=numberOfPlayers; i<6; i++) {
         playerNameLabel[i]->setDisabled(true);
         playerNameLineEdit[i]->setDisabled(true);
     }
 
-
+    */
     groupBox->setLayout(vbox);
 
     return groupBox;
+
 }
 
 void NumberOfCardsForEachPlayerWindow::openNextWindow() {

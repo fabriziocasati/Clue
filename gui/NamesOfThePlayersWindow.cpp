@@ -2,6 +2,7 @@
 #include <QtWidgets>
 #include <boost/lexical_cast.hpp>
 #include "NumberOfCardsForEachPlayerWindow.h"
+#include <QString>
 
 NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator, QWidget *parent)
     : QWidget(parent)
@@ -9,7 +10,7 @@ NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator,
     this->mainWindow = mainWindow;
     this->newGameCreator = newGameCreator;
 
-    int numberOfPlayers = newGameCreator->getNumberOfPlayers();
+    this->numberOfPlayers = newGameCreator->getNumberOfPlayers();
 
     QString key="1";
 
@@ -29,7 +30,7 @@ NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator,
 
 
     QGridLayout *grid = new QGridLayout;
-    grid->addWidget(createNumberOfPlayersGroup(numberOfPlayers), 2, 0);
+    grid->addWidget(createNumberOfPlayersGroup(), 2, 0);
 
     setLayout(grid);
 
@@ -38,7 +39,7 @@ NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator,
 
 }
 
-QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup(int numberOfPlayers)
+QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup()
 {
 
     std::string numberString = boost::lexical_cast<std::string>(numberOfPlayers);
@@ -91,11 +92,11 @@ void NamesOfThePlayersWindow::openNumberOfCardsForEachPlayerWindow()
 {
     std::string playerName[6];
     for(int i=0; i<6; i++) {
-        //playerName[i] = playerNameLineEdit[i]->selectedText();
+        playerName[i] = (playerNameLineEdit[i]->text()).toStdString();
         playerNameLabel[i]->setText(playerNameLineEdit[i]->text());
     }
 
-    //newGameCreator->setNamesOfThePlayers(playerName);
+    newGameCreator->setNamesOfThePlayers(playerName);
     newGameCreator->openNextWindow();
 }
 

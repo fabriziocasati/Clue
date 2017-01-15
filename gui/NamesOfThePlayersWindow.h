@@ -24,7 +24,7 @@ class NamesOfThePlayersWindow  : public QWidget
         void enableOrDisableConfirmButton(const QString &text);
 
     private:
-        QGroupBox *createNumberOfPlayersGroup(int numberOfPlayers);
+        QGroupBox *createNumberOfPlayersGroup();
         QPushButton *m_button;
         int nonEmptyName[6];
         int nonEmptyNames = 0;
@@ -33,6 +33,7 @@ class NamesOfThePlayersWindow  : public QWidget
         QLabel *playerNameLabel[6];
         MainWindow *mainWindow;
         NewGameCreator *newGameCreator;
+        int numberOfPlayers;
 
 };
 

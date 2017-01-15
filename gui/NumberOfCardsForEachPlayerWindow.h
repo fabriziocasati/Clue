@@ -21,7 +21,7 @@ class NumberOfCardsForEachPlayerWindow : public QWidget
 
     private:
         NewGameCreator *newGameCreator;
-        QGroupBox *createNumberOfPlayersGroup(int numberOfPlayers);
+        QGroupBox *createNumberOfPlayersGroup();
         QPushButton *m_button;
         int nonEmptyName[6];
         int nonEmptyNames = 0;
@@ -29,6 +29,8 @@ class NumberOfCardsForEachPlayerWindow : public QWidget
         QLineEdit *playerNameLineEdit[6];
         QLabel *playerNameLabel[6];
         MainWindow *mainWindow;
+        std::string *playerName;
+        int numberOfPlayers;
 
     private slots:
         void openNextWindow();
