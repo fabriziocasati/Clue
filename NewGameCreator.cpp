@@ -1,4 +1,5 @@
 #include "NewGameCreator.h"
+#include <QDebug>
 
 NewGameCreator::NewGameCreator(MainWindow *mainWindow)
 {
@@ -42,11 +43,15 @@ std::string* NewGameCreator::getNamesOfThePlayers() {
     return playerName;
 }
 
-void NewGameCreator::setNumberOfCardsForEachPlayer(int playerCardsNumber[]) {
+void NewGameCreator::setNumberOfCardsForEachPlayer(std::vector<int> playerCardsNumber) {
     this->playerCardsNumber = playerCardsNumber;
+    for(int i=0; i < 6; i++)
+        qDebug() << "1: " << this->playerCardsNumber[i];
 }
 
-int* NewGameCreator::getNumberOfCardsForEachPlayer() {
+std::vector<int> NewGameCreator::getNumberOfCardsForEachPlayer() {
+    for(int i=0; i < 6; i++)
+        qDebug() << "2: " << this->playerCardsNumber[i];
     return playerCardsNumber;
 }
 

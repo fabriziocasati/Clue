@@ -6,6 +6,7 @@
 #include "NamesOfThePlayersWindow.h"
 #include <QtWidgets>
 #include <boost/lexical_cast.hpp>
+#include <QDebug>
 
 NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreator *newGameCreator, QWidget *parent)
     : QWidget(parent)
@@ -101,12 +102,12 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup()
 }
 
 void NumberOfCardsForEachPlayerWindow::openNextWindow() {
-    int playerCardsNumber[6];
+    std::vector<int> playerCardsNumber;
     int i, j;
     for(i=0; i<numberOfPlayers; i++)
         for(j=0; j<=6-3; j++)
             if(radioButton[i][j]->isChecked())
-                playerCardsNumber[i] = j+3;
+                playerCardsNumber.push_back(j+3);
     newGameCreator->setNumberOfCardsForEachPlayer(playerCardsNumber);
     newGameCreator->openNextWindow();
 }
