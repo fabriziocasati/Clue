@@ -49,7 +49,7 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup()
 
     QGroupBox *groupBox = new QGroupBox("Insert the number of cards held by each player");
 
-    QVBoxLayout *vbox = new QVBoxLayout;
+    QHBoxLayout *vbox = new QHBoxLayout;
     //vbox->setAlignment(Qt::AlignLeft);
     vbox->addWidget(m_button);
     //vbox->addStretch(1);
@@ -60,7 +60,7 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup()
         QString numberQString = QString::fromStdString(numberString);
         QGroupBox *v = new QGroupBox(numberQString);
 
-        QHBoxLayout *vl = new QHBoxLayout;
+        QVBoxLayout *vl = new QVBoxLayout;
 
         for(j=3; j<=6; j++) {
             std::string numberString = boost::lexical_cast<std::string>(j) + " cards";
