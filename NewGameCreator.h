@@ -21,7 +21,8 @@ public:
     void setNamesOfThePlayers(std::string *playerName);
     std::string* getNamesOfThePlayers();
     void setNumberOfCardsForEachPlayer(std::vector<int> playerCardsNumber);
-    void setCardsOfTheUser(std::string *str);
+    void setCardsOfTheUser(std::vector<std::string> userCards);
+    std::vector<std::string> getCardsOfTheUser();
     std::vector<int> getNumberOfCardsForEachPlayer();
 
 private:
@@ -31,6 +32,7 @@ private:
     int numberOfPlayers;
     std::string *playerName;
     std::vector<int> playerCardsNumber;
+    std::vector<std::string> userCards;
 
 private slots:
 

@@ -12,6 +12,9 @@ RecapWindow::RecapWindow(NewGameCreator *newGameCreator, QWidget *parent)
     QGroupBox *groupBox = new QGroupBox("Insert the number of cards held by each player");
     QVBoxLayout *vbox = new QVBoxLayout;
 
+    QPushButton *m_button = new QPushButton("numberQString", this);
+    connect(m_button, SIGNAL (clicked()), this, SLOT (openNextWindow()));
+
     /*
     for(int i=0; i < numberOfPlayers; i++) {
         qDebug() << "3: " << playerCardsNumber[i];
@@ -30,6 +33,11 @@ RecapWindow::RecapWindow(NewGameCreator *newGameCreator, QWidget *parent)
         vbox->addWidget(l);
     }
 
+    vbox->addWidget(m_button);
     setLayout(vbox);
+}
+
+void RecapWindow::openNextWindow(){
+    newGameCreator->openNextWindow();
 }
 
