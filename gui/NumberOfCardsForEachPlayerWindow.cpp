@@ -13,36 +13,25 @@ NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreato
 {
 
     this->newGameCreator = newGameCreator;
-    this->numberOfPlayers = 0;
     this->numberOfPlayers = newGameCreator->getNumberOfPlayers();
     this->playerName = newGameCreator->getNamesOfThePlayers();
 
-    QString key="1";
+    QVBoxLayout *v = new QVBoxLayout;
 
-    int p = 1914;
-
-    //hash.insert(key,p);
-    //hash["1"] = 10;
-
-    //std::string numberString = boost::lexical_cast<std::string>(hash["1"]);
-    //QString numberQString = QString::fromStdString(numberString);
-    m_button = new QPushButton("numberQString", this);
+    m_button = new QPushButton("Ok", this);
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNextWindow()));
 
+    v->addWidget(createNumberOfPlayersGroup(), 0, Qt::AlignCenter);
+    v->addWidget(m_button, 1, Qt::AlignCenter);
 
-    QGridLayout *grid = new QGridLayout;
-    grid->addWidget(createNumberOfPlayersGroup(), 2, 0);
+    setLayout(v);
 
-    setLayout(grid);
-
-    setWindowTitle("Number of Players");
-    //resize(480, 320);
+    setWindowTitle("Number of Cards for each Player");
 
 }
 
 QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup()
 {
-
 
     std::string numberString = boost::lexical_cast<std::string>(numberOfPlayers);
     QString numberQString = QString::fromStdString(numberString);
@@ -51,8 +40,6 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup()
 
     QHBoxLayout *vbox = new QHBoxLayout;
     //vbox->setAlignment(Qt::AlignLeft);
-    vbox->addWidget(m_button);
-    //vbox->addStretch(1);
     int i, j;
     for(i=0; i<numberOfPlayers; i++) {
         //std::string numberString = playerName[i] + " (Player #" + boost::lexical_cast<std::string>(i+1) + ")";
@@ -83,6 +70,13 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup()
 
         v->setLayout(vl);
         vbox->addWidget(v);
+
+        QFrame* line = new QFrame();
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+        vbox->addWidget(line);
+
+        vbox->addSpacing(10);
         //connect(playerNameLineEdit[i], SIGNAL (textEdited( const QString &)), this, SLOT (enableOrDisableConfirmButton( const QString &)));
         //hash[&playerNameLineEdit[i]] = i;
 
