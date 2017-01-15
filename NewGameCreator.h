@@ -20,8 +20,9 @@ public:
     int getNumberOfPlayers();
     void setNamesOfThePlayers(std::string *playerName);
     std::string* getNamesOfThePlayers();
-    void setNumberOfCardsForEachPlayer(int numbers[]);
+    void setNumberOfCardsForEachPlayer(int playerCardsNumber[]);
     void setCardsOfTheUser(std::string *str);
+    int *getNumberOfCardsForEachPlayer();
 
 private:
     int numberOfOpenedWindows;

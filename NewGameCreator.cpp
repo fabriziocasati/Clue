@@ -42,8 +42,12 @@ std::string* NewGameCreator::getNamesOfThePlayers() {
     return playerName;
 }
 
-void NewGameCreator::setNumberOfCardsForEachPlayer(int numbers[]) {
+void NewGameCreator::setNumberOfCardsForEachPlayer(int playerCardsNumber[]) {
+    this->playerCardsNumber = playerCardsNumber;
+}
 
+int* NewGameCreator::getNumberOfCardsForEachPlayer() {
+    return playerCardsNumber;
 }
 
 void NewGameCreator::setCardsOfTheUser(std::string *str) {
