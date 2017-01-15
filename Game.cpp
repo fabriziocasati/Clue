@@ -36,6 +36,8 @@ Game::Game()
     GameWindow *g = new GameWindow(this);
     inquiryList = new std::list<Inquiry*>();
 
+    g->show();
+
 }
 
 

@@ -11,22 +11,26 @@
 
 class CardsOfTheUserWindow : public QWidget
 {
-public:
-    CardsOfTheUserWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
+    Q_OBJECT
 
-private:
-    NewGameCreator *newGameCreator;
-    QPushButton *m_button;
+    public:
+        CardsOfTheUserWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
 
-    void openNextWindow();
-    QGroupBox* createNumberOfPlayersGroup(int numberOfPlayers);
+    private:
+        NewGameCreator *newGameCreator;
+        QPushButton *m_button;
 
-    int nonEmptyName[6];
-    int nonEmptyNames = 0;
-    QHash<QLineEdit**, int> hash;
-    QLineEdit *playerNameLineEdit[6];
-    QLabel *playerNameLabel[6];
-    MainWindow *mainWindow;
+        QGroupBox* createNumberOfPlayersGroup(int numberOfPlayers);
+
+        int nonEmptyName[6];
+        int nonEmptyNames = 0;
+        QHash<QLineEdit**, int> hash;
+        QLineEdit *playerNameLineEdit[6];
+        QLabel *playerNameLabel[6];
+        MainWindow *mainWindow;
+
+    private slots:
+        void openNextWindow();
 };
 
 #endif // CARDSOFTHEUSERWINDOW_H

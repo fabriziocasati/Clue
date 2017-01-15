@@ -4,10 +4,8 @@ NewGameCreator::NewGameCreator(MainWindow *mainWindow)
 {
     this->mainWindow = mainWindow;
     this->numberOfOpenedWindows = 0;
-    game = new Game();
 
     openNextWindow();
-
 }
 
 void NewGameCreator::openNextWindow() {
@@ -24,7 +22,8 @@ void NewGameCreator::openNextWindow() {
 
         numberOfOpenedWindows++;
         mainWindow->setSubwindow(subWindow);
-    }
+    } else
+        game = new Game();
 }
 
 void NewGameCreator::setNumberOfPlayers(int numberOfPlayers) {

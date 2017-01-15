@@ -10,11 +10,9 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     this->game = game;
 
-
     m_button2 = new QPushButton("Show Query History", this);
     m_button2->setGeometry(600, 50, 150, 30);
     connect(m_button2, SIGNAL (clicked()), this, SLOT (test()));
-
 
     QPushButton *m_button3 = new QPushButton("Insert New Query", this);
     m_button3->setGeometry(600, 90, 150, 30);
@@ -22,7 +20,6 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     label = new QLabel("Test");
     label->setGeometry(10, 10, 150, 30);
-
 
     cardTable = new QTableWidget(this);
 
