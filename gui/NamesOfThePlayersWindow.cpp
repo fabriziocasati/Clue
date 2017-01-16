@@ -81,10 +81,9 @@ QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup()
 
 void NamesOfThePlayersWindow::openNumberOfCardsForEachPlayerWindow()
 {
-    std::string playerName[6];
+    std::vector<QString> playerName;
     for(int i=0; i<numberOfPlayers; i++)
-        playerName[i] = (playerNameLineEdit[i]->text()).toStdString();
-
+        playerName.push_back(playerNameLineEdit[i]->text());
     newGameCreator->setNamesOfThePlayers(playerName);
     newGameCreator->openNextWindow();
 }

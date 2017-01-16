@@ -24,7 +24,7 @@ void NewGameCreator::openNextWindow() {
         numberOfOpenedWindows++;
         mainWindow->setSubwindow(subWindow);
     } else {
-        game = new Game(mainWindow);
+        game = new Game(mainWindow, numberOfPlayers, playerName, playerCardsNumber, userCards);
     }
 }
 
@@ -36,11 +36,11 @@ int NewGameCreator::getNumberOfPlayers() {
     return numberOfPlayers;
 }
 
-void NewGameCreator::setNamesOfThePlayers(std::string *playerName) {
+void NewGameCreator::setNamesOfThePlayers(std::vector<QString> playerName) {
     this->playerName = playerName;
 }
 
-std::string* NewGameCreator::getNamesOfThePlayers() {
+std::vector<QString> NewGameCreator::getNamesOfThePlayers() {
     return playerName;
 }
 

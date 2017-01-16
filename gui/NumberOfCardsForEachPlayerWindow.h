@@ -29,7 +29,7 @@ class NumberOfCardsForEachPlayerWindow : public QWidget
         QLineEdit *playerNameLineEdit[6];
         QLabel *playerNameLabel[6];
         MainWindow *mainWindow;
-        std::string *playerName;
+        std::vector<QString> playerName;
         int numberOfPlayers;
         QRadioButton *radioButton[6][4];
 

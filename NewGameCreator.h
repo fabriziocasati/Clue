@@ -18,8 +18,8 @@ public:
     void openNextWindow();
     void setNumberOfPlayers(int numberOfPlayers);
     int getNumberOfPlayers();
-    void setNamesOfThePlayers(std::string *playerName);
-    std::string* getNamesOfThePlayers();
+    void setNamesOfThePlayers(std::vector<QString> playerName);
+    std::vector<QString> getNamesOfThePlayers();
     void setNumberOfCardsForEachPlayer(std::vector<int> playerCardsNumber);
     void setCardsOfTheUser(std::vector<QString> userCards);
     std::vector<QString> getCardsOfTheUser();
@@ -30,7 +30,7 @@ private:
     Game *game;
     MainWindow *mainWindow;
     int numberOfPlayers;
-    std::string *playerName;
+    std::vector<QString> playerName;
     std::vector<int> playerCardsNumber;
     std::vector<QString> userCards;
 

@@ -1,12 +1,13 @@
 #include "Game.h"
 
-Game::Game(MainWindow *mainWindow)
+Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> playerName, std::vector<int> playerCardsNumber, std::vector<QString> userCards)
 {
-    int numberOfPlayers = 4;
+    /*
     playerName[0] = "Fabrizio";
     playerName[1] = "Cristina";
     playerName[2] = "Nerone";
     playerName[3] = "Grigina";
+    */
 
     roomCardName[0] = "???";
     roomCardName[1] = "Veranda";

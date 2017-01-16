@@ -10,6 +10,8 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     this->game = game;
 
+    QHBoxLayout *l = new QHBoxLayout;
+
     m_button2 = new QPushButton("Show Query History", this);
     m_button2->setGeometry(600, 50, 150, 30);
     connect(m_button2, SIGNAL (clicked()), this, SLOT (test()));
@@ -36,7 +38,13 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     cardTable->setSelectionMode(QAbstractItemView::SingleSelection);
     //cardTable->setShowGrid(false);
     //cardTable->setStyleSheet("QTableView {selection-background-color: red; color: yellow; background: blue; border: 1px solid white}");
-    cardTable->resize(550,250);
+    //cardTable->resize(1550,1250);
+    cardTable->setFixedSize(800,600);
+
+    l->addWidget(cardTable);
+    l->addWidget(m_button3);
+    l->addWidget(m_button2);
+    setLayout(l);
 
     resize(800,400);
 

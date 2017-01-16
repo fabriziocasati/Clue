@@ -38,12 +38,11 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup() {
 
     QHBoxLayout *vbox = new QHBoxLayout;
     //vbox->setAlignment(Qt::AlignLeft);
-    int i, j;
-    for(i=0; i<numberOfPlayers; i++) {
+    int i=0, j;
+     for (std::vector<QString>::iterator it = playerName.begin() ; it != playerName.end(); ++it, i++) {
+    //for(i=0; i<numberOfPlayers; i++) {
         //std::string numberString = playerName[i] + " (Player #" + boost::lexical_cast<std::string>(i+1) + ")";
-        std::string numberString = playerName[i];
-        QString numberQString = QString::fromStdString(numberString);
-        QGroupBox *v = new QGroupBox(numberQString);
+        QGroupBox *v = new QGroupBox(*it);
 
         QVBoxLayout *vl = new QVBoxLayout;
 
