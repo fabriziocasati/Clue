@@ -8,6 +8,14 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 {
     setWindowTitle(tr("Group Boxes"));
 
+    std::vector<QString> names2;
+    names2.push_back(QString("Stanza"));
+    names2.push_back(QString("Carta"));
+    names2.push_back(QString("Esempio"));
+    names2.push_back(QString("Qualcosa"));
+    names2.push_back(QString("Arma"));
+    names2.push_back(QString("Sospetto"));
+
     this->game = game;
 
     QHBoxLayout *l = new QHBoxLayout;
@@ -25,15 +33,22 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     cardTable = new QTableWidget(this);
 
-    cardTable->setRowCount(5);
+    cardTable->setRowCount(15);
     cardTable->setColumnCount(5);
     QStringList m_TableHeader;
     m_TableHeader<<"Card"<<"Envelop"<<"Player 1"<<"Player 2"<<"Player 3";
+    m_TableHeader.push_back("Ciao");
+    m_TableHeader<<"Player 4";
+    for (std::vector<QString>::iterator it = names2.begin() ; it != names2.end(); ++it) {
+        m_TableHeader.push_back(*it);
+    }
+
+
     cardTable->setHorizontalHeaderLabels(m_TableHeader);
     //cardTable->verticalHeader()->setSizeAdjustPolicy(QHeaderView::Fixed);
     //cardTable->verticalHeader()->resizeSection( 0, 200 );
     //cardTable->horizontalHeader()->setDefaultSectionSize(50);
-    //cardTable->setVerticalHeaderLabels(m_TableHeader);
+    cardTable->setVerticalHeaderLabels(m_TableHeader);
     //cardTable->verticalHeader()->setVisible(false);
     //cardTable->verticalScrollBar()->setEnabled(true);
     cardTable->verticalHeader()->setMinimumWidth(50);
@@ -45,10 +60,19 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     QTableWidgetItem *q = new QTableWidgetItem("Hello");
     //i->setBackground(QBrush(QColor(Qt::blue)));
     //i->setTextColor(QColor(Qt::red));
-    q->setTextColor(QColor(Qt::green));
+    q->setBackground(QBrush(QColor(Qt::green)));
+    //q->setTextColor(QColor(Qt::green));
     q->setTextAlignment(Qt::AlignCenter);
     cardTable->setItem(0, 0, q);
     cardTable->setFixedSize(800,600);
+    q = new QTableWidgetItem("Hello");
+    q->setTextColor(QColor(Qt::green));
+    q->setTextAlignment(Qt::AlignCenter);
+    cardTable->setItem(0, 1, q);
+    q = new QTableWidgetItem("Hello");
+    q->setBackground(QBrush(QColor(Qt::red)));
+    q->setTextAlignment(Qt::AlignCenter);
+    cardTable->setItem(1, 0, q);
 
 
     l->addWidget(cardTable);
@@ -58,6 +82,22 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     resize(800,400);
 
+    std::vector<QString>::iterator it = names2.begin();
+    for(int i=0; i<15; i++) {
+        if(QString("Arma").compare(*it) == 0) {
+            q = new QTableWidgetItem("Hello");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i, 2, q);
+        } else {
+            q = new QTableWidgetItem("Hello");
+            q->setTextColor(QColor(Qt::green));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i, 2, q);
+            ++it;
+        }
+        //
+    }
 }
 
 void GameWindow::openQueryListWindow() {
