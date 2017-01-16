@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game()
+Game::Game(MainWindow *mainWindow)
 {
     int numberOfPlayers = 4;
     playerName[0] = "Fabrizio";
@@ -35,7 +35,7 @@ Game::Game()
 
     GameWindow *g = new GameWindow(this);
     inquiryList = new std::list<Inquiry*>();
-
+    mainWindow->setSubwindow(g);
     g->show();
 
 }

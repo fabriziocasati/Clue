@@ -23,8 +23,9 @@ void NewGameCreator::openNextWindow() {
         }
         numberOfOpenedWindows++;
         mainWindow->setSubwindow(subWindow);
-    } else
-        game = new Game();
+    } else {
+        game = new Game(mainWindow);
+    }
 }
 
 void NewGameCreator::setNumberOfPlayers(int numberOfPlayers) {
