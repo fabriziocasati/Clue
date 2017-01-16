@@ -11,21 +11,12 @@ NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator,
     this->newGameCreator = newGameCreator;
     this->numberOfPlayers = newGameCreator->getNumberOfPlayers();
 
-    //QString key="1";
-    //int p = 1914;
-
-    //hash.insert(key,p);
-    //hash["1"] = 10;
-
     nonEmptyNames = 0;
 
-    //std::string numberString = boost::lexical_cast<std::string>(hash["1"]);
-    //QString numberQString = QString::fromStdString(numberString);
-    m_button = new QPushButton("numberQString", this);
+    m_button = new QPushButton("Ok", this);
 
     for(int i=0; i<6; i++)
     nonEmptyName[i] = 0;
-
 
     QVBoxLayout *grid = new QVBoxLayout;
     grid->addWidget(createNumberOfPlayersGroup(), 0, Qt::AlignCenter);
@@ -34,8 +25,6 @@ NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator,
     setLayout(grid);
 
     setWindowTitle("Number of Players");
-    //resize(480, 320);
-
 }
 
 QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup()
@@ -46,32 +35,34 @@ QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup()
 
     QGroupBox *groupBox = new QGroupBox("Insert the names of the players");
 
-    //QPushButton *m_button = new QPushButton(numberQString, this);
-
     m_button->setDisabled(true);
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNumberOfCardsForEachPlayerWindow()));
 
-    QVBoxLayout *vbox = new QVBoxLayout();
-    //vbox->setAlignment(Qt::AlignLeft);
+    QGridLayout *vbox = new QGridLayout();
     vbox->addWidget(m_button);
-    //vbox->addStretch(1);
-
-
+    vbox->setSpacing(10);
 
     for(int i=0; i<numberOfPlayers; i++) {
-        QGroupBox *v = new QGroupBox("Player");
+        QGroupBox *v = new QGroupBox();
         QHBoxLayout *vl = new QHBoxLayout;
         playerNameLineEdit[i] = new QLineEdit();
-        //std::string numberString = "Name of the player #" + boost::lexical_cast<std::string>(i+1) + ":";
-        std::string numberString = boost::lexical_cast<std::string>(&playerNameLabel[i]);
+        std::string numberString = "Player #" + boost::lexical_cast<std::string>(i+1) + ":";
         QString numberQString = QString::fromStdString(numberString);
         playerNameLabel[i] = new QLabel(numberQString);
         //vbox->addWidget(playerNameLineEdit[i]);
         //vbox->addWidget(playerNameLabel[i]);
-        vl->addWidget(playerNameLabel[i]);
-        vl->addWidget(playerNameLineEdit[i]);
-        v->setLayout(vl);
-        vbox->addWidget(v);
+        //vl->addWidget(playerNameLabel[i]);
+        //vl->addWidget(playerNameLineEdit[i]);
+        //v->setLayout(vl);
+        //vbox->addWidget(v);
+        vbox->addWidget(playerNameLabel[i], i*2, 0);
+        vbox->addWidget(playerNameLineEdit[i], i*2, 1);
+        /*
+        QFrame* line = new QFrame();
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+        vbox->addWidget(line);
+        */
         connect(playerNameLineEdit[i], SIGNAL (textEdited( const QString &)), this, SLOT (enableOrDisableConfirmButton( const QString &)));
         hash[&playerNameLineEdit[i]] = i;
     }
@@ -91,10 +82,8 @@ QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup()
 void NamesOfThePlayersWindow::openNumberOfCardsForEachPlayerWindow()
 {
     std::string playerName[6];
-    for(int i=0; i<numberOfPlayers; i++) {
+    for(int i=0; i<numberOfPlayers; i++)
         playerName[i] = (playerNameLineEdit[i]->text()).toStdString();
-        playerNameLabel[i]->setText(playerNameLineEdit[i]->text());
-    }
 
     newGameCreator->setNamesOfThePlayers(playerName);
     newGameCreator->openNextWindow();
@@ -118,7 +107,4 @@ void NamesOfThePlayersWindow::enableOrDisableConfirmButton(const QString &text)
         m_button->setDisabled(false);
     else
         m_button->setDisabled(true);
-    std::string numberString = boost::lexical_cast<std::string>(nonEmptyNames) ;
-    QString numberQString = QString::fromStdString(numberString);
-    m_button->setText(numberQString);
 }
