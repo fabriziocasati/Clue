@@ -30,16 +30,26 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     QStringList m_TableHeader;
     m_TableHeader<<"Card"<<"Envelop"<<"Player 1"<<"Player 2"<<"Player 3";
     cardTable->setHorizontalHeaderLabels(m_TableHeader);
-    cardTable->setVerticalHeaderLabels(m_TableHeader);
+    //cardTable->verticalHeader()->setSizeAdjustPolicy(QHeaderView::Fixed);
+    //cardTable->verticalHeader()->resizeSection( 0, 200 );
+    //cardTable->horizontalHeader()->setDefaultSectionSize(50);
+    //cardTable->setVerticalHeaderLabels(m_TableHeader);
     //cardTable->verticalHeader()->setVisible(false);
     //cardTable->verticalScrollBar()->setEnabled(true);
+    cardTable->verticalHeader()->setMinimumWidth(50);
     cardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     cardTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     cardTable->setSelectionMode(QAbstractItemView::SingleSelection);
     //cardTable->setShowGrid(false);
     //cardTable->setStyleSheet("QTableView {selection-background-color: red; color: yellow; background: blue; border: 1px solid white}");
-    //cardTable->resize(1550,1250);
+    QTableWidgetItem *q = new QTableWidgetItem("Hello");
+    //i->setBackground(QBrush(QColor(Qt::blue)));
+    //i->setTextColor(QColor(Qt::red));
+    q->setTextColor(QColor(Qt::green));
+    q->setTextAlignment(Qt::AlignCenter);
+    cardTable->setItem(0, 0, q);
     cardTable->setFixedSize(800,600);
+
 
     l->addWidget(cardTable);
     l->addWidget(m_button3);

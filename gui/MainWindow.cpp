@@ -8,6 +8,8 @@
 #include <QStatusBar>
 #include <QMenu>
 #include <QMenuBar>
+#include "Game.h"
+#include <QString>
 
 MainWindow::MainWindow(Main *main, QWidget *parent) :
     QMainWindow(parent)
@@ -44,6 +46,25 @@ MainWindow::MainWindow(Main *main, QWidget *parent) :
     pic->setStyleSheet("background-image: url(/home/fabrizio/qt_workspace/Clue_Solver/img.jpg)");
     pic->setGeometry(QRect(0,0,this->maximumWidth(),this->maximumHeight()));
     */
+
+    std::vector<QString> names;
+    names.push_back(QString("Fabrizio"));
+    names.push_back(QString("Cristina"));
+    names.push_back(QString("Grigina"));
+    names.push_back(QString("Nerone"));
+
+    std::vector<int> num;
+    num.push_back(5);
+    num.push_back(5);
+    num.push_back(5);
+    num.push_back(5);
+
+    std::vector<QString> names2;
+    names2.push_back(QString("Stanza"));
+    names2.push_back(QString("Arma"));
+    names2.push_back(QString("Sospetto"));
+
+    new Game(this, 4, names, num, names2);
 
 }
 
