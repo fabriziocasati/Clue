@@ -29,6 +29,10 @@ class CardsOfTheUserWindow : public QWidget
         QLabel *playerNameLabel[6];
         MainWindow *mainWindow;
 
+        QCheckBox *roomCardCheckBox[9];
+        QCheckBox *suspectCardCheckBox[9];
+        QCheckBox *weaponCardCheckBox[9];
+
     private slots:
         void openNextWindow();
 };

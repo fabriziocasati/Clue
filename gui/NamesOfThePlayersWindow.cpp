@@ -24,7 +24,7 @@ NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator,
 
     setLayout(grid);
 
-    setWindowTitle("Number of Players");
+    setWindowTitle("Names of the Players");
 }
 
 QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup()

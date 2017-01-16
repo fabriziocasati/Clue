@@ -55,10 +55,10 @@ std::vector<int> NewGameCreator::getNumberOfCardsForEachPlayer() {
     return playerCardsNumber;
 }
 
-void NewGameCreator::setCardsOfTheUser(std::vector<std::string> userCards) {
+void NewGameCreator::setCardsOfTheUser(std::vector<QString> userCards) {
     this->userCards = userCards;
 }
 
-std::vector<std::string> NewGameCreator::getCardsOfTheUser() {
+std::vector<QString> NewGameCreator::getCardsOfTheUser() {
     return userCards;
 }

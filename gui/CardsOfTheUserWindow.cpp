@@ -13,19 +13,37 @@ CardsOfTheUserWindow::CardsOfTheUserWindow(NewGameCreator *newGameCreator, QWidg
     : QWidget(parent)
 {
     this->newGameCreator = newGameCreator;
-    m_button = new QPushButton("numberQString", this);
+
+    m_button = new QPushButton("Ok", this);
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNextWindow()));
 
-    QGridLayout *grid = new QGridLayout;
-    grid->addWidget(createNumberOfPlayersGroup(6), 2, 0);
+    QVBoxLayout *grid = new QVBoxLayout;
+    grid->addWidget(createNumberOfPlayersGroup(6), 0, Qt::AlignCenter);
+    grid->addWidget(m_button, 1, Qt::AlignCenter);
 
     setLayout(grid);
 
-    setWindowTitle("Number of Players");
+    setWindowTitle("Your Cards");
 }
 
 void CardsOfTheUserWindow::openNextWindow() {
+
+    std::vector<QString> userCards;
+    for(int i=0; i<6; i++) {
+        if(roomCardCheckBox[i]->isChecked())
+            userCards.push_back(roomCardCheckBox[i]->text());
+        if(suspectCardCheckBox[i]->isChecked())
+            userCards.push_back(suspectCardCheckBox[i]->text());
+        if(weaponCardCheckBox[i]->isChecked())
+            userCards.push_back(weaponCardCheckBox[i]->text());
+    }
+    for(int i=6; i<9; i++)
+        if(roomCardCheckBox[i]->isChecked())
+            userCards.push_back(roomCardCheckBox[i]->text());
+
+    newGameCreator->setCardsOfTheUser(userCards);
     newGameCreator->openNextWindow();
+
 }
 
 
@@ -35,51 +53,64 @@ QGroupBox* CardsOfTheUserWindow::createNumberOfPlayersGroup(int numberOfPlayers)
     std::string numberString = boost::lexical_cast<std::string>(numberOfPlayers);
     QString numberQString = QString::fromStdString(numberString);
 
-    QGroupBox *groupBox = new QGroupBox("Insert the number of cards held by each player");
+    QGroupBox *groupBox = new QGroupBox("Select which cards you were given");
 
     QHBoxLayout *vbox = new QHBoxLayout;
+    vbox->setSpacing(30);
     //vbox->setAlignment(Qt::AlignLeft);
     vbox->addWidget(m_button);
     //vbox->addStretch(1);
 
-    for(int i=0; i<3; i++) {
-        std::string numberString = "Player #" + boost::lexical_cast<std::string>(i+1);
-        QString numberQString = QString::fromStdString(numberString);
-        QGroupBox *v = new QGroupBox(numberQString);
+    {
+        QGroupBox *v = new QGroupBox("Room Cards");
 
         QVBoxLayout *vl = new QVBoxLayout;
 
         for(int i=0; i<9; i++) {
             std::string numberString = boost::lexical_cast<std::string>(i);
             QString numberQString = QString::fromStdString(numberString);
-            QCheckBox *r = new QCheckBox(numberQString);
-            vl->addWidget(r);
+            roomCardCheckBox[i] = new QCheckBox(numberQString);
+            vl->addWidget(roomCardCheckBox[i]);
         }
-
-        /*
-        playerNameLineEdit[i] = new QLineEdit();
-        //std::string numberString = "Name of the player #" + boost::lexical_cast<std::string>(i+1) + ":";
-        std::string numberString = boost::lexical_cast<std::string>(&playerNameLabel[i]);
-        QString numberQString = QString::fromStdString(numberString);
-        playerNameLabel[i] = new QLabel(numberQString);
-        //vbox->addWidget(playerNameLineEdit[i]);
-        //vbox->addWidget(playerNameLabel[i]);
-        vl->addWidget(playerNameLabel[i]);
-        vl->addWidget(playerNameLineEdit[i]);
-        */
 
         v->setLayout(vl);
         vbox->addWidget(v);
-        //connect(playerNameLineEdit[i], SIGNAL (textEdited( const QString &)), this, SLOT (enableOrDisableConfirmButton( const QString &)));
-        //hash[&playerNameLineEdit[i]] = i;
 
     }
 
-    for(int i=numberOfPlayers; i<6; i++) {
-        playerNameLabel[i]->setDisabled(true);
-        playerNameLineEdit[i]->setDisabled(true);
+    {
+        QGroupBox *v = new QGroupBox("Suspect Cards");
+
+        QVBoxLayout *vl = new QVBoxLayout;
+
+        for(int i=0; i<6; i++) {
+            std::string numberString = boost::lexical_cast<std::string>(i);
+            QString numberQString = QString::fromStdString(numberString);
+            suspectCardCheckBox[i] = new QCheckBox(numberQString);
+            vl->addWidget(suspectCardCheckBox[i]);
+        }
+
+        v->setLayout(vl);
+        vbox->addWidget(v);
+
     }
 
+    {
+        QGroupBox *v = new QGroupBox("Weapon Cards");
+
+        QVBoxLayout *vl = new QVBoxLayout;
+
+        for(int i=0; i<6; i++) {
+            std::string numberString = boost::lexical_cast<std::string>(i);
+            QString numberQString = QString::fromStdString(numberString);
+            weaponCardCheckBox[i] = new QCheckBox(numberQString);
+            vl->addWidget(weaponCardCheckBox[i]);
+        }
+
+        v->setLayout(vl);
+        vbox->addWidget(v);
+
+    }
 
     groupBox->setLayout(vbox);
 
