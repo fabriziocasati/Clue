@@ -9,12 +9,10 @@ NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator,
 {
     this->mainWindow = mainWindow;
     this->newGameCreator = newGameCreator;
-
     this->numberOfPlayers = newGameCreator->getNumberOfPlayers();
 
-    QString key="1";
-
-    int p = 1914;
+    //QString key="1";
+    //int p = 1914;
 
     //hash.insert(key,p);
     //hash["1"] = 10;
@@ -29,8 +27,9 @@ NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator,
     nonEmptyName[i] = 0;
 
 
-    QGridLayout *grid = new QGridLayout;
-    grid->addWidget(createNumberOfPlayersGroup(), 2, 0);
+    QVBoxLayout *grid = new QVBoxLayout;
+    grid->addWidget(createNumberOfPlayersGroup(), 0, Qt::AlignCenter);
+    grid->addWidget(m_button, 1, Qt::AlignCenter);
 
     setLayout(grid);
 
@@ -52,14 +51,14 @@ QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup()
     m_button->setDisabled(true);
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNumberOfCardsForEachPlayerWindow()));
 
-    QVBoxLayout *vbox = new QVBoxLayout;
+    QVBoxLayout *vbox = new QVBoxLayout();
     //vbox->setAlignment(Qt::AlignLeft);
     vbox->addWidget(m_button);
     //vbox->addStretch(1);
 
 
 
-    for(int i=0; i<6; i++) {
+    for(int i=0; i<numberOfPlayers; i++) {
         QGroupBox *v = new QGroupBox("Player");
         QHBoxLayout *vl = new QHBoxLayout;
         playerNameLineEdit[i] = new QLineEdit();
@@ -77,11 +76,12 @@ QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup()
         hash[&playerNameLineEdit[i]] = i;
     }
 
+    /*
     for(int i=numberOfPlayers; i<6; i++) {
         playerNameLabel[i]->setDisabled(true);
         playerNameLineEdit[i]->setDisabled(true);
     }
-
+    */
 
     groupBox->setLayout(vbox);
 
@@ -91,7 +91,7 @@ QGroupBox *NamesOfThePlayersWindow::createNumberOfPlayersGroup()
 void NamesOfThePlayersWindow::openNumberOfCardsForEachPlayerWindow()
 {
     std::string playerName[6];
-    for(int i=0; i<6; i++) {
+    for(int i=0; i<numberOfPlayers; i++) {
         playerName[i] = (playerNameLineEdit[i]->text()).toStdString();
         playerNameLabel[i]->setText(playerNameLineEdit[i]->text());
     }
