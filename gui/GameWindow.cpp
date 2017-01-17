@@ -176,3 +176,7 @@ void GameWindow::myupdate() {
     inquiryHistoryTable->setItem(0, 1, new QTableWidgetItem(numberQString));
 */
 }
+
+void GameWindow::updateCardTable(QString card, QString player, QString value) {
+
+}

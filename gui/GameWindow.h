@@ -25,6 +25,7 @@ public:
     QTableWidget *cardTable;
 
     void myupdate();
+    void updateCardTable();
 
 public slots:
     void openQueryListWindow();

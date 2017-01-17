@@ -6,16 +6,6 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
 
     QHash<QString, QString> hash;
 
-    roomCardName[0] = "???";
-    roomCardName[1] = "Veranda";
-    roomCardName[2] = "Camera";
-    roomCardName[3] = "Studio";
-    roomCardName[4] = "Cucina";
-    roomCardName[5] = "Hall";
-    roomCardName[6] = "Sala biliardo";
-    roomCardName[7] = "Sala da pranzo";
-    roomCardName[8] = "Sala da ballo";
-
     suspectCardName[0] = "Peacock";
     suspectCardName[1] = "White";
     suspectCardName[2] = "Green";
