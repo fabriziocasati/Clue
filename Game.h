@@ -26,6 +26,9 @@ public:
     Player player[6];
 
     void addInquiry(Inquiry *q);
+    std::vector<QString> getUserCards();
+
+    std::vector<QString> userCards;
 
 };
 
