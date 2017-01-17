@@ -25,7 +25,10 @@ public:
     QTableWidget *cardTable;
 
     void myupdate();
-    void updateCardTable();
+    void updateCardTable(QString card, QString player, QString value);
+
+private:
+    std::vector<QString> roomCard;
 
 public slots:
     void openQueryListWindow();

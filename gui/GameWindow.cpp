@@ -1,6 +1,7 @@
 #include "GameWindow.h"
 #include <QHeaderView>
 #include <boost/lexical_cast.hpp>
+#include <QDebug>
 
 
 GameWindow::GameWindow(Game *game, QWidget *parent)
@@ -8,7 +9,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 {
     setWindowTitle(tr("Group Boxes"));
 
-    std::vector<QString> roomCard;
+
     roomCard.push_back(QString("Kitchen"));
     roomCard.push_back(QString("Ballroom"));
     roomCard.push_back(QString("Conservatory"));
@@ -178,5 +179,49 @@ void GameWindow::myupdate() {
 }
 
 void GameWindow::updateCardTable(QString card, QString player, QString value) {
+    std::vector<QString> userCards = game->getUserCards();
+    std::vector<QString>::iterator it = roomCard.begin();
+    int ok = 0;
+    int i=0;
+    while(!ok && it != roomCard.end())
+        if((*it).compare(card) == 0)
+            ok=1;
+        else {
+            ++it, i++;
+        }
 
+    qDebug() << i;
+    /*
+        for(it = userCards.begin(); !ok && it != userCards.end(); ++it)
+            if((*it).compare(*it2) == 0)
+                ok = 1;
+        if(ok) {
+            q = new QTableWidgetItem("Yes");
+            q->setTextColor(QColor(Qt::green));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 3, q);
+            q = new QTableWidgetItem("No");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 0, q);
+            q = new QTableWidgetItem("No");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 1, q);
+            q = new QTableWidgetItem("No");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 2, q);
+            q = new QTableWidgetItem("No");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 4, q);
+        } else {
+            q = new QTableWidgetItem("No");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 3, q);
+        }
+        }
+        */
 }

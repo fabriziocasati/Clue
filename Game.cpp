@@ -38,6 +38,8 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
     mainWindow->setSubwindow(g);
     g->show();
 
+    g->updateCardTable("Conservatory", "Cristina", "Yes");
+
 }
 
 void Game::addInquiry(Inquiry *q) {
