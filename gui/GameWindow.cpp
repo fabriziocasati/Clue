@@ -57,7 +57,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     cardTable->setSelectionMode(QAbstractItemView::SingleSelection);
     //cardTable->setShowGrid(false);
     //cardTable->setStyleSheet("QTableView {selection-background-color: red; color: yellow; background: blue; border: 1px solid white}");
-    QTableWidgetItem *q = new QTableWidgetItem("Hello");
+    QTableWidgetItem *q = new QTableWidgetItem("Yes");
     //i->setBackground(QBrush(QColor(Qt::blue)));
     //i->setTextColor(QColor(Qt::red));
     q->setBackground(QBrush(QColor(Qt::green)));
@@ -65,11 +65,11 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     q->setTextAlignment(Qt::AlignCenter);
     cardTable->setItem(0, 0, q);
     cardTable->setFixedSize(800,600);
-    q = new QTableWidgetItem("Hello");
+    q = new QTableWidgetItem("Yes");
     q->setTextColor(QColor(Qt::green));
     q->setTextAlignment(Qt::AlignCenter);
     cardTable->setItem(0, 1, q);
-    q = new QTableWidgetItem("Hello");
+    q = new QTableWidgetItem("No");
     q->setBackground(QBrush(QColor(Qt::red)));
     q->setTextAlignment(Qt::AlignCenter);
     cardTable->setItem(1, 0, q);
@@ -96,8 +96,39 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
             cardTable->setItem(i, 2, q);
             ++it;
         }
-        //
     }
+
+    q = new QTableWidgetItem("?");
+    q->setTextAlignment(Qt::AlignCenter);
+    cardTable->setItem(5, 4, q);
+    q = new QTableWidgetItem("?");
+    q->setBackground(QBrush(QColor(Qt::yellow)));
+    q->setTextAlignment(Qt::AlignCenter);
+    cardTable->setItem(2, 0, q);
+
+    std::vector<QString> userCards = game->getUserCards();
+    it = userCards.begin();
+    std::vector<QString>::iterator it2 = names2.begin();
+    QString s = *it;
+    int ok;
+    for(int i=0; i < 15-7 && it2 != names2.end(); ++it2, i++) {
+        ok = 0;
+        for(it = userCards.begin(); !ok && it != userCards.end(); ++it)
+            if((*it).compare(*it2) == 0)
+                ok = 1;
+        if(ok) {
+            q = new QTableWidgetItem("Yes");
+            q->setTextColor(QColor(Qt::green));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 3, q);
+        } else {
+            q = new QTableWidgetItem("No");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 3, q);
+        }
+        }
+
 }
 
 void GameWindow::openQueryListWindow() {
