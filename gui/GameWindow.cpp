@@ -8,13 +8,18 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 {
     setWindowTitle(tr("Group Boxes"));
 
-    std::vector<QString> names2;
-    names2.push_back(QString("Stanza"));
-    names2.push_back(QString("Carta"));
-    names2.push_back(QString("Esempio"));
-    names2.push_back(QString("Qualcosa"));
-    names2.push_back(QString("Arma"));
-    names2.push_back(QString("Sospetto"));
+    std::vector<QString> roomCard;
+    roomCard.push_back(QString("Kitchen"));
+    roomCard.push_back(QString("Ballroom"));
+    roomCard.push_back(QString("Conservatory"));
+    roomCard.push_back(QString("Dining Room"));
+    roomCard.push_back(QString("Billiard Room"));
+    roomCard.push_back(QString("Library"));
+    roomCard.push_back(QString("Lounge"));
+    roomCard.push_back(QString("Hall"));
+    roomCard.push_back(QString("Study"));
+
+    std::vector<QString> names2 = roomCard;
 
     this->game = game;
 
@@ -33,7 +38,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     cardTable = new QTableWidget(this);
 
-    cardTable->setRowCount(15);
+    cardTable->setRowCount(20);
     cardTable->setColumnCount(5);
     QStringList m_TableHeader;
     m_TableHeader<<"Card"<<"Envelop"<<"Player 1"<<"Player 2"<<"Player 3";
@@ -82,7 +87,9 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     resize(800,400);
 
-    std::vector<QString>::iterator it = names2.begin();
+    std::vector<QString>::iterator it;
+    /*
+    it = names2.begin();
     for(int i=0; i<15; i++) {
         if(QString("Arma").compare(*it) == 0) {
             q = new QTableWidgetItem("Hello");
@@ -97,6 +104,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
             ++it;
         }
     }
+    */
 
     q = new QTableWidgetItem("?");
     q->setTextAlignment(Qt::AlignCenter);
@@ -106,12 +114,13 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     q->setTextAlignment(Qt::AlignCenter);
     cardTable->setItem(2, 0, q);
 
+
     std::vector<QString> userCards = game->getUserCards();
     it = userCards.begin();
     std::vector<QString>::iterator it2 = names2.begin();
     QString s = *it;
     int ok;
-    for(int i=0; i < 15-7 && it2 != names2.end(); ++it2, i++) {
+    for(int i=0; i < 20-7 && it2 != names2.end(); ++it2, i++) {
         ok = 0;
         for(it = userCards.begin(); !ok && it != userCards.end(); ++it)
             if((*it).compare(*it2) == 0)
@@ -121,6 +130,22 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
             q->setTextColor(QColor(Qt::green));
             q->setTextAlignment(Qt::AlignCenter);
             cardTable->setItem(i+7, 3, q);
+            q = new QTableWidgetItem("No");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 0, q);
+            q = new QTableWidgetItem("No");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 1, q);
+            q = new QTableWidgetItem("No");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 2, q);
+            q = new QTableWidgetItem("No");
+            q->setTextColor(QColor(Qt::red));
+            q->setTextAlignment(Qt::AlignCenter);
+            cardTable->setItem(i+7, 4, q);
         } else {
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
@@ -151,4 +176,3 @@ void GameWindow::myupdate() {
     inquiryHistoryTable->setItem(0, 1, new QTableWidgetItem(numberQString));
 */
 }
-

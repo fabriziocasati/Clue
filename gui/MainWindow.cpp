@@ -60,9 +60,9 @@ MainWindow::MainWindow(Main *main, QWidget *parent) :
     num.push_back(5);
 
     std::vector<QString> names2;
-    names2.push_back(QString("Stanza"));
-    names2.push_back(QString("Arma"));
-    names2.push_back(QString("Sospetto"));
+    names2.push_back(QString("Kitchen"));
+    names2.push_back(QString("Lounge"));
+    names2.push_back(QString("Library"));
 
     new Game(this, 4, names, num, names2);
 

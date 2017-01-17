@@ -1,13 +1,10 @@
 #include "Game.h"
+#include <QHash>
 
 Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> playerName, std::vector<int> playerCardsNumber, std::vector<QString> userCards)
 {
-    /*
-    playerName[0] = "Fabrizio";
-    playerName[1] = "Cristina";
-    playerName[2] = "Nerone";
-    playerName[3] = "Grigina";
-    */
+
+    QHash<QString, QString> hash;
 
     roomCardName[0] = "???";
     roomCardName[1] = "Veranda";
@@ -33,6 +30,16 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
     weaponCardName[4] = "Pugnale";
     weaponCardName[5] = "???";
 
+    std::vector<QString> roomCard;
+    roomCard.push_back(QString("Kitchen"));
+    roomCard.push_back(QString("Ballroom"));
+    roomCard.push_back(QString("Conservatory"));
+    roomCard.push_back(QString("Dining Room"));
+    roomCard.push_back(QString("Billiard Room"));
+    roomCard.push_back(QString("Library"));
+    roomCard.push_back(QString("Lounge"));
+    roomCard.push_back(QString("Hall"));
+    roomCard.push_back(QString("Study"));
 
     this->userCards = userCards;
 
@@ -50,4 +57,6 @@ void Game::addInquiry(Inquiry *q) {
 std::vector<QString> Game::getUserCards() {
     return userCards;
 }
+
+
 
