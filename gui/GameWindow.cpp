@@ -98,7 +98,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     QTableWidget *suspectCardTable = new QTableWidget(this);
     QStringList m_TableHeader2;
-    suspectCardTable->setRowCount(30);
+    suspectCardTable->setRowCount(25);
     suspectCardTable->setColumnCount(5);
     //m_TableHeader<<"Card"<<"Envelop"<<"Player 1"<<"Player 2"<<"Player 3";
     //m_TableHeader.push_back("Ciao");
@@ -115,17 +115,27 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     int h=25;
     //suspectCardTable->verticalHeader()->setMaximumHeight(h);
-    //suspectCardTable->verticalHeader()->setMinimumHeight(h);
-    //suspectCardTable->horizontalHeader()->setMinimumHeight(h);
+
+    suspectCardTable->horizontalHeader()->setMinimumHeight(h);
+    suspectCardTable->horizontalHeader()->setMaximumHeight(h);
     for(int i=0; i<suspectCardTable->rowCount(); i++)
        suspectCardTable->setRowHeight(i, h);
+
+    int k=110;
+    suspectCardTable->verticalHeader()->setMinimumWidth(k);
+    for(int i=0; i<suspectCardTable->columnCount(); i++)
+       suspectCardTable->setColumnWidth(i, k);
+
+    suspectCardTable->horizontalHeader()->setSectionResizeMode (QHeaderView::Fixed);
+    suspectCardTable->verticalHeader()->setSectionResizeMode (QHeaderView::Fixed);
 
     //suspectCardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     //suspectCardTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     //suspectCardTable->setSelectionMode(QAbstractItemView::SingleSelection);
 
 
-    suspectCardTable->setFixedSize(800,h*(suspectCardTable->rowCount())+(suspectCardTable->horizontalHeader()->height())+2);
+    suspectCardTable->setFixedSize(k*(suspectCardTable->columnCount())+(suspectCardTable->verticalHeader()->width())+2,
+                h*(suspectCardTable->rowCount())+(suspectCardTable->horizontalHeader()->height())+2);
 
 
     suspectCardTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -172,7 +182,10 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     rect.setWidth(width);
     rect.setHeight(length);
     suspectCardTable->setGeometry(rect);
+
 */
+
+    suspectCardTable->setStyleSheet("{ border-left: 10px solid black; }");
 
 
     l->addWidget(cardTable, 0, Qt::AlignCenter);
