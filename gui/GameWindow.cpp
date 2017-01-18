@@ -18,14 +18,6 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     QVBoxLayout *l = new QVBoxLayout;
 
-    m_button2 = new QPushButton("Show Query History", this);
-    m_button2->setGeometry(600, 50, 150, 30);
-    connect(m_button2, SIGNAL (clicked()), this, SLOT (test()));
-
-    QPushButton *m_button3 = new QPushButton("Insert New Query", this);
-    m_button3->setGeometry(600, 90, 150, 30);
-    connect(m_button3, SIGNAL (clicked()), this, SLOT (openQueryListWindow()));
-
     roomCardTable = new QTableWidget(this);
 
     roomCardTable->setRowCount(roomCardList.capacity());
@@ -89,11 +81,11 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     //cardTable->setFixedSize(400,300);
     //setFixedSize(cardTable->horizontalHeader()->length() + 600, cardTable->verticalHeader()->length() + 100);
 
-    int vwidth = roomCardTable->verticalHeader()->width();
-    int hwidth = roomCardTable->horizontalHeader()->length();
+    //int vwidth = roomCardTable->verticalHeader()->width();
+    //int hwidth = roomCardTable->horizontalHeader()->length();
     //int swidth = cardTable->style()->pixelMetric(QtGui::QStyle::PM_ScrollBarExtent);
-    int swidth = 0;
-    int fwidth = roomCardTable->frameWidth() * 2;
+    //int swidth = 0;
+    //int fwidth = roomCardTable->frameWidth() * 2;
 
     roomCardTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     roomCardTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -265,8 +257,6 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     l->addWidget(roomCardTable, 0, Qt::AlignCenter);
     l->addWidget(suspectCardTable, 1, Qt::AlignCenter);
     l->addWidget(weaponCardTable, 1, Qt::AlignCenter);
-    l->addWidget(m_button3, 2, Qt::AlignCenter);
-    l->addWidget(m_button2, 3, Qt::AlignCenter);
 
     setLayout(l);
 
@@ -343,16 +333,6 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
         */
         //roomCardTable->setSelectionModel(QItemSelectionModel::Deselect);
 
-}
-
-void GameWindow::openQueryListWindow() {
-    NewInquiryWindow *w = new NewInquiryWindow(game, this);
-    w->show();
-}
-
-void GameWindow::test() {
-    InquiryHistoryWindow *h = new InquiryHistoryWindow(game);
-    h->show();
 }
 
 void GameWindow::myupdate() {

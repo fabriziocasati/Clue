@@ -21,8 +21,6 @@ public:
     GameWindow(Game *game, QWidget *parent = 0);
 
     Game *game;
-    QLabel *label;
-    QPushButton *m_button2;
     QTableWidget *roomCardTable;
 
     void myupdate();
@@ -33,9 +31,6 @@ private:
     std::vector<QString> suspectCardList;
     std::vector<QString> weaponCardList;
 
-public slots:
-    void openQueryListWindow();
-    void test();
 };
 
 #endif // GAMEWINDOW_H
