@@ -2,7 +2,7 @@
 
 ## Overview ##
 
-*Clue Solver* is intended to be used during a Clue play to help the user play at the best of his capabilities. The user, by means of a GUI, is supposed to continously insert the queries that are made during the inquiry phases of a play (i.e., insert which cards are searched by another player, which player shows him a card, etc.), so that *Clue Solver* can use this knowledge to continuously make deductions about the current play (e.g.: understand which cards are held by a certain adversary player, etc.); the user can also use the GUI to check the results of the deductions of *Clue Solver*, so that he can use this knowledge to play better during his turns (e.g.: make better inquiries, decide which room is more convient for him to reach, etc.).
+*Clue Solver* is an is intended to be used during a Clue play to help the user play in the best way. More precisely, the user, by means of a GUI, is supposed to continously insert into *Clue Solver* the inquiries that are made during the inquiry phases of a play (i.e., insert which cards are searched by another player, which player shows him a card, etc.), so that *Clue Solver* can use this knowledge to continuously make deductions about the current play (e.g.: understand which cards are held by a certain adversary player, etc.); the results of these deduction are shown to the user, so that he can use this knowledge to play better during his turns (e.g.: make better inquiries, decide which room is more convient for him to reach, etc.).
 
 *Clue Solver* does not allow to directly play Clue with a computer (or any other device): it only provides reasoning support to the user, therefore the players still need the board game to play.
 
