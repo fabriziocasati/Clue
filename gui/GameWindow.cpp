@@ -75,8 +75,8 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     //cardTable->verticalScrollBar()->setEnabled(true);
     //roomCardTable->verticalHeader()->setMinimumWidth(50);
     roomCardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    roomCardTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-    roomCardTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    roomCardTable->setSelectionBehavior(QAbstractItemView::SelectItems);
+    //roomCardTable->setSelectionMode(QAbstractItemView::NoSelection);
     //cardTable->setShowGrid(false);
     //cardTable->setStyleSheet("QTableView {selection-background-color: red; color: yellow; background: blue; border: 1px solid white}");
     QTableWidgetItem *q = new QTableWidgetItem("Yes");
@@ -341,6 +341,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
         }
 
         */
+        //roomCardTable->setSelectionModel(QItemSelectionModel::Deselect);
 
 }
 
