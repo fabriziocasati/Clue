@@ -7,30 +7,29 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
 
     QHash<QString, QString> hash;
 
-    suspectCardName[0] = "Peacock";
-    suspectCardName[1] = "White";
-    suspectCardName[2] = "Green";
-    suspectCardName[3] = "Plumb";
-    suspectCardName[4] = "Scarlet";
-    suspectCardName[5] = "Mustard";
+    suspectCardList.push_back(QString("Peacock"));
+    suspectCardList.push_back(QString("White"));
+    suspectCardList.push_back(QString("Plumb"));
+    suspectCardList.push_back(QString("Green"));
+    suspectCardList.push_back(QString("Scarlet"));
+    suspectCardList.push_back(QString("Mustard"));
 
-    weaponCardName[0] = "Candeliere";
-    weaponCardName[1] = "Tubo";
-    weaponCardName[2] = "Rivoltella";
-    weaponCardName[3] = "Fune";
-    weaponCardName[4] = "Pugnale";
-    weaponCardName[5] = "???";
+    weaponCardList.push_back(QString("Candeliere"));
+    weaponCardList.push_back(QString("Tubo"));
+    weaponCardList.push_back(QString("Rivoltella"));
+    weaponCardList.push_back(QString("Fune"));
+    weaponCardList.push_back(QString("Pugnale"));
+    weaponCardList.push_back(QString("???"));
 
-    std::vector<QString> roomCard;
-    roomCard.push_back(QString("Kitchen"));
-    roomCard.push_back(QString("Ballroom"));
-    roomCard.push_back(QString("Conservatory"));
-    roomCard.push_back(QString("Dining Room"));
-    roomCard.push_back(QString("Billiard Room"));
-    roomCard.push_back(QString("Library"));
-    roomCard.push_back(QString("Lounge"));
-    roomCard.push_back(QString("Hall"));
-    roomCard.push_back(QString("Study"));
+    roomCardList.push_back(QString("Kitchen"));
+    roomCardList.push_back(QString("Ballroom"));
+    roomCardList.push_back(QString("Conservatory"));
+    roomCardList.push_back(QString("Dining Room"));
+    roomCardList.push_back(QString("Billiard Room"));
+    roomCardList.push_back(QString("Library"));
+    roomCardList.push_back(QString("Lounge"));
+    roomCardList.push_back(QString("Hall"));
+    roomCardList.push_back(QString("Study"));
 
     this->userCards = userCards;
 
@@ -41,9 +40,9 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
 
 
     std::vector<QString>::iterator it = userCards.begin();
-    std::vector<QString>::iterator it2 = roomCard.begin();
+    std::vector<QString>::iterator it2 = roomCardList.begin();
     int ok;
-    for(int i=0; it2 != roomCard.end(); ++it2, i++) {
+    for(int i=0; it2 != roomCardList.end(); ++it2, i++) {
         ok = 0;
         it = userCards.begin();
         while( !ok && it != userCards.end())

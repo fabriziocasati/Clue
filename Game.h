@@ -17,9 +17,9 @@ class Game
 public:
     Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> playerName, std::vector<int> playerCardsNumber, std::vector<QString> userCards);
     std::string playerName[6];
-    std::string roomCardName[9];
-    std::string suspectCardName[6];
-    std::string weaponCardName[6];
+    std::vector<QString> suspectCardList;
+    std::vector<QString> weaponCardList;
+    std::vector<QString> roomCardList;
     int playerNumberOfCards[];
     int numberOfPlayers;
     std::list<Inquiry*> *inquiryList;
