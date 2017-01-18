@@ -1,12 +1,12 @@
 #include "NewInquiryWindow.h"
 #include "Inquiry.h"
 
-NewInquiryWindow::NewInquiryWindow(Game *g, GameWindow *gw, QWidget *parent)
+NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
     : QWidget(parent)
 {
 
     this->game = g;
-    this->gw = gw;
+    //this->gw = gw;
 
     QPushButton *m_button = new QPushButton("Create New Game", this);
     resize(500,300);

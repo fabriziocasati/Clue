@@ -18,7 +18,7 @@ class NewInquiryWindow : public QWidget
     Q_OBJECT
 
 public:
-    NewInquiryWindow(Game *g, GameWindow *gw, QWidget *parent = 0);
+    NewInquiryWindow(Game *g, QWidget *parent = 0);
     Game *game;
     GameWindow *gw;
 

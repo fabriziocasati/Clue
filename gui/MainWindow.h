@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QMdiArea>
 #include "Main.h"
+#include "Game.h"
 
 
 class QPushButton;
@@ -13,6 +14,7 @@ class QGroupBox;
 class QGridLayout;
 class Main;
 class QMdiArea;
+class Game;
 
 
 class MainWindow : public QMainWindow
@@ -36,11 +38,15 @@ private:
     QGroupBox *createFirstExclusiveGroup();
     QMdiArea *area;
 
+    Game *game;
+
     void createMenus();
 
 
 private slots:
     void showCardTableWindow();
+    void showNewInquiryInsertionWindow();
+    void showInquiryHistoryWindow();
 
 };
 

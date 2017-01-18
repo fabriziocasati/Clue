@@ -64,7 +64,7 @@ MainWindow::MainWindow(Main *main, QWidget *parent) :
     names2.push_back(QString("Lounge"));
     names2.push_back(QString("Library"));
 
-    new Game(this, 4, names, num, names2);
+    game = new Game(this, 4, names, num, names2);
 
 }
 
@@ -89,13 +89,15 @@ void MainWindow::createMenus()
     showCardTableWindowAction->setCheckable(true);
     connect(showCardTableWindowAction, &QAction::triggered, this, &MainWindow::showCardTableWindow);
 
-    QAction *a2 = new QAction(tr("Show &New Inquiry Insertion Window"), this);
-    windowMenu->addAction(a2);
-    a2->setCheckable(true);
+    QAction *showNewInquiryInsertionWindowAction = new QAction(tr("Show &New Inquiry Insertion Window"), this);
+    windowMenu->addAction(showNewInquiryInsertionWindowAction);
+    showNewInquiryInsertionWindowAction->setCheckable(true);
+    connect(showNewInquiryInsertionWindowAction, &QAction::triggered, this, &MainWindow::showNewInquiryInsertionWindow);
 
-    QAction *a3 = new QAction(tr("Show &Inquiry History Window"), this);
-    windowMenu->addAction(a3);
-    a3->setCheckable(true);
+    QAction *showInquiryHistoryWindowAction = new QAction(tr("Show &Inquiry History Window"), this);
+    windowMenu->addAction(showInquiryHistoryWindowAction);
+    showInquiryHistoryWindowAction->setCheckable(true);
+    connect(showInquiryHistoryWindowAction, &QAction::triggered, this, &MainWindow::showInquiryHistoryWindow);
 
     QAction *a4 = new QAction(tr("Show &Deduction History Window"), this);
     windowMenu->addAction(a4);
@@ -108,6 +110,16 @@ void MainWindow::createNewGame() {
 }
 
 void MainWindow::showCardTableWindow() {
+}
+
+void MainWindow::showNewInquiryInsertionWindow() {
+    NewInquiryWindow *w = new NewInquiryWindow(game);
+    setSubwindow(w);
+}
+
+void MainWindow::showInquiryHistoryWindow() {
+    InquiryHistoryWindow *w = new InquiryHistoryWindow(game);
+    setSubwindow(w);
 }
 
 void MainWindow::setSubwindow(QWidget *q) {
