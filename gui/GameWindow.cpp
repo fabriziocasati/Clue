@@ -116,6 +116,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     cardTable->setItem(2, 0, q);
 
 
+    /*
     std::vector<QString> userCards = game->getUserCards();
     it = userCards.begin();
     std::vector<QString>::iterator it2 = names2.begin();
@@ -155,6 +156,8 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
         }
         }
 
+        */
+
 }
 
 void GameWindow::openQueryListWindow() {
@@ -191,11 +194,13 @@ void GameWindow::updateCardTable(QString card, QString player, QString value) {
         }
 
     qDebug() << i;
-    /*
-        for(it = userCards.begin(); !ok && it != userCards.end(); ++it)
+
+    std::vector<QString>::iterator it2;
+    QTableWidgetItem *q;
+        for(it = roomCard.begin(); !ok && it != roomCard.end(); ++it)
             if((*it).compare(*it2) == 0)
                 ok = 1;
-        if(ok) {
+        if(value.compare("Yes") == 0) {
             q = new QTableWidgetItem("Yes");
             q->setTextColor(QColor(Qt::green));
             q->setTextAlignment(Qt::AlignCenter);
@@ -222,6 +227,4 @@ void GameWindow::updateCardTable(QString card, QString player, QString value) {
             q->setTextAlignment(Qt::AlignCenter);
             cardTable->setItem(i+7, 3, q);
         }
-        }
-        */
 }

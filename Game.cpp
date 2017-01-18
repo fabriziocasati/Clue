@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <QHash>
+#include <QDebug>
 
 Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> playerName, std::vector<int> playerCardsNumber, std::vector<QString> userCards)
 {
@@ -38,7 +39,29 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
     mainWindow->setSubwindow(g);
     g->show();
 
-    g->updateCardTable("Conservatory", "Cristina", "Yes");
+
+    std::vector<QString>::iterator it = userCards.begin();
+    std::vector<QString>::iterator it2 = roomCard.begin();
+    int ok;
+    for(int i=0; it2 != roomCard.end(); ++it2, i++) {
+        ok = 0;
+        it = userCards.begin();
+        while( !ok && it != userCards.end())
+            if((*it).compare(*it2) == 0) {
+                ok = 1;
+            } else
+                ++it;
+        qDebug() << "ok: " << ok;
+        if(ok) {
+            g->updateCardTable(*it, *it2, "Yes");
+        } else {
+            //for(i=0; it2 != roomCard.end(); ++it2, i++)
+                g->updateCardTable(*it2, "Cristina", "No");
+        }
+    }
+
+
+    //g->updateCardTable("Conservatory", "Cristina", "Yes");
 
 }
 
