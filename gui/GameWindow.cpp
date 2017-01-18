@@ -2,6 +2,7 @@
 #include <QHeaderView>
 #include <boost/lexical_cast.hpp>
 #include <QDebug>
+#include <QtGui>
 
 
 GameWindow::GameWindow(Game *game, QWidget *parent)
@@ -24,7 +25,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     this->game = game;
 
-    QHBoxLayout *l = new QHBoxLayout;
+    QVBoxLayout *l = new QVBoxLayout;
 
     m_button2 = new QPushButton("Show Query History", this);
     m_button2->setGeometry(600, 50, 150, 30);
@@ -39,12 +40,12 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     cardTable = new QTableWidget(this);
 
-    cardTable->setRowCount(20);
+    cardTable->setRowCount(9);
     cardTable->setColumnCount(5);
     QStringList m_TableHeader;
-    m_TableHeader<<"Card"<<"Envelop"<<"Player 1"<<"Player 2"<<"Player 3";
-    m_TableHeader.push_back("Ciao");
-    m_TableHeader<<"Player 4";
+    //m_TableHeader<<"Card"<<"Envelop"<<"Player 1"<<"Player 2"<<"Player 3";
+    //m_TableHeader.push_back("Ciao");
+    //m_TableHeader<<"Player 4";
     for (std::vector<QString>::iterator it = names2.begin() ; it != names2.end(); ++it) {
         m_TableHeader.push_back(*it);
     }
@@ -70,7 +71,22 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     //q->setTextColor(QColor(Qt::green));
     q->setTextAlignment(Qt::AlignCenter);
     cardTable->setItem(0, 0, q);
-    cardTable->setFixedSize(800,600);
+    //cardTable->setFixedSize(400,300);
+    //setFixedSize(cardTable->horizontalHeader()->length() + 600, cardTable->verticalHeader()->length() + 100);
+
+    int vwidth = cardTable->verticalHeader()->width();
+    int hwidth = cardTable->horizontalHeader()->length();
+    //int swidth = cardTable->style()->pixelMetric(QtGui::QStyle::PM_ScrollBarExtent);
+    int swidth = 0;
+    int fwidth = cardTable->frameWidth() * 2;
+
+    cardTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    cardTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    //cardTable->setFixedWidth(vwidth + hwidth + swidth + fwidth);
+    cardTable->setSizeAdjustPolicy(QTableWidget::AdjustToContents);
+
+
+
     q = new QTableWidgetItem("Yes");
     q->setTextColor(QColor(Qt::green));
     q->setTextAlignment(Qt::AlignCenter);
@@ -80,13 +96,93 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     q->setTextAlignment(Qt::AlignCenter);
     cardTable->setItem(1, 0, q);
 
+    QTableWidget *suspectCardTable = new QTableWidget(this);
+    QStringList m_TableHeader2;
+    suspectCardTable->setRowCount(30);
+    suspectCardTable->setColumnCount(5);
+    //m_TableHeader<<"Card"<<"Envelop"<<"Player 1"<<"Player 2"<<"Player 3";
+    //m_TableHeader.push_back("Ciao");
+    //m_TableHeader<<"Player 4";
+    for (std::vector<QString>::iterator it = names2.begin() ; it != names2.end(); ++it) {
+        m_TableHeader2.push_back(*it);
+    }
+    for(int i=0; i<10; i++)
+        m_TableHeader2.push_back("Ciao");
 
-    l->addWidget(cardTable);
-    l->addWidget(m_button3);
-    l->addWidget(m_button2);
+
+    suspectCardTable->setHorizontalHeaderLabels(m_TableHeader2);
+    suspectCardTable->setVerticalHeaderLabels(m_TableHeader2);
+
+    int h=25;
+    //suspectCardTable->verticalHeader()->setMaximumHeight(h);
+    //suspectCardTable->verticalHeader()->setMinimumHeight(h);
+    //suspectCardTable->horizontalHeader()->setMinimumHeight(h);
+    for(int i=0; i<suspectCardTable->rowCount(); i++)
+       suspectCardTable->setRowHeight(i, h);
+
+    //suspectCardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //suspectCardTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    //suspectCardTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+
+    suspectCardTable->setFixedSize(800,h*(suspectCardTable->rowCount())+(suspectCardTable->horizontalHeader()->height())+2);
+
+
+    suspectCardTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    //suspectCardTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    //cardTable->setFixedWidth(vwidth + hwidth + swidth + fwidth);
+    //suspectCardTable->setSizeAdjustPolicy(QTableWidget::AdjustToContents);
+    qDebug() << suspectCardTable->verticalHeader()->height();
+
+    //suspectCardTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    //suspectCardTable->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+
+    //suspectCardTable->setMinimumHeight((suspectCardTable->verticalHeader()->height()));
+
+    /*
+    suspectCardTable->resizeRowsToContents();
+    suspectCardTable->resizeColumnsToContents();
+    QAbstractItemModel* model = suspectCardTable->model();
+    QHeaderView* horHeader = suspectCardTable->horizontalHeader();
+    QHeaderView* verHeader = suspectCardTable->verticalHeader();
+    int rows = model->rowCount();
+    int cols = model->columnCount();
+    int x = horHeader->sectionViewportPosition(cols-1) + horHeader->offset()
+            + horHeader->sectionSize(cols-1) + 1;
+    int y = verHeader->sectionViewportPosition(rows-1) + verHeader->offset()
+            + verHeader->sectionSize(rows-1) + 1;
+    QPoint p = suspectCardTable->viewport()->mapToParent(QPoint(x,y));
+    QRect g = suspectCardTable->geometry();
+    g.setSize(QSize(p.x(),p.y()));
+    suspectCardTable->setGeometry(g);
+    */
+/*
+
+    suspectCardTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    suspectCardTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    QRect rect = suspectCardTable->geometry();
+    int width = 2,length = 2;
+    for(int col = 0;col<proxySortModel->columnCount();++col){
+        if(!suspectCardTable->isColumnHidden(col))
+            width += suspectCardTable->columnWidth(col);
+    }
+    for(int row =0;row<proxySortModel->rowCount();++row)
+        length += suspectCardTable->rowHeight(row);
+    rect.setWidth(width);
+    rect.setHeight(length);
+    suspectCardTable->setGeometry(rect);
+*/
+
+
+    l->addWidget(cardTable, 0, Qt::AlignCenter);
+    l->addWidget(suspectCardTable, 1, Qt::AlignCenter);
+    l->addWidget(m_button3, 2, Qt::AlignCenter);
+    l->addWidget(m_button2, 3, Qt::AlignCenter);
+
     setLayout(l);
 
-    resize(800,400);
+    //setFixedSize(800,1000);
 
     std::vector<QString>::iterator it;
     /*
@@ -204,27 +300,27 @@ void GameWindow::updateCardTable(QString card, QString player, QString value) {
             q = new QTableWidgetItem("Yes");
             q->setTextColor(QColor(Qt::green));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i+7, 3, q);
+            cardTable->setItem(i, 3, q);
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i+7, 0, q);
+            cardTable->setItem(i, 0, q);
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i+7, 1, q);
+            cardTable->setItem(i, 1, q);
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i+7, 2, q);
+            cardTable->setItem(i, 2, q);
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i+7, 4, q);
+            cardTable->setItem(i, 4, q);
         } else {
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i+7, 3, q);
+            cardTable->setItem(i, 3, q);
         }
 }
