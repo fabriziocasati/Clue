@@ -72,5 +72,16 @@ std::vector<QString> Game::getUserCards() {
     return userCards;
 }
 
+std::vector<QString> Game::getRoomCardList() {
+    return roomCardList;
+}
+
+std::vector<QString> Game::getSuspectCardList() {
+    return suspectCardList;
+}
+
+std::vector<QString> Game::getWeaponCardList() {
+    return weaponCardList;
+}
 
 

@@ -30,6 +30,10 @@ public:
 
     std::vector<QString> userCards;
 
+    std::vector<QString> getRoomCardList();
+    std::vector<QString> getSuspectCardList();
+    std::vector<QString> getWeaponCardList();
+
 };
 
 #endif // GAME_H
