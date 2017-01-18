@@ -8,6 +8,7 @@
 #include <QLabel>
 #include <QTableWidget>
 #include <gui/InquiryHistoryWindow.h>
+#include <QString>
 
 class Game;
 class QPushButton;
@@ -22,13 +23,15 @@ public:
     Game *game;
     QLabel *label;
     QPushButton *m_button2;
-    QTableWidget *cardTable;
+    QTableWidget *roomCardTable;
 
     void myupdate();
     void updateCardTable(QString card, QString player, QString value);
 
 private:
-    std::vector<QString> roomCard;
+    std::vector<QString> roomCardList;
+    std::vector<QString> suspectCardList;
+    std::vector<QString> weaponCardList;
 
 public slots:
     void openQueryListWindow();

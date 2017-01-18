@@ -10,20 +10,11 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 {
     setWindowTitle(tr("Group Boxes"));
 
-
-    roomCard.push_back(QString("Kitchen"));
-    roomCard.push_back(QString("Ballroom"));
-    roomCard.push_back(QString("Conservatory"));
-    roomCard.push_back(QString("Dining Room"));
-    roomCard.push_back(QString("Billiard Room"));
-    roomCard.push_back(QString("Library"));
-    roomCard.push_back(QString("Lounge"));
-    roomCard.push_back(QString("Hall"));
-    roomCard.push_back(QString("Study"));
-
-    std::vector<QString> names2 = roomCard;
-
     this->game = game;
+    roomCardList = game->getRoomCardList();
+    suspectCardList = game->getSuspectCardList();
+    weaponCardList = game->getWeaponCardList();
+
 
     QVBoxLayout *l = new QVBoxLayout;
 
@@ -35,33 +26,57 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     m_button3->setGeometry(600, 90, 150, 30);
     connect(m_button3, SIGNAL (clicked()), this, SLOT (openQueryListWindow()));
 
-    label = new QLabel("Test");
-    label->setGeometry(10, 10, 150, 30);
+    roomCardTable = new QTableWidget(this);
 
-    cardTable = new QTableWidget(this);
-
-    cardTable->setRowCount(9);
-    cardTable->setColumnCount(5);
+    roomCardTable->setRowCount(roomCardList.capacity());
+    roomCardTable->setColumnCount(5);
     QStringList m_TableHeader;
-    //m_TableHeader<<"Card"<<"Envelop"<<"Player 1"<<"Player 2"<<"Player 3";
-    //m_TableHeader.push_back("Ciao");
-    //m_TableHeader<<"Player 4";
-    for (std::vector<QString>::iterator it = names2.begin() ; it != names2.end(); ++it) {
+    for (std::vector<QString>::iterator it = roomCardList.begin() ; it != roomCardList.end(); ++it) {
         m_TableHeader.push_back(*it);
     }
 
+    roomCardTable->setHorizontalHeaderLabels(m_TableHeader);
+    roomCardTable->setVerticalHeaderLabels(m_TableHeader);
 
-    cardTable->setHorizontalHeaderLabels(m_TableHeader);
+    int h=25;
+    roomCardTable->horizontalHeader()->setMinimumHeight(h);
+    roomCardTable->horizontalHeader()->setMaximumHeight(h);
+    for(int i=0; i<roomCardTable->rowCount(); i++)
+       roomCardTable->setRowHeight(i, h);
+
+    int k=110;
+    roomCardTable->verticalHeader()->setMinimumWidth(k);
+    roomCardTable->verticalHeader()->setMaximumWidth(k);
+    for(int i=0; i<roomCardTable->columnCount(); i++)
+       roomCardTable->setColumnWidth(i, k);
+
+    roomCardTable->horizontalHeader()->setSectionResizeMode (QHeaderView::Fixed);
+    roomCardTable->verticalHeader()->setSectionResizeMode (QHeaderView::Fixed);
+
+    //suspectCardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //suspectCardTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    //suspectCardTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    roomCardTable->setHorizontalHeaderLabels(m_TableHeader);
+    roomCardTable->setVerticalHeaderLabels(m_TableHeader);
+
+
+    roomCardTable->setFixedSize(k*(roomCardTable->columnCount())+(roomCardTable->verticalHeader()->width())+2,
+                h*(roomCardTable->rowCount())+(roomCardTable->horizontalHeader()->height())+2);
+
+
+    roomCardTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     //cardTable->verticalHeader()->setSizeAdjustPolicy(QHeaderView::Fixed);
     //cardTable->verticalHeader()->resizeSection( 0, 200 );
     //cardTable->horizontalHeader()->setDefaultSectionSize(50);
-    cardTable->setVerticalHeaderLabels(m_TableHeader);
+
     //cardTable->verticalHeader()->setVisible(false);
     //cardTable->verticalScrollBar()->setEnabled(true);
-    cardTable->verticalHeader()->setMinimumWidth(50);
-    cardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    cardTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-    cardTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    //roomCardTable->verticalHeader()->setMinimumWidth(50);
+    roomCardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    roomCardTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    roomCardTable->setSelectionMode(QAbstractItemView::SingleSelection);
     //cardTable->setShowGrid(false);
     //cardTable->setStyleSheet("QTableView {selection-background-color: red; color: yellow; background: blue; border: 1px solid white}");
     QTableWidgetItem *q = new QTableWidgetItem("Yes");
@@ -70,50 +85,54 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     q->setBackground(QBrush(QColor(Qt::green)));
     //q->setTextColor(QColor(Qt::green));
     q->setTextAlignment(Qt::AlignCenter);
-    cardTable->setItem(0, 0, q);
+    roomCardTable->setItem(0, 0, q);
     //cardTable->setFixedSize(400,300);
     //setFixedSize(cardTable->horizontalHeader()->length() + 600, cardTable->verticalHeader()->length() + 100);
 
-    int vwidth = cardTable->verticalHeader()->width();
-    int hwidth = cardTable->horizontalHeader()->length();
+    int vwidth = roomCardTable->verticalHeader()->width();
+    int hwidth = roomCardTable->horizontalHeader()->length();
     //int swidth = cardTable->style()->pixelMetric(QtGui::QStyle::PM_ScrollBarExtent);
     int swidth = 0;
-    int fwidth = cardTable->frameWidth() * 2;
+    int fwidth = roomCardTable->frameWidth() * 2;
 
-    cardTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    cardTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    roomCardTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    roomCardTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     //cardTable->setFixedWidth(vwidth + hwidth + swidth + fwidth);
-    cardTable->setSizeAdjustPolicy(QTableWidget::AdjustToContents);
+    roomCardTable->setSizeAdjustPolicy(QTableWidget::AdjustToContents);
 
 
 
     q = new QTableWidgetItem("Yes");
     q->setTextColor(QColor(Qt::green));
     q->setTextAlignment(Qt::AlignCenter);
-    cardTable->setItem(0, 1, q);
+    roomCardTable->setItem(0, 1, q);
     q = new QTableWidgetItem("No");
     q->setBackground(QBrush(QColor(Qt::red)));
     q->setTextAlignment(Qt::AlignCenter);
-    cardTable->setItem(1, 0, q);
+    roomCardTable->setItem(1, 0, q);
+
+
+
+
+
+
+
+
+
+
 
     QTableWidget *suspectCardTable = new QTableWidget(this);
     QStringList m_TableHeader2;
-    suspectCardTable->setRowCount(25);
+    suspectCardTable->setRowCount(suspectCardList.capacity());
     suspectCardTable->setColumnCount(5);
-    //m_TableHeader<<"Card"<<"Envelop"<<"Player 1"<<"Player 2"<<"Player 3";
-    //m_TableHeader.push_back("Ciao");
-    //m_TableHeader<<"Player 4";
-    for (std::vector<QString>::iterator it = names2.begin() ; it != names2.end(); ++it) {
+
+    for (std::vector<QString>::iterator it = suspectCardList.begin() ; it != suspectCardList.end(); ++it) {
         m_TableHeader2.push_back(*it);
     }
-    for(int i=0; i<10; i++)
-        m_TableHeader2.push_back("Ciao");
-
 
     suspectCardTable->setHorizontalHeaderLabels(m_TableHeader2);
     suspectCardTable->setVerticalHeaderLabels(m_TableHeader2);
 
-    int h=25;
     //suspectCardTable->verticalHeader()->setMaximumHeight(h);
 
     suspectCardTable->horizontalHeader()->setMinimumHeight(h);
@@ -121,7 +140,6 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     for(int i=0; i<suspectCardTable->rowCount(); i++)
        suspectCardTable->setRowHeight(i, h);
 
-    int k=110;
     suspectCardTable->verticalHeader()->setMinimumWidth(k);
     for(int i=0; i<suspectCardTable->columnCount(); i++)
        suspectCardTable->setColumnWidth(i, k);
@@ -188,8 +206,65 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     suspectCardTable->setStyleSheet("{ border-left: 10px solid black; }");
 
 
-    l->addWidget(cardTable, 0, Qt::AlignCenter);
+
+
+
+
+
+
+    QTableWidget *weaponCardTable = new QTableWidget(this);
+    QStringList m_TableHeader3;
+    weaponCardTable->setRowCount(suspectCardList.capacity());
+    weaponCardTable->setColumnCount(5);
+
+    for (std::vector<QString>::iterator it = weaponCardList.begin() ; it != weaponCardList.end(); ++it) {
+        m_TableHeader3.push_back(*it);
+    }
+
+    weaponCardTable->setHorizontalHeaderLabels(m_TableHeader3);
+    weaponCardTable->setVerticalHeaderLabels(m_TableHeader3);
+
+    //suspectCardTable->verticalHeader()->setMaximumHeight(h);
+
+    weaponCardTable->horizontalHeader()->setMinimumHeight(h);
+    weaponCardTable->horizontalHeader()->setMaximumHeight(h);
+    for(int i=0; i<weaponCardTable->rowCount(); i++)
+       weaponCardTable->setRowHeight(i, h);
+
+    weaponCardTable->verticalHeader()->setMinimumWidth(k);
+    for(int i=0; i<weaponCardTable->columnCount(); i++)
+       weaponCardTable->setColumnWidth(i, k);
+
+    weaponCardTable->horizontalHeader()->setSectionResizeMode (QHeaderView::Fixed);
+    weaponCardTable->verticalHeader()->setSectionResizeMode (QHeaderView::Fixed);
+
+    //suspectCardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //suspectCardTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    //suspectCardTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+
+    weaponCardTable->setFixedSize(k*(weaponCardTable->columnCount())+(weaponCardTable->verticalHeader()->width())+2,
+                h*(weaponCardTable->rowCount())+(weaponCardTable->horizontalHeader()->height())+2);
+
+
+    weaponCardTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    l->addWidget(roomCardTable, 0, Qt::AlignCenter);
     l->addWidget(suspectCardTable, 1, Qt::AlignCenter);
+    l->addWidget(weaponCardTable, 1, Qt::AlignCenter);
     l->addWidget(m_button3, 2, Qt::AlignCenter);
     l->addWidget(m_button2, 3, Qt::AlignCenter);
 
@@ -218,11 +293,11 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     q = new QTableWidgetItem("?");
     q->setTextAlignment(Qt::AlignCenter);
-    cardTable->setItem(5, 4, q);
+    roomCardTable->setItem(5, 4, q);
     q = new QTableWidgetItem("?");
     q->setBackground(QBrush(QColor(Qt::yellow)));
     q->setTextAlignment(Qt::AlignCenter);
-    cardTable->setItem(2, 0, q);
+    roomCardTable->setItem(2, 0, q);
 
 
     /*
@@ -292,10 +367,10 @@ void GameWindow::myupdate() {
 
 void GameWindow::updateCardTable(QString card, QString player, QString value) {
     std::vector<QString> userCards = game->getUserCards();
-    std::vector<QString>::iterator it = roomCard.begin();
+    std::vector<QString>::iterator it = roomCardList.begin();
     int ok = 0;
     int i=0;
-    while(!ok && it != roomCard.end())
+    while(!ok && it != roomCardList.end())
         if((*it).compare(card) == 0)
             ok=1;
         else {
@@ -306,34 +381,34 @@ void GameWindow::updateCardTable(QString card, QString player, QString value) {
 
     std::vector<QString>::iterator it2;
     QTableWidgetItem *q;
-        for(it = roomCard.begin(); !ok && it != roomCard.end(); ++it)
+        for(it = roomCardList.begin(); !ok && it != roomCardList.end(); ++it)
             if((*it).compare(*it2) == 0)
                 ok = 1;
         if(value.compare("Yes") == 0) {
             q = new QTableWidgetItem("Yes");
             q->setTextColor(QColor(Qt::green));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i, 3, q);
+            roomCardTable->setItem(i, 3, q);
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i, 0, q);
+            roomCardTable->setItem(i, 0, q);
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i, 1, q);
+            roomCardTable->setItem(i, 1, q);
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i, 2, q);
+            roomCardTable->setItem(i, 2, q);
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i, 4, q);
+            roomCardTable->setItem(i, 4, q);
         } else {
             q = new QTableWidgetItem("No");
             q->setTextColor(QColor(Qt::red));
             q->setTextAlignment(Qt::AlignCenter);
-            cardTable->setItem(i, 3, q);
+            roomCardTable->setItem(i, 3, q);
         }
 }
