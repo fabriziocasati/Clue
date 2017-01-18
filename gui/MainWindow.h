@@ -26,8 +26,6 @@ public:
     QPalette* m_pPalette;
 
     void setSubwindow(QWidget *q);
-
-public slots:
     void createNewGame();
 
 private:
@@ -42,7 +40,7 @@ private:
 
 
 private slots:
-
+    void showCardTableWindow();
 
 };
 

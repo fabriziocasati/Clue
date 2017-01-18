@@ -83,10 +83,31 @@ void MainWindow::createMenus()
     fileMenu->addAction(newGameAction);
     connect(newGameAction, &QAction::triggered, this, &MainWindow::createNewGame);
 
+    QMenu *windowMenu = menuBar()->addMenu(tr("&Window"));
+    QAction *showCardTableWindowAction = new QAction(tr("Show &Card Table Window"), this);
+    windowMenu->addAction(showCardTableWindowAction);
+    showCardTableWindowAction->setCheckable(true);
+    connect(showCardTableWindowAction, &QAction::triggered, this, &MainWindow::showCardTableWindow);
+
+    QAction *a2 = new QAction(tr("Show &New Inquiry Insertion Window"), this);
+    windowMenu->addAction(a2);
+    a2->setCheckable(true);
+
+    QAction *a3 = new QAction(tr("Show &Inquiry History Window"), this);
+    windowMenu->addAction(a3);
+    a3->setCheckable(true);
+
+    QAction *a4 = new QAction(tr("Show &Deduction History Window"), this);
+    windowMenu->addAction(a4);
+    a4->setCheckable(true);
+
 }
 
 void MainWindow::createNewGame() {
     main->createNewGame();
+}
+
+void MainWindow::showCardTableWindow() {
 }
 
 void MainWindow::setSubwindow(QWidget *q) {
