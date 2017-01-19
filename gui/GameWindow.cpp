@@ -66,7 +66,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     //cardTable->verticalHeader()->setVisible(false);
     //cardTable->verticalScrollBar()->setEnabled(true);
     //roomCardTable->verticalHeader()->setMinimumWidth(50);
-    roomCardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //roomCardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     roomCardTable->setSelectionBehavior(QAbstractItemView::SelectItems);
     //roomCardTable->setSelectionMode(QAbstractItemView::NoSelection);
     //cardTable->setShowGrid(false);
@@ -77,7 +77,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     q->setBackground(QBrush(QColor(Qt::green)));
     //q->setTextColor(QColor(Qt::green));
     q->setTextAlignment(Qt::AlignCenter);
-    roomCardTable->setItem(0, 0, q);
+    //roomCardTable->setItem(0, 0, q);
     //cardTable->setFixedSize(400,300);
     //setFixedSize(cardTable->horizontalHeader()->length() + 600, cardTable->verticalHeader()->length() + 100);
 
@@ -97,11 +97,11 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     q = new QTableWidgetItem("Yes");
     q->setTextColor(QColor(Qt::green));
     q->setTextAlignment(Qt::AlignCenter);
-    roomCardTable->setItem(0, 1, q);
+    //roomCardTable->setItem(0, 1, q);
     q = new QTableWidgetItem("No");
     q->setBackground(QBrush(QColor(Qt::red)));
     q->setTextAlignment(Qt::AlignCenter);
-    roomCardTable->setItem(1, 0, q);
+    //roomCardTable->setItem(1, 0, q);
 
 
 
@@ -283,11 +283,11 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
     q = new QTableWidgetItem("?");
     q->setTextAlignment(Qt::AlignCenter);
-    roomCardTable->setItem(5, 4, q);
+    //roomCardTable->setItem(5, 4, q);
     q = new QTableWidgetItem("?");
     q->setBackground(QBrush(QColor(Qt::yellow)));
     q->setTextAlignment(Qt::AlignCenter);
-    roomCardTable->setItem(2, 0, q);
+    //roomCardTable->setItem(2, 0, q);
 
 
     /*
@@ -347,6 +347,7 @@ void GameWindow::myupdate() {
 }
 
 void GameWindow::updateCardTable(QString card, QString player, QString value) {
+    /*
     std::vector<QString> userCards = game->getUserCards();
     std::vector<QString>::iterator it = roomCardList.begin();
     int ok = 0;
@@ -392,4 +393,5 @@ void GameWindow::updateCardTable(QString card, QString player, QString value) {
             q->setTextAlignment(Qt::AlignCenter);
             roomCardTable->setItem(i, 3, q);
         }
+        */
 }
