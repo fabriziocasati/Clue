@@ -7,12 +7,6 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
     : QWidget(parent)
 {
 
-    QRadioButton *roomCardCheckBox[10];
-    QRadioButton *suspectCardCheckBox[6];
-    QRadioButton *weaponCardCheckBox[6];
-    QRadioButton *giverRadioButton[7];
-
-
     this->game = g;
     //this->gw = gw;
 
@@ -221,10 +215,34 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
 
 void NewInquiryWindow::openNewWindow() {
 
+    std::string caller = "null";
+    std::string room = "null";
+    std::string suspect = "null";
+    std::string weapon = "null";
+    std::string giver = "null";
     Inquiry *q;
     for(int i=0; i<game->getPlayerList().capacity(); i++)
         if(callerRadioButton[i]->isChecked())
-           q  = new Inquiry(i, "a", "b", "c", "d", "e");
+            caller = callerRadioButton[i]->text().toStdString();
+
+    for(int i=0; i<game->getPlayerList().capacity(); i++)
+        if(roomCardCheckBox[i]->isChecked())
+            caller = roomCardCheckBox[i]->text().toStdString();
+
+    for(int i=0; i<game->getPlayerList().capacity(); i++)
+        if(suspectCardCheckBox[i]->isChecked())
+            caller = suspectCardCheckBox[i]->text().toStdString();
+
+    for(int i=0; i<game->getPlayerList().capacity(); i++)
+        if(weaponCardCheckBox[i]->isChecked())
+            caller = weaponCardCheckBox[i]->text().toStdString();
+
+    for(int i=0; i<game->getPlayerList().capacity(); i++) // TODO missing (nobody)!!!
+        if(giverRadioButton[i]->isChecked())
+            caller = giverRadioButton[i]->text().toStdString();
+
+
+    q  = new Inquiry(1, caller, room, suspect, weapon, giver);
 
 
     game->addInquiry(q);

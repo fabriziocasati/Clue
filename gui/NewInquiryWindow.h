@@ -26,6 +26,10 @@ public:
 
 private:
     QRadioButton *callerRadioButton[6];
+    QRadioButton *roomCardCheckBox[10];
+    QRadioButton *suspectCardCheckBox[6];
+    QRadioButton *weaponCardCheckBox[6];
+    QRadioButton *giverRadioButton[7];
 
 public slots:
     void openNewWindow();
