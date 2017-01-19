@@ -13,7 +13,7 @@ void NewGameCreator::openNextWindow() {
 
     QWidget *subWindow;
 
-    if(numberOfOpenedWindows < 5) {
+    if(numberOfOpenedWindows < 2) {
         switch(numberOfOpenedWindows) {
             case 0 : subWindow = new NumberOfPlayersWindow(this); break;
             case 1 : subWindow = new NamesOfThePlayersWindow(this); break;

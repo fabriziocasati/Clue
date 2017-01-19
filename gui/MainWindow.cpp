@@ -64,7 +64,7 @@ MainWindow::MainWindow(Main *main, QWidget *parent) :
     names2.push_back(QString("Lounge"));
     names2.push_back(QString("Library"));
 
-    game = new Game(this, 4, names, num, names2);
+    //game = new Game(this, 4, names, num, names2);
 
 }
 
