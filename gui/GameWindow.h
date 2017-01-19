@@ -27,6 +27,7 @@ public:
     void updateCardTable(QString card, QString player, QString value);
 
 private:
+    std::vector<QString> playerList;
     std::vector<QString> roomCardList;
     std::vector<QString> suspectCardList;
     std::vector<QString> weaponCardList;

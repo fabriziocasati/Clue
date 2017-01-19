@@ -14,6 +14,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     roomCardList = game->getRoomCardList();
     suspectCardList = game->getSuspectCardList();
     weaponCardList = game->getWeaponCardList();
+    playerList = game->getPlayerList();
 
 
     QVBoxLayout *l = new QVBoxLayout;
@@ -21,13 +22,17 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     roomCardTable = new QTableWidget(this);
 
     roomCardTable->setRowCount(roomCardList.capacity());
-    roomCardTable->setColumnCount(5);
+    roomCardTable->setColumnCount(playerList.capacity());
     QStringList m_TableHeader;
     for (std::vector<QString>::iterator it = roomCardList.begin() ; it != roomCardList.end(); ++it) {
         m_TableHeader.push_back(*it);
     }
+    QStringList m_h;
+    for (std::vector<QString>::iterator it = playerList.begin() ; it != playerList.end(); ++it) {
+        m_h.push_back(*it);
+    }
 
-    roomCardTable->setHorizontalHeaderLabels(m_TableHeader);
+    roomCardTable->setHorizontalHeaderLabels(m_h);
     roomCardTable->setVerticalHeaderLabels(m_TableHeader);
 
     int h=25;
@@ -49,7 +54,7 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     //suspectCardTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     //suspectCardTable->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    roomCardTable->setHorizontalHeaderLabels(m_TableHeader);
+    roomCardTable->setHorizontalHeaderLabels(m_h);
     roomCardTable->setVerticalHeaderLabels(m_TableHeader);
 
 
@@ -114,15 +119,14 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
 
     QTableWidget *suspectCardTable = new QTableWidget(this);
-    QStringList m_TableHeader2;
     suspectCardTable->setRowCount(suspectCardList.capacity());
-    suspectCardTable->setColumnCount(5);
-
+    suspectCardTable->setColumnCount(playerList.capacity());
+    QStringList m_TableHeader2;
     for (std::vector<QString>::iterator it = suspectCardList.begin() ; it != suspectCardList.end(); ++it) {
         m_TableHeader2.push_back(*it);
     }
 
-    suspectCardTable->setHorizontalHeaderLabels(m_TableHeader2);
+    suspectCardTable->setHorizontalHeaderLabels(m_h);
     suspectCardTable->setVerticalHeaderLabels(m_TableHeader2);
 
     //suspectCardTable->verticalHeader()->setMaximumHeight(h);
@@ -207,13 +211,13 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
     QTableWidget *weaponCardTable = new QTableWidget(this);
     QStringList m_TableHeader3;
     weaponCardTable->setRowCount(suspectCardList.capacity());
-    weaponCardTable->setColumnCount(5);
+    weaponCardTable->setColumnCount(playerList.capacity());
 
     for (std::vector<QString>::iterator it = weaponCardList.begin() ; it != weaponCardList.end(); ++it) {
         m_TableHeader3.push_back(*it);
     }
 
-    weaponCardTable->setHorizontalHeaderLabels(m_TableHeader3);
+    weaponCardTable->setHorizontalHeaderLabels(m_h);
     weaponCardTable->setVerticalHeaderLabels(m_TableHeader3);
 
     //suspectCardTable->verticalHeader()->setMaximumHeight(h);
