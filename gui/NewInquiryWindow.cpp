@@ -7,7 +7,6 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
     : QWidget(parent)
 {
 
-
     QRadioButton *roomCardCheckBox[10];
     QRadioButton *suspectCardCheckBox[6];
     QRadioButton *weaponCardCheckBox[6];
@@ -17,7 +16,9 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
     this->game = g;
     //this->gw = gw;
 
-    QPushButton *m_button = new QPushButton("Create New Game", this);
+    QVBoxLayout *vboxmain = new QVBoxLayout;
+
+    QPushButton *m_button = new QPushButton("Ok", this);
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNewWindow()));
     resize(500,300);
 
@@ -73,7 +74,6 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
     QHBoxLayout *vbox = new QHBoxLayout;
     vbox->setSpacing(30);
     //vbox->setAlignment(Qt::AlignLeft);
-    vbox->addWidget(m_button);
     //vbox->addStretch(1);
 
 
@@ -83,12 +83,23 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
         QVBoxLayout *vl = new QVBoxLayout;
 
 
+        /*
         for(int i=0; i<6; i++) {
             std::string numberString = boost::lexical_cast<std::string>(i);
             QString numberQString = QString::fromStdString(numberString);
             callerRadioButton[i] = new QRadioButton(numberQString);
             vl->addWidget(callerRadioButton[i]);
         }
+        */
+
+
+        std::vector<QString> r = g->getPlayerList();
+        int i=0;
+        for (std::vector<QString>::iterator it = r.begin(); it != r.end(); ++it, i++) {
+            callerRadioButton[i] = new QRadioButton(*it);
+            vl->addWidget(callerRadioButton[i], i, Qt::AlignTop);
+        }
+
 
         v->setLayout(vl);
         vbox->addWidget(v);
@@ -160,25 +171,40 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
 
         QVBoxLayout *vl = new QVBoxLayout;
 
+        /*
         for(int i=0; i<7; i++) {
             //std::string numberString = boost::lexical_cast<std::string>(i);
             //QString numberQString = QString::fromStdString(numberString);
             giverRadioButton[i] = new QRadioButton("4");
-            vl->addWidget(roomCardCheckBox[i]);
+            vl->addWidget(giverRadioButton[i]);
+        }
+        */
+
+        std::vector<QString> r = g->getPlayerList();
+        r.push_back(QString("(nobody)"));
+        int i=0;
+        for (std::vector<QString>::iterator it = r.begin(); it != r.end(); ++it, i++) {
+            giverRadioButton[i] = new QRadioButton(*it);
+            vl->addWidget(giverRadioButton[i], i, Qt::AlignTop);
         }
 
         v->setLayout(vl);
         vbox->addWidget(v);
     }
 
-    setLayout(vbox);
+    QGroupBox *g2 = new QGroupBox("Select the cards that are searched, who searches them and who passes a card");
+    g2->setLayout(vbox);
+
+    vboxmain->addWidget(g2, 0, Qt::AlignCenter);
+    vboxmain->addWidget(m_button, 1, Qt::AlignCenter);
+    setLayout(vboxmain);
 
 }
 
 void NewInquiryWindow::openNewWindow() {
 
     Inquiry *q;
-    for(int i=0; i<6; i++)
+    for(int i=0; i<game->getPlayerList().capacity(); i++)
         if(callerRadioButton[i]->isChecked())
            q  = new Inquiry(i, "a", "b", "c", "d", "e");
 
