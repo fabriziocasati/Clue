@@ -9,6 +9,8 @@
 #include <QHBoxLayout>
 #include <Game.h>
 #include <gui/GameWindow.h>
+#include <QRadioButton>
+#include <boost/lexical_cast.hpp>
 
 class Game;
 class GameWindow;
@@ -21,6 +23,9 @@ public:
     NewInquiryWindow(Game *g, QWidget *parent = 0);
     Game *game;
     GameWindow *gw;
+
+private:
+    QRadioButton *callerRadioButton[6];
 
 public slots:
     void openNewWindow();
