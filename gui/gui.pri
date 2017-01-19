@@ -16,6 +16,6 @@ SOURCES += \
     $$PWD/InquiryHistoryWindow.cpp \
     $$PWD/MainWindow.cpp \
     $$PWD/NumberOfCardsForEachPlayerWindow.cpp \
-    $$PWD/NeWinquiryWindow.cpp \
     $$PWD/CardsOfTheUserWindow.cpp \
-    $$PWD/RecapWindow.cpp
+    $$PWD/RecapWindow.cpp \
+    $$PWD/NewInquiryWindow.cpp
