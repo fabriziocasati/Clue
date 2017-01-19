@@ -102,7 +102,7 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
 
 
         v->setLayout(vl);
-        vbox->addWidget(v);
+        vbox->addWidget(v, 0, Qt::AlignTop);
 
 }
 
@@ -128,7 +128,7 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
         }
 
         v->setLayout(vl);
-        vbox->addWidget(v);
+        vbox->addWidget(v, 1, Qt::AlignTop);
 
     }
 
@@ -137,15 +137,24 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
 
         QVBoxLayout *vl = new QVBoxLayout;
 
+        std::vector<QString> r = g->getSuspectCardList();
+        int i=0;
+        for (std::vector<QString>::iterator it = r.begin(); it != r.end(); ++it, i++) {
+            suspectCardCheckBox[i] = new QRadioButton(*it);
+            vl->addWidget(suspectCardCheckBox[i], i, Qt::AlignTop);
+        }
+
+        /*
         for(int i=0; i<6; i++) {
             //std::string numberString = boost::lexical_cast<std::string>(i);
             //QString numberQString = QString::fromStdString(numberString);
             suspectCardCheckBox[i] = new QRadioButton("2");
             vl->addWidget(suspectCardCheckBox[i]);
         }
+        */
 
         v->setLayout(vl);
-        vbox->addWidget(v);
+        vbox->addWidget(v, 2, Qt::AlignTop);
 
     }
 
@@ -154,15 +163,24 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
 
         QVBoxLayout *vl = new QVBoxLayout;
 
+        std::vector<QString> r = g->getWeaponCardList();
+        int i=0;
+        for (std::vector<QString>::iterator it = r.begin(); it != r.end(); ++it, i++) {
+            weaponCardCheckBox[i] = new QRadioButton(*it);
+            vl->addWidget(weaponCardCheckBox[i], i, Qt::AlignTop);
+        }
+
+/*
         for(int i=0; i<6; i++) {
             //std::string numberString = boost::lexical_cast<std::string>(i);
             //QString numberQString = QString::fromStdString(numberString);
             weaponCardCheckBox[i] = new QRadioButton("3");
             vl->addWidget(weaponCardCheckBox[i]);
         }
+*/
 
         v->setLayout(vl);
-        vbox->addWidget(v);
+        vbox->addWidget(v, 3, Qt::AlignTop);
 
     }
 
@@ -189,7 +207,7 @@ NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
         }
 
         v->setLayout(vl);
-        vbox->addWidget(v);
+        vbox->addWidget(v, 4, Qt::AlignTop);
     }
 
     QGroupBox *g2 = new QGroupBox("Select the cards that are searched, who searches them and who passes a card");
