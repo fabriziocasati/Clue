@@ -8,7 +8,7 @@
 #include <QStatusBar>
 #include <QMenu>
 #include <QMenuBar>
-#include "Game.h"
+#include "game/Game.h"
 #include <QString>
 
 MainWindow::MainWindow(Main *main, QWidget *parent) :

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <list>
 #include "Inquiry.h"
-#include "Player.h"
+#include "game/Player.h"
 #include "gui/GameWindow.h"
 #include "gui/MainWindow.h"
 #include <QString>

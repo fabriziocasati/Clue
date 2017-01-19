@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QHash>
 #include "gui/MainWindow.h"
-#include "NewGameCreator.h"
+#include "game/NewGameCreator.h"
 
 class QGroupBox;
 class QPushButton;

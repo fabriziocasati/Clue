@@ -2,7 +2,7 @@
 #define RECAPWINDOW_H
 
 #include <QWindow>
-#include "NewGameCreator.h"
+#include "game/NewGameCreator.h"
 
 class RecapWindow : public QWidget
 {

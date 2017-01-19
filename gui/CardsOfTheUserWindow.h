@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QWidget>
-#include "NewGameCreator.h"
+#include "game/NewGameCreator.h"
 #include <QPushButton>
 #include <QGroupBox>
 

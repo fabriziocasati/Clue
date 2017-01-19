@@ -6,7 +6,7 @@
 
 #include <QMainWindow>
 #include <QWidget>
-#include "NewGameCreator.h"
+#include "game/NewGameCreator.h"
 
 class QGroupBox;
 class QRadioButton;

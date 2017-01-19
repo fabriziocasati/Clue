@@ -1,5 +1,5 @@
 #include "NewInquiryWindow.h"
-#include "Inquiry.h"
+#include "game/Inquiry.h"
 
 #include <QDebug>
 

@@ -8,7 +8,7 @@
 #include <QRadioButton>
 #include <QHash>
 #include "gui/MainWindow.h"
-#include "NewGameCreator.h"
+#include "game/NewGameCreator.h"
 
 class NewGameCreator;
 

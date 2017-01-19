@@ -1,6 +1,5 @@
 #include "gui/MainWindow.h"
 #include "Main.h"
-#include "ClueSolver.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

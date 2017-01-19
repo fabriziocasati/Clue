@@ -1,6 +1,6 @@
 #include "Main.h"
-#include "Game.h"
-#include "NewGameCreator.h"
+#include "game/Game.h"
+#include "game/NewGameCreator.h"
 
 Main::Main()
 {

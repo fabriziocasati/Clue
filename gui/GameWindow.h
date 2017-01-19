@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include "gui/NewInquiryWindow.h"
-#include <Game.h>
+#include <game/Game.h>
 #include <QLabel>
 #include <QTableWidget>
 #include <gui/InquiryHistoryWindow.h>

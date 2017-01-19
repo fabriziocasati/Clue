@@ -5,7 +5,7 @@
 #include <QWidget>
 #include <QMdiArea>
 #include "Main.h"
-#include "Game.h"
+#include "game/Game.h"
 
 
 class QPushButton;

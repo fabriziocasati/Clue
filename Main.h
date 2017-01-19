@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "Game.h"
+#include "game/Game.h"
 #include "gui/MainWindow.h"
 
 class MainWindow;

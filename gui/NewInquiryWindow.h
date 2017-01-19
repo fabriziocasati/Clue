@@ -7,7 +7,7 @@
 #include <QGroupBox>
 #include <QCheckBox>
 #include <QHBoxLayout>
-#include <Game.h>
+#include <game/Game.h>
 #include <gui/GameWindow.h>
 #include <QRadioButton>
 #include <boost/lexical_cast.hpp>
