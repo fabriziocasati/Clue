@@ -32,6 +32,7 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
     roomCardList.push_back(QString("Study"));
 
     this->userCards = userCards;
+    this->playerName = playerName;
 
     GameWindow *g = new GameWindow(this);
     inquiryList = new std::list<Inquiry*>();
@@ -66,6 +67,10 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
 
 void Game::addInquiry(Inquiry *q) {
     inquiryList->push_back(q);
+}
+
+std::vector<QString> Game::getPlayerList() {
+    return playerName;
 }
 
 std::vector<QString> Game::getUserCards() {

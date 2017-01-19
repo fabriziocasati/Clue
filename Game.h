@@ -16,7 +16,7 @@ class Game
 {
 public:
     Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> playerName, std::vector<int> playerCardsNumber, std::vector<QString> userCards);
-    std::string playerName[6];
+
     std::vector<QString> suspectCardList;
     std::vector<QString> weaponCardList;
     std::vector<QString> roomCardList;
@@ -29,10 +29,12 @@ public:
     std::vector<QString> getUserCards();
 
     std::vector<QString> userCards;
+    std::vector<QString> playerName;
 
     std::vector<QString> getRoomCardList();
     std::vector<QString> getSuspectCardList();
     std::vector<QString> getWeaponCardList();
+    std::vector<QString> getPlayerList();
 
 };
 
