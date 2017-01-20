@@ -85,6 +85,9 @@ void NamesOfThePlayersWindow::openNumberOfCardsForEachPlayerWindow()
         playerName.push_back(playerNameLineEdit[i]->text());
     newGameCreator->setNamesOfThePlayers(playerName);
     newGameCreator->openNextWindow();
+
+    this->parentWidget()->close();
+
 }
 
 void NamesOfThePlayersWindow::enableOrDisableConfirmButton(const QString &text)

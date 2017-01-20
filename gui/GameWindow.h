@@ -26,6 +26,8 @@ public:
     void myupdate();
     void updateCardTable(QString card, QString player, QString value);
 
+    void closeEvent(QCloseEvent *e);
+
 private:
     std::vector<QString> playerList;
     std::vector<QString> roomCardList;

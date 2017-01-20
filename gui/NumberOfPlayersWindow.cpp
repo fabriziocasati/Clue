@@ -61,6 +61,8 @@ void NumberOfPlayersWindow::openNamesOfThePlayersWindow() {
     newGameCreator->setNumberOfPlayers(numberOfPlayers);
     newGameCreator->openNextWindow();
 
+    this->parentWidget()->close();
+
 }
 
 void NumberOfPlayersWindow::activateConfirmButton() {

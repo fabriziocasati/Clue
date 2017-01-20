@@ -83,25 +83,28 @@ void MainWindow::createMenus()
     fileMenu->addAction(newGameAction);
     connect(newGameAction, &QAction::triggered, this, &MainWindow::createNewGame);
 
+    /*
     QMenu *windowMenu = menuBar()->addMenu(tr("&Window"));
     QAction *showCardTableWindowAction = new QAction(tr("Show &Card Table Window"), this);
     windowMenu->addAction(showCardTableWindowAction);
-    showCardTableWindowAction->setCheckable(true);
+    //showCardTableWindowAction->setCheckable(true);
     connect(showCardTableWindowAction, &QAction::triggered, this, &MainWindow::showCardTableWindow);
 
     QAction *showNewInquiryInsertionWindowAction = new QAction(tr("Show &New Inquiry Insertion Window"), this);
     windowMenu->addAction(showNewInquiryInsertionWindowAction);
-    showNewInquiryInsertionWindowAction->setCheckable(true);
+    //showNewInquiryInsertionWindowAction->setCheckable(true);
     connect(showNewInquiryInsertionWindowAction, &QAction::triggered, this, &MainWindow::showNewInquiryInsertionWindow);
 
     QAction *showInquiryHistoryWindowAction = new QAction(tr("Show &Inquiry History Window"), this);
     windowMenu->addAction(showInquiryHistoryWindowAction);
-    showInquiryHistoryWindowAction->setCheckable(true);
+    //showInquiryHistoryWindowAction->setCheckable(true);
     connect(showInquiryHistoryWindowAction, &QAction::triggered, this, &MainWindow::showInquiryHistoryWindow);
 
+    /*
     QAction *a4 = new QAction(tr("Show &Deduction History Window"), this);
     windowMenu->addAction(a4);
     a4->setCheckable(true);
+    */
 
 }
 
