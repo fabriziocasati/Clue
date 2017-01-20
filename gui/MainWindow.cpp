@@ -136,6 +136,6 @@ void MainWindow::setSubwindow(QWidget *q) {
     //area->activatePreviousSubWindow();
     //area->show();
     q->show();
-    q->move(q->pos());
+    q->move(q->pos());  //TODO barbatrucco
 
 }
