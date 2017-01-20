@@ -45,5 +45,6 @@ RecapWindow::RecapWindow(NewGameCreator *newGameCreator, QWidget *parent)
 
 void RecapWindow::openNextWindow(){
     newGameCreator->openNextWindow();
+    close();
 }
 

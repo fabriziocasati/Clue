@@ -87,7 +87,7 @@ void NamesOfThePlayersWindow::openNumberOfCardsForEachPlayerWindow()
     newGameCreator->openNextWindow();
 
     //this->parentWidget()->close();
-    this->close();
+    close();
 
 }
 

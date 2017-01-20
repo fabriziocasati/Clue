@@ -43,6 +43,7 @@ void CardsOfTheUserWindow::openNextWindow() {
 
     newGameCreator->setCardsOfTheUser(userCards);
     newGameCreator->openNextWindow();
+    close();
 
 }
 

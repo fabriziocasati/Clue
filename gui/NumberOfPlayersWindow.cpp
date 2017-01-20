@@ -8,6 +8,7 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWi
     : QDialog(parent) {
 
     this->newGameCreator = newGameCreator;
+    setModal(true);
 
     //setAttribute(Qt::WA_DeleteOnClose);
     //move(300,300);
@@ -62,7 +63,7 @@ void NumberOfPlayersWindow::openNamesOfThePlayersWindow() {
     newGameCreator->openNextWindow();
 
     //this->parentWidget()->close();
-    this->close();
+    close();
 
 }
 
