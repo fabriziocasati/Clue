@@ -7,13 +7,15 @@
 #include <QMainWindow>
 #include <QWidget>
 #include "game/NewGameCreator.h"
+#include <QDialog>
+#include <QWindow>
 
 class QGroupBox;
 class QRadioButton;
 class QPushButton;
 class NewGameCreator;
 
-class NumberOfPlayersWindow : public QWidget {
+class NumberOfPlayersWindow : public QDialog {
     Q_OBJECT
 
     public:

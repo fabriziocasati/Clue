@@ -3,8 +3,9 @@
 
 #include <QWindow>
 #include "game/NewGameCreator.h"
+#include <QDialog>
 
-class RecapWindow : public QWidget
+class RecapWindow : public QDialog
 {
     Q_OBJECT
 

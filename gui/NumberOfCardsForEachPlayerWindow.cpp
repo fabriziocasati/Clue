@@ -9,7 +9,7 @@
 #include <QDebug>
 
 NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreator *newGameCreator, QWidget *parent)
-    : QWidget(parent) {
+    : QDialog(parent) {
 
     this->newGameCreator = newGameCreator;
     this->numberOfPlayers = newGameCreator->getNumberOfPlayers();

@@ -5,7 +5,7 @@
 #include <boost/lexical_cast.hpp>
 
 NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWidget *parent)
-    : QWidget(parent) {
+    : QDialog(parent) {
 
     this->newGameCreator = newGameCreator;
 
@@ -61,7 +61,8 @@ void NumberOfPlayersWindow::openNamesOfThePlayersWindow() {
     newGameCreator->setNumberOfPlayers(numberOfPlayers);
     newGameCreator->openNextWindow();
 
-    this->parentWidget()->close();
+    //this->parentWidget()->close();
+    this->close();
 
 }
 

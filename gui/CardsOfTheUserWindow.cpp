@@ -10,7 +10,7 @@
 #include <boost/lexical_cast.hpp>
 
 CardsOfTheUserWindow::CardsOfTheUserWindow(NewGameCreator *newGameCreator, QWidget *parent)
-    : QWidget(parent)
+    : QDialog(parent)
 {
     this->newGameCreator = newGameCreator;
 

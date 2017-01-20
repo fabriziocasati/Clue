@@ -5,7 +5,7 @@
 #include <QString>
 
 NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator, QWidget *parent)
-    : QWidget(parent)
+    : QDialog(parent)
 {
     this->newGameCreator = newGameCreator;
     this->numberOfPlayers = newGameCreator->getNumberOfPlayers();
@@ -86,7 +86,8 @@ void NamesOfThePlayersWindow::openNumberOfCardsForEachPlayerWindow()
     newGameCreator->setNamesOfThePlayers(playerName);
     newGameCreator->openNextWindow();
 
-    this->parentWidget()->close();
+    //this->parentWidget()->close();
+    this->close();
 
 }
 

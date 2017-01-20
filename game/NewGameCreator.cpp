@@ -11,15 +11,15 @@ NewGameCreator::NewGameCreator(MainWindow *mainWindow)
 
 void NewGameCreator::openNextWindow() {
 
-    QWidget *subWindow;
+    QWidget *subWindow, *old;
 
-    if(numberOfOpenedWindows < 2) {
+    if(numberOfOpenedWindows < 5) {
         switch(numberOfOpenedWindows) {
-            case 0 : subWindow = new NumberOfPlayersWindow(this); break;
-            case 1 : subWindow = new NamesOfThePlayersWindow(this); break;
-            case 2 : subWindow = new NumberOfCardsForEachPlayerWindow(this); break;
-            case 3 : subWindow = new CardsOfTheUserWindow(this); break;
-            case 4 : subWindow = new RecapWindow(this); break;
+            case 0 : subWindow = new NumberOfPlayersWindow(this, mainWindow); break;
+            case 1 : subWindow; subWindow = new NamesOfThePlayersWindow(this, mainWindow); break;
+            case 2 : subWindow = new NumberOfCardsForEachPlayerWindow(this, mainWindow); break;
+            case 3 : subWindow = new CardsOfTheUserWindow(this, mainWindow); break;
+            case 4 : subWindow = new RecapWindow(this, mainWindow); break;
         }
         numberOfOpenedWindows++;
         mainWindow->setSubwindow(subWindow);

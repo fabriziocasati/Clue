@@ -9,10 +9,11 @@
 #include <QHash>
 #include "gui/MainWindow.h"
 #include "game/NewGameCreator.h"
+#include <QDialog>
 
 class NewGameCreator;
 
-class NumberOfCardsForEachPlayerWindow : public QWidget
+class NumberOfCardsForEachPlayerWindow : public QDialog
 {
     Q_OBJECT
 

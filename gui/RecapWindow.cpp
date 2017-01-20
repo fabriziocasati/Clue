@@ -3,7 +3,7 @@
 #include <QDebug>
 
 RecapWindow::RecapWindow(NewGameCreator *newGameCreator, QWidget *parent)
-    : QWidget(parent)
+    : QDialog(parent)
 {
     this->newGameCreator = newGameCreator;
     int numberOfPlayers = newGameCreator->getNumberOfPlayers();

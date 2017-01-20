@@ -5,6 +5,7 @@
 #include <QHash>
 #include "gui/MainWindow.h"
 #include "game/NewGameCreator.h"
+#include <QDialog>
 
 class QGroupBox;
 class QPushButton;
@@ -12,7 +13,7 @@ class QLineEdit;
 class QLabel;
 class NewGameCreator;
 
-class NamesOfThePlayersWindow  : public QWidget
+class NamesOfThePlayersWindow  : public QDialog
 {
      Q_OBJECT
 

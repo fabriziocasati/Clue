@@ -131,9 +131,11 @@ void MainWindow::setSubwindow(QWidget *q) {
     area->addSubWindow(q);
     this->setCentralWidget(area);
     */
-    area->addSubWindow(q);
+    //area->addSubWindow(q);
     //area->activateNextSubWindow();
     //area->activatePreviousSubWindow();
     //area->show();
     q->show();
+    q->move(q->pos());
+
 }

@@ -6,10 +6,11 @@
 #include "game/NewGameCreator.h"
 #include <QPushButton>
 #include <QGroupBox>
+#include <QDialog>
 
 
 
-class CardsOfTheUserWindow : public QWidget
+class CardsOfTheUserWindow : public QDialog
 {
     Q_OBJECT
 
