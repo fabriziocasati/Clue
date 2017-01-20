@@ -7,7 +7,6 @@
 NamesOfThePlayersWindow::NamesOfThePlayersWindow(NewGameCreator *newGameCreator, QWidget *parent)
     : QWidget(parent)
 {
-    this->mainWindow = mainWindow;
     this->newGameCreator = newGameCreator;
     this->numberOfPlayers = newGameCreator->getNumberOfPlayers();
 
@@ -102,7 +101,7 @@ void NamesOfThePlayersWindow::enableOrDisableConfirmButton(const QString &text)
             nonEmptyNames = nonEmptyNames + 1;
         }
     }
-    if(nonEmptyNames > 0)
+    if(nonEmptyNames == newGameCreator->getNumberOfPlayers())
         m_button->setDisabled(false);
     else
         m_button->setDisabled(true);
