@@ -96,6 +96,6 @@ std::vector<QString> Game::getWeaponCardList() {
 }
 
 int Game::getTurnNumber() {
-    turnNumber;
+    return turnNumber;
 }
 
