@@ -27,9 +27,33 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
     inquiryHistoryTable->setSelectionMode(QAbstractItemView::SingleSelection);
     //inquiryHistoryTable->setShowGrid(false);
     //inquiryHistoryTable->setStyleSheet("QTableView {selection-background-color: red; color: yellow; background: blue; border: 1px solid white}");
-    inquiryHistoryTable->resize(700,400);
 
-    resize(750,400);
+
+    int h=30; int k=120;
+    inquiryHistoryTable->horizontalHeader()->setMinimumHeight(h);
+    inquiryHistoryTable->horizontalHeader()->setMaximumHeight(h);
+
+    /*
+    for(int i=0; i<weaponCardTable->rowCount(); i++)
+       weaponCardTable->setRowHeight(i, h);
+    */
+
+    inquiryHistoryTable->verticalHeader()->setMinimumWidth(h);
+    //weaponCardTable->verticalHeader()->setMinimumWidth(k);
+    for(int i=0; i<inquiryHistoryTable->columnCount(); i++)
+       inquiryHistoryTable->setColumnWidth(i, k);
+
+    inquiryHistoryTable->horizontalHeader()->setSectionResizeMode (QHeaderView::Fixed);
+    inquiryHistoryTable->verticalHeader()->setSectionResizeMode (QHeaderView::Fixed);
+
+    //suspectCardTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //suspectCardTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    //suspectCardTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+
+    inquiryHistoryTable->setFixedSize(k*(inquiryHistoryTable->columnCount())+(inquiryHistoryTable->verticalHeader()->width())+2, 500);
+
+    //resize(750,400);
 
     /*
     if(!(g->inquiryList->empty())) {
