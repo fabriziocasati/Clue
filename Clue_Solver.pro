@@ -13,7 +13,7 @@ HEADERS += \
     Main.h
 
 RESOURCES += \
-    resources.qrc
+    resources/resources.qrc
 
 # Subfolders
 include(reasoner/reasoner.pri)
