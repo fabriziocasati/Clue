@@ -223,25 +223,44 @@ void NewInquiryWindow::openNewWindow() {
     std::string giver = "(nobody)";
     Inquiry *q;
     for(int i=0; i<game->getPlayerList().capacity(); i++)
-        if(callerRadioButton[i]->isChecked())
+        if(callerRadioButton[i]->isChecked()) {
             caller = callerRadioButton[i]->text().toStdString();
+            callerRadioButton[i]->setAutoExclusive(false);
+            callerRadioButton[i]->setChecked(false);
+            callerRadioButton[i]->setAutoExclusive(true);
+        }
 
     for(int i=0; i<game->getRoomCardList() .capacity(); i++)
-        if(roomCardCheckBox[i]->isChecked())
+        if(roomCardCheckBox[i]->isChecked()) {
             room = roomCardCheckBox[i]->text().toStdString();
+            roomCardCheckBox[i]->setAutoExclusive(false);
+            roomCardCheckBox[i]->setChecked(false);
+            roomCardCheckBox[i]->setAutoExclusive(true);
+        }
 
     for(int i=0; i<game->getSuspectCardList().capacity(); i++)
-        if(suspectCardCheckBox[i]->isChecked())
+        if(suspectCardCheckBox[i]->isChecked()) {
             suspect = suspectCardCheckBox[i]->text().toStdString();
+            suspectCardCheckBox[i]->setAutoExclusive(false);
+            suspectCardCheckBox[i]->setChecked(false);
+            suspectCardCheckBox[i]->setAutoExclusive(true);
+        }
 
     for(int i=0; i<game->getWeaponCardList().capacity(); i++)
-        if(weaponCardCheckBox[i]->isChecked())
+        if(weaponCardCheckBox[i]->isChecked()) {
             weapon = weaponCardCheckBox[i]->text().toStdString();
+            weaponCardCheckBox[i]->setAutoExclusive(false);
+            weaponCardCheckBox[i]->setChecked(false);
+            weaponCardCheckBox[i]->setAutoExclusive(true);
+        }
 
     for(int i=0; i<game->getPlayerList().capacity(); i++) // TODO missing (nobody)!!!
-        if(giverRadioButton[i]->isChecked())
+        if(giverRadioButton[i]->isChecked()) {
             giver = giverRadioButton[i]->text().toStdString();
-
+            giverRadioButton[i]->setAutoExclusive(false);
+            giverRadioButton[i]->setChecked(false);
+            giverRadioButton[i]->setAutoExclusive(true);
+        }
 
     q  = new Inquiry(game->getTurnNumber(), caller, room, suspect, weapon, giver);
 
@@ -257,7 +276,7 @@ void NewInquiryWindow::openNewWindow() {
     //i->show();
     //i->repaint();
 
-    this->close();
+    //this->close();
 }
 
 void NewInquiryWindow::closeEvent(QCloseEvent *e)
