@@ -7,7 +7,6 @@ TEMPLATE = app
 
 
 SOURCES += \
-    main.cpp \
     Main.cpp
 
 HEADERS += \
