@@ -67,7 +67,7 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
 
 void Game::addInquiry(Inquiry *q, InquiryHistoryWindow *i) {
     inquiryList->push_back(q);
-    i->myupdate();
+    //i->myupdate();
     //i->close();
     //i->show();
     //mainWindow->setSubwindow(new InquiryHistoryWindow(this, mainWindow));

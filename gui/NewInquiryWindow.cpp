@@ -220,27 +220,27 @@ void NewInquiryWindow::openNewWindow() {
     std::string room = "null";
     std::string suspect = "null";
     std::string weapon = "null";
-    std::string giver = "null";
+    std::string giver = "(nobody)";
     Inquiry *q;
     for(int i=0; i<game->getPlayerList().capacity(); i++)
         if(callerRadioButton[i]->isChecked())
             caller = callerRadioButton[i]->text().toStdString();
 
-    for(int i=0; i<game->getPlayerList().capacity(); i++)
+    for(int i=0; i<game->getRoomCardList() .capacity(); i++)
         if(roomCardCheckBox[i]->isChecked())
-            caller = roomCardCheckBox[i]->text().toStdString();
+            room = roomCardCheckBox[i]->text().toStdString();
 
-    for(int i=0; i<game->getPlayerList().capacity(); i++)
+    for(int i=0; i<game->getSuspectCardList().capacity(); i++)
         if(suspectCardCheckBox[i]->isChecked())
-            caller = suspectCardCheckBox[i]->text().toStdString();
+            suspect = suspectCardCheckBox[i]->text().toStdString();
 
-    for(int i=0; i<game->getPlayerList().capacity(); i++)
+    for(int i=0; i<game->getWeaponCardList().capacity(); i++)
         if(weaponCardCheckBox[i]->isChecked())
-            caller = weaponCardCheckBox[i]->text().toStdString();
+            weapon = weaponCardCheckBox[i]->text().toStdString();
 
     for(int i=0; i<game->getPlayerList().capacity(); i++) // TODO missing (nobody)!!!
         if(giverRadioButton[i]->isChecked())
-            caller = giverRadioButton[i]->text().toStdString();
+            giver = giverRadioButton[i]->text().toStdString();
 
 
     q  = new Inquiry(1, caller, room, suspect, weapon, giver);

@@ -31,7 +31,7 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
 
     resize(750,400);
 
-
+    /*
     if(!(g->inquiryList->empty())) {
 
         std::string numberString = boost::lexical_cast<std::string>(g->inquiryList->front()->turn) ;
@@ -57,6 +57,7 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
     }
 
 
+
     // constructors used in the same order as described above:
       std::list<int> first;                                // empty list of ints
       std::list<int> second (4,100);                       // four ints with value 100
@@ -72,7 +73,7 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
         std::cout << *it << ' ';
 
       std::cout << '\n';
-
+    */
 
       l->addWidget(inquiryHistoryTable);
       setLayout(l);
@@ -102,14 +103,25 @@ void InquiryHistoryWindow::myupdate() {
         std::list<Inquiry*>::iterator it=g->inquiryList->begin();
         int index=0;
         for (; it != g->inquiryList->end(); index++, ++it) {
+
             std::string numberString = boost::lexical_cast<std::string>((*it)->turn) ;
             QString numberQString = QString::fromStdString(numberString);
-
             inquiryHistoryTable->setItem(index, 0, new QTableWidgetItem(numberQString));
 
-            numberString = boost::lexical_cast<std::string>((*it)->inquirer) ;
-            numberQString = QString::fromStdString(numberString);
+            numberQString = QString::fromStdString((*it)->inquirer);
             inquiryHistoryTable->setItem(index, 1, new QTableWidgetItem(numberQString));
+
+            numberQString = QString::fromStdString((*it)->room);
+            inquiryHistoryTable->setItem(index, 2, new QTableWidgetItem(numberQString));
+
+            numberQString = QString::fromStdString((*it)->suspect);
+            inquiryHistoryTable->setItem(index, 3, new QTableWidgetItem(numberQString));
+
+            numberQString = QString::fromStdString((*it)->weapon);
+            inquiryHistoryTable->setItem(index, 4, new QTableWidgetItem(numberQString));
+
+            numberQString = QString::fromStdString((*it)->giver);
+            inquiryHistoryTable->setItem(index, 5, new QTableWidgetItem(numberQString));
         }
     }
 

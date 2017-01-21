@@ -1,6 +1,6 @@
 #include "Inquiry.h"
 
-Inquiry::Inquiry(int turn, std::string inquirer, std::string giver, std::string room, std::string suspect, std::string weaopon)
+Inquiry::Inquiry(int turn, std::string inquirer, std::string room, std::string suspect, std::string weapon, std::string giver)
 {
     this->turn = turn;
 
@@ -8,6 +8,6 @@ Inquiry::Inquiry(int turn, std::string inquirer, std::string giver, std::string 
     this->giver = giver;
     this->room = room;
     this->suspect = suspect;
-    this->weaopon = weaopon;
+    this->weapon = weapon;
 }
 
