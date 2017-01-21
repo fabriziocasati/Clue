@@ -5,6 +5,7 @@
 Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> playerName, std::vector<int> playerCardsNumber, std::vector<QString> userCards)
 {
 
+    this->mainWindow = mainWindow;
     QHash<QString, QString> hash;
 
     suspectCardList.push_back(QString("Peacock"));
@@ -34,12 +35,9 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
     this->userCards = userCards;
     this->playerName = playerName;
 
-    GameWindow *g = new GameWindow(this);
     inquiryList = new std::list<Inquiry*>();
-    mainWindow->setSubwindow(g);
-    g->show();
 
-
+    /*
     std::vector<QString>::iterator it = userCards.begin();
     std::vector<QString>::iterator it2 = roomCardList.begin();
     int ok;
@@ -59,14 +57,21 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
                 g->updateCardTable(*it2, "Cristina", "No");
         }
     }
-
+    */
 
     //g->updateCardTable("Conservatory", "Cristina", "Yes");
 
+    //mainWindow->call();
+
 }
 
-void Game::addInquiry(Inquiry *q) {
+void Game::addInquiry(Inquiry *q, InquiryHistoryWindow *i) {
     inquiryList->push_back(q);
+    i->myupdate();
+    //i->close();
+    //i->show();
+    //mainWindow->setSubwindow(new InquiryHistoryWindow(this, mainWindow));
+    //mainWindow->myupdate();
 }
 
 std::vector<QString> Game::getPlayerList() {

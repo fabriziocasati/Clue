@@ -8,6 +8,7 @@
 #include "gui/GameWindow.h"
 #include "gui/MainWindow.h"
 #include <QString>
+#include "gui/InquiryHistoryWindow.h"
 
 class Inquiry;
 class MainWindow;
@@ -25,7 +26,7 @@ public:
     std::list<Inquiry*> *inquiryList;
     Player player[6];
 
-    void addInquiry(Inquiry *q);
+    void addInquiry(Inquiry *q, InquiryHistoryWindow *i);
     std::vector<QString> getUserCards();
 
     std::vector<QString> userCards;
@@ -35,6 +36,8 @@ public:
     std::vector<QString> getSuspectCardList();
     std::vector<QString> getWeaponCardList();
     std::vector<QString> getPlayerList();
+
+    MainWindow *mainWindow;
 
 };
 

@@ -6,7 +6,7 @@
 
 
 GameWindow::GameWindow(Game *game, QWidget *parent)
-    : QWidget(parent)
+    : QDialog(parent)
 {
     setWindowTitle(tr("Group Boxes"));
 
@@ -403,4 +403,13 @@ void GameWindow::updateCardTable(QString card, QString player, QString value) {
 void GameWindow::closeEvent(QCloseEvent *e)
 {
 e->ignore();
+}
+
+void GameWindow::myupdate2()
+{
+    QTableWidgetItem *q = new QTableWidgetItem("Yes");
+    q->setBackground(QBrush(QColor(Qt::blue)));
+    q->setTextColor(QColor(Qt::red));
+    q->setTextAlignment(Qt::AlignCenter);
+    roomCardTable->setItem(0, 0, q);
 }

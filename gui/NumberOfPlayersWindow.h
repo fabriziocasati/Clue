@@ -29,6 +29,7 @@ class NumberOfPlayersWindow : public QDialog {
         QPushButton *m_button;
         QRadioButton *numberOfPlayersRadioButton[MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1];
         NewGameCreator *newGameCreator;
+        void closeEvent(QCloseEvent *e);
 };
 
 #endif // NUMBEROFPLAYERSWINDOW_H

@@ -11,16 +11,19 @@
 #include <gui/GameWindow.h>
 #include <QRadioButton>
 #include <boost/lexical_cast.hpp>
+#include <QDialog>
+#include "gui/InquiryHistoryWindow.h"
 
 class Game;
 class GameWindow;
+class InquiryHistoryWindow;
 
-class NewInquiryWindow : public QWidget
+class NewInquiryWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    NewInquiryWindow(Game *g, QWidget *parent = 0);
+    NewInquiryWindow(Game *g, InquiryHistoryWindow *i, QWidget *parent = 0);
     Game *game;
     GameWindow *gw;
 
@@ -30,6 +33,9 @@ private:
     QRadioButton *suspectCardCheckBox[6];
     QRadioButton *weaponCardCheckBox[6];
     QRadioButton *giverRadioButton[7];
+    InquiryHistoryWindow *i;
+
+    void closeEvent(QCloseEvent *e);
 
 public slots:
     void openNewWindow();

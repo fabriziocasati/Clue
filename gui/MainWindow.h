@@ -6,6 +6,8 @@
 #include <QMdiArea>
 #include "Main.h"
 #include "game/Game.h"
+#include "gui/InquiryHistoryWindow.h"
+#include "gui/GameWindow.h"
 
 
 class QPushButton;
@@ -15,6 +17,7 @@ class QGridLayout;
 class Main;
 class QMdiArea;
 class Game;
+class GameWindow;
 
 
 class MainWindow : public QMainWindow
@@ -29,6 +32,9 @@ public:
 
     void setSubwindow(QWidget *q);
     void createNewGame();
+    void setGame(Game *game);
+
+    void myupdate();
 
 private:
     Main *main;
@@ -41,6 +47,11 @@ private:
     Game *game;
 
     void createMenus();
+
+    InquiryHistoryWindow *i;
+
+    GameWindow *g;
+
 
 
 private slots:

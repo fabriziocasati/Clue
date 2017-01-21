@@ -64,7 +64,13 @@ MainWindow::MainWindow(Main *main, QWidget *parent) :
     names2.push_back(QString("Lounge"));
     names2.push_back(QString("Library"));
 
-    //game = new Game(this, 4, names, num, names2);
+    game = new Game(this, 4, names, num, names2);
+    g = new GameWindow(game, this);
+    i = new InquiryHistoryWindow(game, this);
+    NewInquiryWindow *n = new NewInquiryWindow(game, i, this);
+    setSubwindow(g);
+    setSubwindow(n);
+    setSubwindow(i);
 
 }
 
@@ -83,7 +89,7 @@ void MainWindow::createMenus()
     fileMenu->addAction(newGameAction);
     connect(newGameAction, &QAction::triggered, this, &MainWindow::createNewGame);
 
-    /*
+
     QMenu *windowMenu = menuBar()->addMenu(tr("&Window"));
     QAction *showCardTableWindowAction = new QAction(tr("Show &Card Table Window"), this);
     windowMenu->addAction(showCardTableWindowAction);
@@ -113,15 +119,17 @@ void MainWindow::createNewGame() {
 }
 
 void MainWindow::showCardTableWindow() {
+    //GameWindow *w = new GameWindow(game, this);
+    //setSubwindow(w);
 }
 
 void MainWindow::showNewInquiryInsertionWindow() {
-    NewInquiryWindow *w = new NewInquiryWindow(game);
+    NewInquiryWindow *w = new NewInquiryWindow(game, i, this);
     setSubwindow(w);
 }
 
 void MainWindow::showInquiryHistoryWindow() {
-    InquiryHistoryWindow *w = new InquiryHistoryWindow(game);
+    InquiryHistoryWindow *w = new InquiryHistoryWindow(game, this);
     setSubwindow(w);
 }
 
@@ -136,6 +144,14 @@ void MainWindow::setSubwindow(QWidget *q) {
     //area->activatePreviousSubWindow();
     //area->show();
     q->show();
+    q->show();
     q->move(q->pos());  //TODO barbatrucco
+}
 
+void MainWindow::setGame(Game *game) {
+    this->game = game;
+}
+
+void MainWindow::myupdate() {
+    g->myupdate2();
 }

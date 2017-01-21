@@ -1,13 +1,14 @@
 #include "NewInquiryWindow.h"
 #include "game/Inquiry.h"
-
+#include <QtGui>
 #include <QDebug>
 
-NewInquiryWindow::NewInquiryWindow(Game *g, QWidget *parent)
-    : QWidget(parent)
+NewInquiryWindow::NewInquiryWindow(Game *g, InquiryHistoryWindow *i, QWidget *parent)
+    : QDialog(parent)
 {
 
     this->game = g;
+    this->i = i;
     //this->gw = gw;
 
     QVBoxLayout *vboxmain = new QVBoxLayout;
@@ -245,10 +246,22 @@ void NewInquiryWindow::openNewWindow() {
     q  = new Inquiry(1, caller, room, suspect, weapon, giver);
 
 
-    game->addInquiry(q);
+    game->addInquiry(q, i);
 
     gw->myupdate();
 
+    QCoreApplication::processEvents();
+    parentWidget()->update();
+    i->myupdate();
+    //i->close();
+    //i->show();
+    //i->repaint();
+
     this->close();
+}
+
+void NewInquiryWindow::closeEvent(QCloseEvent *e)
+{
+//e->ignore();
 }
 

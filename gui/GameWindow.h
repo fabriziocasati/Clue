@@ -9,11 +9,13 @@
 #include <QTableWidget>
 #include <gui/InquiryHistoryWindow.h>
 #include <QString>
+#include <QDialog>
+#include <gui/GameWindow.h>
 
 class Game;
 class QPushButton;
 
-class GameWindow : public QWidget
+class GameWindow : public QDialog
 {
     Q_OBJECT
 
@@ -28,11 +30,15 @@ public:
 
     void closeEvent(QCloseEvent *e);
 
+    void myupdate2();
+
 private:
     std::vector<QString> playerList;
     std::vector<QString> roomCardList;
     std::vector<QString> suspectCardList;
     std::vector<QString> weaponCardList;
+
+    GameWindow *g;
 
 };
 

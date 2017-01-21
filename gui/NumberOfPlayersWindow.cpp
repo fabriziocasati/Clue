@@ -50,6 +50,11 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWi
 
     setLayout(vbox);
 
+    //setWindowFlags( (windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint);
+    //setWindowFlags(Qt::Window | Qt::WindowMinimizeButtonHint | Qt::WindowCloseButtonHint);
+    //setWindowFlags(Qt::Dialog | Qt::WindowTitleHint);
+    //setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
+    //setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
 }
 
 void NumberOfPlayersWindow::openNamesOfThePlayersWindow() {
@@ -64,9 +69,16 @@ void NumberOfPlayersWindow::openNamesOfThePlayersWindow() {
 
     //this->parentWidget()->close();
     close();
+    destroy();
 
 }
 
 void NumberOfPlayersWindow::activateConfirmButton() {
     m_button->setDisabled(false);
 }
+
+void NumberOfPlayersWindow::closeEvent(QCloseEvent *e)
+{
+e->ignore();
+}
+
