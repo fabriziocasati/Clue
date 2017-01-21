@@ -15,10 +15,12 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
 
     //inquiryHistoryTable->setRowCount(g->inquiryList->size());
     inquiryHistoryTable->setRowCount(0);
-    inquiryHistoryTable->setColumnCount(6);
+    //inquiryHistoryTable->setColumnCount(6);
+    inquiryHistoryTable->setColumnCount(5);
     //inquiryHistoryTable->horizontalHeaderItem(0)->setText("Whatever");
     QStringList m_TableHeader;
-    m_TableHeader<<"Turn"<<"Inquirer"<<"Room"<<"Suspect"<<"Weapon"<<"Giver";
+    //m_TableHeader<<"Turn"<<"Inquirer"<<"Room"<<"Suspect"<<"Weapon"<<"Giver";
+    m_TableHeader<<"Inquirer"<<"Room"<<"Suspect"<<"Weapon"<<"Giver";
     inquiryHistoryTable->setHorizontalHeaderLabels(m_TableHeader);
     //inquiryHistoryTable->verticalHeader()->setVisible(false);
     //inquiryHistoryTable->verticalScrollBar()->setEnabled(true);
@@ -130,22 +132,27 @@ void InquiryHistoryWindow::myupdate() {
 
             std::string numberString = boost::lexical_cast<std::string>((*it)->turn) ;
             QString numberQString = QString::fromStdString(numberString);
-            inquiryHistoryTable->setItem(index, 0, new QTableWidgetItem(numberQString));
+            //inquiryHistoryTable->setItem(index, 0, new QTableWidgetItem(numberQString));
 
             numberQString = QString::fromStdString((*it)->inquirer);
-            inquiryHistoryTable->setItem(index, 1, new QTableWidgetItem(numberQString));
+            //inquiryHistoryTable->setItem(index, 1, new QTableWidgetItem(numberQString));
+            inquiryHistoryTable->setItem(index,0, new QTableWidgetItem(numberQString));
 
             numberQString = QString::fromStdString((*it)->room);
-            inquiryHistoryTable->setItem(index, 2, new QTableWidgetItem(numberQString));
+            //inquiryHistoryTable->setItem(index, 2, new QTableWidgetItem(numberQString));
+            inquiryHistoryTable->setItem(index, 1, new QTableWidgetItem(numberQString));
 
             numberQString = QString::fromStdString((*it)->suspect);
-            inquiryHistoryTable->setItem(index, 3, new QTableWidgetItem(numberQString));
+            //inquiryHistoryTable->setItem(index, 3, new QTableWidgetItem(numberQString));
+            inquiryHistoryTable->setItem(index, 2, new QTableWidgetItem(numberQString));
 
             numberQString = QString::fromStdString((*it)->weapon);
-            inquiryHistoryTable->setItem(index, 4, new QTableWidgetItem(numberQString));
+            //inquiryHistoryTable->setItem(index, 4, new QTableWidgetItem(numberQString));
+            inquiryHistoryTable->setItem(index, 3, new QTableWidgetItem(numberQString));
 
             numberQString = QString::fromStdString((*it)->giver);
-            inquiryHistoryTable->setItem(index, 5, new QTableWidgetItem(numberQString));
+            //inquiryHistoryTable->setItem(index, 5, new QTableWidgetItem(numberQString));
+            inquiryHistoryTable->setItem(index, 4, new QTableWidgetItem(numberQString));
         }
     }
 
