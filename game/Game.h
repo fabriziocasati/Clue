@@ -39,6 +39,10 @@ public:
 
     MainWindow *mainWindow;
 
+    int turnNumber;
+
+    int getTurnNumber();
+
 };
 
 #endif // GAME_H

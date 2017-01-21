@@ -6,6 +6,7 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
 {
 
     this->mainWindow = mainWindow;
+    turnNumber = 0;
     QHash<QString, QString> hash;
 
     suspectCardList.push_back(QString("Peacock"));
@@ -94,4 +95,7 @@ std::vector<QString> Game::getWeaponCardList() {
     return weaponCardList;
 }
 
+int Game::getTurnNumber() {
+    turnNumber;
+}
 

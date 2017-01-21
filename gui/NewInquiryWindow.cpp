@@ -243,7 +243,7 @@ void NewInquiryWindow::openNewWindow() {
             giver = giverRadioButton[i]->text().toStdString();
 
 
-    q  = new Inquiry(1, caller, room, suspect, weapon, giver);
+    q  = new Inquiry(game->getTurnNumber(), caller, room, suspect, weapon, giver);
 
 
     game->addInquiry(q, i);
