@@ -39,6 +39,9 @@ private:
 
 public slots:
     void openNewWindow();
+
+private slots:
+    void mydo();
 };
 
 #endif // NEWINQUIRYWINDOW_H

@@ -92,6 +92,7 @@ NewInquiryWindow::NewInquiryWindow(Game *g, InquiryHistoryWindow *i, QWidget *pa
         int i=0;
         for (std::vector<QString>::iterator it = r.begin(); it != r.end(); ++it, i++) {
             callerRadioButton[i] = new QRadioButton(*it);
+            connect(callerRadioButton[i], SIGNAL (clicked()), this, SLOT (mydo()));
             vl->addWidget(callerRadioButton[i], i, Qt::AlignTop);
         }
 
@@ -282,5 +283,13 @@ void NewInquiryWindow::openNewWindow() {
 void NewInquiryWindow::closeEvent(QCloseEvent *e)
 {
 //e->ignore();
+}
+
+void NewInquiryWindow::mydo() {
+    QRadioButton* obj = (QRadioButton*)(sender());
+    if (obj->isChecked())
+        qDebug() << "Yes";
+    else
+        qDebug() << "No";
 }
 
