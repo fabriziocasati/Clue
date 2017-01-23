@@ -5,5 +5,5 @@ var searchData=
   ['newinquirywindow',['NewInquiryWindow',['../classNewInquiryWindow.html',1,'']]],
   ['numberofcardsforeachplayerwindow',['NumberOfCardsForEachPlayerWindow',['../classNumberOfCardsForEachPlayerWindow.html',1,'']]],
   ['numberofplayersradiobutton',['numberOfPlayersRadioButton',['../classNumberOfPlayersWindow.html#a2faa8f67709fa2da57936c57236be6c7',1,'NumberOfPlayersWindow']]],
-  ['numberofplayerswindow',['NumberOfPlayersWindow',['../classNumberOfPlayersWindow.html',1,'']]]
+  ['numberofplayerswindow',['NumberOfPlayersWindow',['../classNumberOfPlayersWindow.html',1,'NumberOfPlayersWindow'],['../classNumberOfPlayersWindow.html#a522ce7de553a78ef1514cc988abb8d38',1,'NumberOfPlayersWindow::NumberOfPlayersWindow()']]]
 ];

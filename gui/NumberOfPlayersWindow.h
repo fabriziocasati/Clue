@@ -20,6 +20,11 @@ class NumberOfPlayersWindow : public QDialog {
     Q_OBJECT
 
     public:
+        /*!
+         * \brief Create a window to allow the player to specify the number of players in game
+         * \param newGameCreator pointer to the NewGameCreator instance
+         * \param parent the parent of the window
+         */
         explicit NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
 
     private:
@@ -53,10 +58,7 @@ class NumberOfPlayersWindow : public QDialog {
         /*!
          * \brief Function called when the confirm button of the window is clicked
          *
-         * When the confirm button of the window is clicked, this function detects which
-         * radio button was selected by the user in order to discover the number of
-         * players in the game, which is passed to the Game class, and then signals to
-         * MainWindow that the next window for data insertion must be shown.
+         * When the confirm button of the window is clicked, this function detects which radio button was selected by the user in order to discover the number of players in the game, which is passed to the Game class, and then signals to MainWindow that the next window for data insertion must be shown.
          */
         void confirmButtonClicked();
 };
