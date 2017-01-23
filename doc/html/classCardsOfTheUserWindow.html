@@ -60,6 +60,9 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classCardsOfTheUserWindow-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CardsOfTheUserWindow Class Reference</div>  </div>
@@ -79,6 +82,54 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2196040b2451a78b75855244f7ab52e2"><td class="memItemLeft" align="right" valign="top"><a id="a2196040b2451a78b75855244f7ab52e2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CardsOfTheUserWindow</b> (<a class="el" href="classNewGameCreator.html">NewGameCreator</a> *newGameCreator, QWidget *parent=0)</td></tr>
 <tr class="separator:a2196040b2451a78b75855244f7ab52e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr class="memitem:abb985e8170c8b26c9292aaa4f0aad311"><td class="memItemLeft" align="right" valign="top"><a id="abb985e8170c8b26c9292aaa4f0aad311"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>openNextWindow</b> ()</td></tr>
+<tr class="separator:abb985e8170c8b26c9292aaa4f0aad311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aab831ccef68d15b365a5838aa6a04f1e"><td class="memItemLeft" align="right" valign="top"><a id="aab831ccef68d15b365a5838aa6a04f1e"></a>
+QGroupBox *&#160;</td><td class="memItemRight" valign="bottom"><b>createNumberOfPlayersGroup</b> (int numberOfPlayers)</td></tr>
+<tr class="separator:aab831ccef68d15b365a5838aa6a04f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a073a7e94b3228231fcc3b3441080beda"><td class="memItemLeft" align="right" valign="top"><a id="a073a7e94b3228231fcc3b3441080beda"></a>
+<a class="el" href="classNewGameCreator.html">NewGameCreator</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>newGameCreator</b></td></tr>
+<tr class="separator:a073a7e94b3228231fcc3b3441080beda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a193d8c12dbb1a86990c0ffa540f0e22b"><td class="memItemLeft" align="right" valign="top"><a id="a193d8c12dbb1a86990c0ffa540f0e22b"></a>
+QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><b>m_button</b></td></tr>
+<tr class="separator:a193d8c12dbb1a86990c0ffa540f0e22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7749950256a9dae35f588edbda24dfed"><td class="memItemLeft" align="right" valign="top"><a id="a7749950256a9dae35f588edbda24dfed"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>nonEmptyName</b> [6]</td></tr>
+<tr class="separator:a7749950256a9dae35f588edbda24dfed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27da8d2c5f07e25aadc9efaa1f337ca4"><td class="memItemLeft" align="right" valign="top"><a id="a27da8d2c5f07e25aadc9efaa1f337ca4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>nonEmptyNames</b> = 0</td></tr>
+<tr class="separator:a27da8d2c5f07e25aadc9efaa1f337ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19737c0ee4e534caa29a783363691c95"><td class="memItemLeft" align="right" valign="top"><a id="a19737c0ee4e534caa29a783363691c95"></a>
+QHash&lt; QLineEdit **, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>hash</b></td></tr>
+<tr class="separator:a19737c0ee4e534caa29a783363691c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a804849fb06aeaca668d23aeb51b7fd68"><td class="memItemLeft" align="right" valign="top"><a id="a804849fb06aeaca668d23aeb51b7fd68"></a>
+QLineEdit *&#160;</td><td class="memItemRight" valign="bottom"><b>playerNameLineEdit</b> [6]</td></tr>
+<tr class="separator:a804849fb06aeaca668d23aeb51b7fd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaeca66bf494c89d062ba58b342b9bfa"><td class="memItemLeft" align="right" valign="top"><a id="aaaeca66bf494c89d062ba58b342b9bfa"></a>
+QLabel *&#160;</td><td class="memItemRight" valign="bottom"><b>playerNameLabel</b> [6]</td></tr>
+<tr class="separator:aaaeca66bf494c89d062ba58b342b9bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5f218228388f66a7aa41f00480cf3d0"><td class="memItemLeft" align="right" valign="top"><a id="ae5f218228388f66a7aa41f00480cf3d0"></a>
+<a class="el" href="classMainWindow.html">MainWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mainWindow</b></td></tr>
+<tr class="separator:ae5f218228388f66a7aa41f00480cf3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0c31cbf8f794712299523fefa80a0ca"><td class="memItemLeft" align="right" valign="top"><a id="ad0c31cbf8f794712299523fefa80a0ca"></a>
+QCheckBox *&#160;</td><td class="memItemRight" valign="bottom"><b>roomCardCheckBox</b> [9]</td></tr>
+<tr class="separator:ad0c31cbf8f794712299523fefa80a0ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca9d407f2fc2026a8fa59c3a2cd520c"><td class="memItemLeft" align="right" valign="top"><a id="a1ca9d407f2fc2026a8fa59c3a2cd520c"></a>
+QCheckBox *&#160;</td><td class="memItemRight" valign="bottom"><b>suspectCardCheckBox</b> [9]</td></tr>
+<tr class="separator:a1ca9d407f2fc2026a8fa59c3a2cd520c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01716e974d04e846dd16af85b9856391"><td class="memItemLeft" align="right" valign="top"><a id="a01716e974d04e846dd16af85b9856391"></a>
+QCheckBox *&#160;</td><td class="memItemRight" valign="bottom"><b>weaponCardCheckBox</b> [9]</td></tr>
+<tr class="separator:a01716e974d04e846dd16af85b9856391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gui/<a class="el" href="CardsOfTheUserWindow_8h_source.html">CardsOfTheUserWindow.h</a></li>

@@ -21,9 +21,9 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWi
     //groupBox->setStyleSheet("border: 1px solid gray; border-radius: 9px; font-weight: normal;");
     //groupBox->setFlat(true);
 
-    m_button = new QPushButton("Ok", this);
-    m_button->setDisabled(true);
-    connect(m_button, SIGNAL (clicked()), this, SLOT (openNamesOfThePlayersWindow()));
+    confirmButton = new QPushButton("Ok", this);
+    confirmButton->setDisabled(true);
+    connect(confirmButton, SIGNAL (clicked()), this, SLOT (confirmButtonClicked()));
     //connect(m_button, SIGNAL (clicked()), this->parent(), SLOT (setSubwindow(w)));
 
     QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
@@ -33,10 +33,10 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWi
     QVBoxLayout *hbox = new QVBoxLayout;
 
     for(int i=0; i<MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1; i++) {
-        std::string numberString = boost::lexical_cast<std::string>(i+MIN_NUMBER_OF_PLAYERS) + " players";
+        std::string numberString = boost::lexical_cast<std::string>(i + MIN_NUMBER_OF_PLAYERS) + " players";
         QString numberQString = QString::fromStdString(numberString);
         numberOfPlayersRadioButton[i] = new QRadioButton(numberQString);
-        connect(numberOfPlayersRadioButton[i], SIGNAL (clicked()), this, SLOT (activateConfirmButton()));
+        connect(numberOfPlayersRadioButton[i], SIGNAL (clicked()), this, SLOT (enableConfirmButton()));
         hbox->addWidget(numberOfPlayersRadioButton[i]);
         hbox->addStretch(1);
     }
@@ -44,7 +44,7 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWi
     groupBox->setLayout(hbox);
 
     vbox->addWidget(groupBox, 0, Qt::AlignCenter);
-    vbox->addWidget(m_button, 1, Qt::AlignCenter);
+    vbox->addWidget(confirmButton, 1, Qt::AlignCenter);
 
     setWindowTitle("Number of Players");
 
@@ -57,7 +57,7 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWi
     //setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
 }
 
-void NumberOfPlayersWindow::openNamesOfThePlayersWindow() {
+void NumberOfPlayersWindow::confirmButtonClicked() {
     int numberOfPlayers;
     for(numberOfPlayers = MIN_NUMBER_OF_PLAYERS; numberOfPlayers <= MAX_NUMBER_OF_PLAYERS; numberOfPlayers++) {
         if(numberOfPlayersRadioButton[numberOfPlayers - MIN_NUMBER_OF_PLAYERS]->isChecked())
@@ -73,12 +73,12 @@ void NumberOfPlayersWindow::openNamesOfThePlayersWindow() {
 
 }
 
-void NumberOfPlayersWindow::activateConfirmButton() {
-    m_button->setDisabled(false);
+void NumberOfPlayersWindow::enableConfirmButton() {
+    confirmButton->setDisabled(false);
 }
 
 void NumberOfPlayersWindow::closeEvent(QCloseEvent *e)
 {
-e->ignore();
+    e->ignore();
 }
 

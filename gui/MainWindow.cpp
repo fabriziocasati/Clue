@@ -11,11 +11,10 @@
 #include "game/Game.h"
 #include <QString>
 
-MainWindow::MainWindow(Main *main, QWidget *parent) :
+MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
 
-    this->main = main;
     area = new QMdiArea;
     setCentralWidget(area);
     createMenus();
@@ -115,7 +114,8 @@ void MainWindow::createMenus()
 }
 
 void MainWindow::createNewGame() {
-    main->createNewGame();
+    //NewGameCreator *newGameCreator =
+    new NewGameCreator(this);
 }
 
 void MainWindow::showCardTableWindow() {

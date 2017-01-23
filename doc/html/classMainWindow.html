@@ -61,6 +61,9 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classMainWindow-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MainWindow Class Reference</div>  </div>
@@ -77,9 +80,9 @@ Inheritance diagram for MainWindow:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6d00d0c625db7096f416034d07ba1acd"><td class="memItemLeft" align="right" valign="top"><a id="a6d00d0c625db7096f416034d07ba1acd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MainWindow</b> (<a class="el" href="classMain.html">Main</a> *main, QWidget *parent=0)</td></tr>
-<tr class="separator:a6d00d0c625db7096f416034d07ba1acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b244be8b7b7db1b08de2a2acb9409db"><td class="memItemLeft" align="right" valign="top"><a id="a8b244be8b7b7db1b08de2a2acb9409db"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>MainWindow</b> (QWidget *parent=0)</td></tr>
+<tr class="separator:a8b244be8b7b7db1b08de2a2acb9409db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae12f8f63791595567b6250f8bb002bda"><td class="memItemLeft" align="right" valign="top"><a id="ae12f8f63791595567b6250f8bb002bda"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>resizeEvent</b> (QResizeEvent *event)</td></tr>
 <tr class="separator:ae12f8f63791595567b6250f8bb002bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,6 +107,54 @@ QPixmap *&#160;</td><td class="memItemRight" valign="bottom"><b>m_pPixmap</b></t
 <tr class="memitem:a4687ca985e01079dd109899fa997b5ef"><td class="memItemLeft" align="right" valign="top"><a id="a4687ca985e01079dd109899fa997b5ef"></a>
 QPalette *&#160;</td><td class="memItemRight" valign="bottom"><b>m_pPalette</b></td></tr>
 <tr class="separator:a4687ca985e01079dd109899fa997b5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr class="memitem:a13da86828ec8b4e3ba580622dd135528"><td class="memItemLeft" align="right" valign="top"><a id="a13da86828ec8b4e3ba580622dd135528"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>showCardTableWindow</b> ()</td></tr>
+<tr class="separator:a13da86828ec8b4e3ba580622dd135528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b79d1f6418bd9e683cae4ace4e50927"><td class="memItemLeft" align="right" valign="top"><a id="a7b79d1f6418bd9e683cae4ace4e50927"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>showNewInquiryInsertionWindow</b> ()</td></tr>
+<tr class="separator:a7b79d1f6418bd9e683cae4ace4e50927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fa1b21721625180a1b7bf3b93ddf856"><td class="memItemLeft" align="right" valign="top"><a id="a6fa1b21721625180a1b7bf3b93ddf856"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>showInquiryHistoryWindow</b> ()</td></tr>
+<tr class="separator:a6fa1b21721625180a1b7bf3b93ddf856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9f855fe5218322da2263da11b5fd55e6"><td class="memItemLeft" align="right" valign="top"><a id="a9f855fe5218322da2263da11b5fd55e6"></a>
+QGroupBox *&#160;</td><td class="memItemRight" valign="bottom"><b>createFirstExclusiveGroup</b> ()</td></tr>
+<tr class="separator:a9f855fe5218322da2263da11b5fd55e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4907b0251d305659e403c62921ef331"><td class="memItemLeft" align="right" valign="top"><a id="aa4907b0251d305659e403c62921ef331"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createMenus</b> ()</td></tr>
+<tr class="separator:aa4907b0251d305659e403c62921ef331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af3be7105ec7a07f29d5cd754505fa379"><td class="memItemLeft" align="right" valign="top"><a id="af3be7105ec7a07f29d5cd754505fa379"></a>
+Main *&#160;</td><td class="memItemRight" valign="bottom"><b>main</b></td></tr>
+<tr class="separator:af3be7105ec7a07f29d5cd754505fa379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426da48f6e2f865b07a28533c07c4f7a"><td class="memItemLeft" align="right" valign="top"><a id="a426da48f6e2f865b07a28533c07c4f7a"></a>
+QMenu *&#160;</td><td class="memItemRight" valign="bottom"><b>fileMenu</b></td></tr>
+<tr class="separator:a426da48f6e2f865b07a28533c07c4f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8b66780eeee5d72866f9b06d11c90c5"><td class="memItemLeft" align="right" valign="top"><a id="ab8b66780eeee5d72866f9b06d11c90c5"></a>
+QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><b>m_button</b></td></tr>
+<tr class="separator:ab8b66780eeee5d72866f9b06d11c90c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32525095d73c56e8342b47678d3afe7d"><td class="memItemLeft" align="right" valign="top"><a id="a32525095d73c56e8342b47678d3afe7d"></a>
+QRadioButton *&#160;</td><td class="memItemRight" valign="bottom"><b>r_button</b></td></tr>
+<tr class="separator:a32525095d73c56e8342b47678d3afe7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e6f045d7a365dbf417c1f4bd5820ed0"><td class="memItemLeft" align="right" valign="top"><a id="a6e6f045d7a365dbf417c1f4bd5820ed0"></a>
+QMdiArea *&#160;</td><td class="memItemRight" valign="bottom"><b>area</b></td></tr>
+<tr class="separator:a6e6f045d7a365dbf417c1f4bd5820ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a568937c16f40d1f913552a824d8c1eb9"><td class="memItemLeft" align="right" valign="top"><a id="a568937c16f40d1f913552a824d8c1eb9"></a>
+<a class="el" href="classGame.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>game</b></td></tr>
+<tr class="separator:a568937c16f40d1f913552a824d8c1eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29195760ac1f63f657eea6af713182a3"><td class="memItemLeft" align="right" valign="top"><a id="a29195760ac1f63f657eea6af713182a3"></a>
+<a class="el" href="classInquiryHistoryWindow.html">InquiryHistoryWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>i</b></td></tr>
+<tr class="separator:a29195760ac1f63f657eea6af713182a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a509d355bc020d8b38e02843c0674a45f"><td class="memItemLeft" align="right" valign="top"><a id="a509d355bc020d8b38e02843c0674a45f"></a>
+<a class="el" href="classGameWindow.html">GameWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>g</b></td></tr>
+<tr class="separator:a509d355bc020d8b38e02843c0674a45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gui/<a class="el" href="MainWindow_8h_source.html">MainWindow.h</a></li>

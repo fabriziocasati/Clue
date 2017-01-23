@@ -7,10 +7,9 @@ TEMPLATE = app
 
 
 SOURCES += \
-    Main.cpp
+    main.cpp
 
-HEADERS += \
-    Main.h
+HEADERS +=
 
 RESOURCES += \
     resources/resources.qrc

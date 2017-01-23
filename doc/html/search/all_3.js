@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main',['Main',['../classMain.html',1,'']]],
-  ['mainwindow',['MainWindow',['../classMainWindow.html',1,'']]]
+  ['inquiry',['Inquiry',['../classInquiry.html',1,'']]],
+  ['inquiryhistorywindow',['InquiryHistoryWindow',['../classInquiryHistoryWindow.html',1,'']]]
 ];
