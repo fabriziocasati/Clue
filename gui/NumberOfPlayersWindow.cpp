@@ -83,7 +83,7 @@ QGroupBox* NumberOfPlayersWindow::createRadioButtonGroupBox()
     for(int i = 0; i < MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1; i++)
     {
         numberOfPlayersRadioButton[i] =
-            new QRadioButton(intToQString(i + MIN_NUMBER_OF_PLAYERS) + "players");
+            new QRadioButton(intToQString(i + MIN_NUMBER_OF_PLAYERS) + " players");
         connect(numberOfPlayersRadioButton[i], SIGNAL (clicked()), this,
                 SLOT (enableConfirmButton()));
         layout->addWidget(numberOfPlayersRadioButton[i]);
