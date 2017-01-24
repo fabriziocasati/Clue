@@ -35,7 +35,7 @@ class NumberOfCardsForEachPlayerWindow : public QDialog
         QRadioButton *radioButton[6][4];
 
     private slots:
-        void openNextWindow();
+        void confirmButtonClicked();
 };
 
 #endif // NUMBEROFCARDSFOREACHPLAYERWINDOW_H
