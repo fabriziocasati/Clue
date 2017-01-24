@@ -23,7 +23,6 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator* newGameCreator, QWi
     /* Window settings */
     setWindowTitle("Number of Players");
     setLayout(windowLayout);
-    setModal(true);
 }
 
 void NumberOfPlayersWindow::confirmButtonClicked()

@@ -2,6 +2,6 @@
 
 NewGameCreationWindow::NewGameCreationWindow(QWidget *parent)
 {
-
+    setModal(true);
 }
 
