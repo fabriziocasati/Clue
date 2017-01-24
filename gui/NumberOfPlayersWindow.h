@@ -1,13 +1,10 @@
 #ifndef NUMBEROFPLAYERSWINDOW_H
 #define NUMBEROFPLAYERSWINDOW_H
 
-#define MIN_NUMBER_OF_PLAYERS 3
-#define MAX_NUMBER_OF_PLAYERS 6
-
 #include <QDialog>
-#include <QMainWindow>
+#include <QRadioButton>
 
-#include "game/NewGameCreator.h"
+#include "GlobalDefines.h"
 
 class NewGameCreator;
 

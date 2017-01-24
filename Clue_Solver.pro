@@ -9,7 +9,8 @@ TEMPLATE = app
 SOURCES += \
     main.cpp
 
-HEADERS +=
+HEADERS += \
+    GlobalDefines.h
 
 RESOURCES += \
     resources/resources.qrc
