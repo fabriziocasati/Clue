@@ -23,29 +23,6 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator* newGameCreator, QWi
     setLayout(windowLayout);
 }
 
-void NumberOfPlayersWindow::confirmButtonClicked()
-{
-    /* Get the number of player selected by means of the radio buttons */
-    int numberOfPlayers;
-    for(numberOfPlayers = MIN_NUMBER_OF_PLAYERS; numberOfPlayers <= MAX_NUMBER_OF_PLAYERS;
-        numberOfPlayers++)
-        if(numberOfPlayersRadioButton[numberOfPlayers - MIN_NUMBER_OF_PLAYERS]->isChecked())
-            break;
-
-    /* Pass to the NewGameCreator instance the number of players and ask it to open the next
-     * window */
-    newGameCreator->setNumberOfPlayers(numberOfPlayers);
-    newGameCreator->openNextWindow();
-
-    /* Close and destroy window */
-    destroy();
-}
-
-void NumberOfPlayersWindow::enableConfirmButton()
-{
-    confirmButton->setDisabled(false);
-}
-
 QPushButton* NumberOfPlayersWindow::createConfirmButton()
 {
     /* Create the button */
@@ -83,4 +60,27 @@ QGroupBox* NumberOfPlayersWindow::createRadioButtonGroupBox()
     /* Set groupbox layout and return the groupbox */
     groupBox->setLayout(layout);
     return groupBox;
+}
+
+void NumberOfPlayersWindow::enableConfirmButton()
+{
+    confirmButton->setDisabled(false);
+}
+
+void NumberOfPlayersWindow::confirmButtonClicked()
+{
+    /* Get the number of player selected by means of the radio buttons */
+    int numberOfPlayers;
+    for(numberOfPlayers = MIN_NUMBER_OF_PLAYERS; numberOfPlayers <= MAX_NUMBER_OF_PLAYERS;
+        numberOfPlayers++)
+        if(numberOfPlayersRadioButton[numberOfPlayers - MIN_NUMBER_OF_PLAYERS]->isChecked())
+            break;
+
+    /* Pass to the NewGameCreator instance the number of players and ask it to open the next
+     * window */
+    newGameCreator->setNumberOfPlayers(numberOfPlayers);
+    newGameCreator->openNextWindow();
+
+    /* Close and destroy window */
+    destroy();
 }
