@@ -10,7 +10,7 @@
 #include "ClueSolver.h"
 
 NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreator *newGameCreator, QWidget *parent)
-    : QDialog(parent) {
+    : NewGameCreationWindow(parent) {
 
     /* Store pointer to the NewGameCreator instance and use it to retrieve the necessary data */
     this->newGameCreator = newGameCreator;

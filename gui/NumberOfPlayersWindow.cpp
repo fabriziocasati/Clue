@@ -1,7 +1,5 @@
 #include "NumberOfPlayersWindow.h"
 
-#include <QtWidgets> // required by the QCloseEvent
-
 #include "game/NewGameCreator.h"
 
 NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator* newGameCreator, QWidget* parent)
@@ -48,10 +46,7 @@ void NumberOfPlayersWindow::enableConfirmButton()
     confirmButton->setDisabled(false);
 }
 
-void NumberOfPlayersWindow::closeEvent(QCloseEvent* closeEvent)
-{
-    closeEvent->ignore();
-}
+
 
 QPushButton* NumberOfPlayersWindow::createConfirmButton()
 {

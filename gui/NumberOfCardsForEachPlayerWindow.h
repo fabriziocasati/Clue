@@ -11,9 +11,11 @@
 #include "game/NewGameCreator.h"
 #include <QDialog>
 
+#include "NewGameCreationWindow.h"
+
 class NewGameCreator;
 
-class NumberOfCardsForEachPlayerWindow : public QDialog
+class NumberOfCardsForEachPlayerWindow : public NewGameCreationWindow
 {
     Q_OBJECT
 

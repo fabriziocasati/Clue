@@ -63,16 +63,6 @@ private:
      */
     QGroupBox* createRadioButtonGroupBox();
 
-    /*!
-     * \brief Reimplementation of QDialog::closeEvent()
-     * \param e The QCloseEvent instance
-     *
-     * To avoid that the window is closed by the user not in the proper way (i.e., by pressing
-     * the confirm button), this function is reimplemented. In particular, when a close event is
-     * created, it is ignored by the window and so the window doesn't close.
-     */
-    void closeEvent(QCloseEvent* closeEvent);
-
 private slots:
     /*!
      * \brief Enable the confirm button
