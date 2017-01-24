@@ -2,6 +2,7 @@
 #define NUMBEROFPLAYERSWINDOW_H
 
 #include <QDialog>
+#include <QGroupBox>
 #include <QRadioButton>
 
 #include "GlobalDefines.h"
@@ -42,6 +43,26 @@ private:
 
     // Functions
     /*!
+     * \brief Create and return the confirm button of the window
+     * \return the confirm button of the window
+     *
+     * A confirm button for the window is created and returned. This button is connected to the
+     * confirmButtonClicked() slot, which is called when the button is clicked by the user.
+     */
+    QPushButton* createConfirmButton();
+
+    /*!
+     * \brief Create and return a groupbox containing all the radio buttons for the selectionf
+     * of the number of players
+     * \return the groupbox containing all the radio buttons
+     *
+     * The user can use the radio buttons added to the returned groupbox to select the number of
+     * players in the game. When one of these radio buttons is clicked, the
+     * enableConfirmButton() slot is invoked.
+     */
+    QGroupBox* createRadioButtonGroupBox();
+
+    /*!
      * \brief Reimplementation of QDialog::closeEvent()
      * \param e The QCloseEvent instance
      *
@@ -49,7 +70,7 @@ private:
      * the confirm button), this function is reimplemented. In particular, when a close event is
      * created, it is ignored by the window and so the window doesn't close.
      */
-    void closeEvent(QCloseEvent* e);
+    void closeEvent(QCloseEvent* closeEvent);
 
 private slots:
     /*!

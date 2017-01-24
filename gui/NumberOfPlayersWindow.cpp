@@ -1,84 +1,97 @@
-#include <QtWidgets>
-#include "NumberOfPlayersWindow.h"
-#include "gui/NamesOfThePlayersWindow.h"
-#include <string>
+#include <QtWidgets> // required by the QCloseEvent
 #include <boost/lexical_cast.hpp>
 
-NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWidget *parent)
-    : QDialog(parent) {
+#include "NumberOfPlayersWindow.h"
+#include "game/NewGameCreator.h"
 
+NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator* newGameCreator, QWidget* parent)
+    : QDialog(parent)
+{
+    /* Save pointer to the NewGameCreator instance */
     this->newGameCreator = newGameCreator;
-    setModal(true);
 
-    //setAttribute(Qt::WA_DeleteOnClose);
-    //move(300,300);
+    /* Create the main window layout */
+    QVBoxLayout* windowLayout = new QVBoxLayout;
 
-    QVBoxLayout *vbox = new QVBoxLayout;
+    /* Create radio buttons and add them to the window */
+    QGroupBox* radioButtonGroupBox = createRadioButtonGroupBox();
+    windowLayout->addWidget(radioButtonGroupBox, 0, Qt::AlignCenter);
 
-    QLabel *l = new QLabel("Select the number of players for the new game");
-    l->setStyleSheet("font-weight: bold;");
-    QGroupBox *groupBox = new QGroupBox("Select the number of players");
-    //groupBox->setStyleSheet("border: 1px solid gray; border-radius: 9px; font-weight: normal;");
-    //groupBox->setFlat(true);
+    /* Create confirm button and add it to the window */
+    confirmButton = createConfirmButton();
+    windowLayout->addWidget(confirmButton, 1, Qt::AlignCenter);
 
-    confirmButton = new QPushButton("Ok", this);
-    confirmButton->setDisabled(true);
-    connect(confirmButton, SIGNAL (clicked()), this, SLOT (confirmButtonClicked()));
-    //connect(m_button, SIGNAL (clicked()), this->parent(), SLOT (setSubwindow(w)));
-
-    QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
-    sizePolicy.setHorizontalStretch(0);
-    sizePolicy.setVerticalStretch(1);
-
-    QVBoxLayout *hbox = new QVBoxLayout;
-
-    for(int i=0; i<MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1; i++) {
-        std::string numberString = boost::lexical_cast<std::string>(i + MIN_NUMBER_OF_PLAYERS) + " players";
-        QString numberQString = QString::fromStdString(numberString);
-        numberOfPlayersRadioButton[i] = new QRadioButton(numberQString);
-        connect(numberOfPlayersRadioButton[i], SIGNAL (clicked()), this, SLOT (enableConfirmButton()));
-        hbox->addWidget(numberOfPlayersRadioButton[i]);
-        hbox->addStretch(1);
-    }
-
-    groupBox->setLayout(hbox);
-
-    vbox->addWidget(groupBox, 0, Qt::AlignCenter);
-    vbox->addWidget(confirmButton, 1, Qt::AlignCenter);
-
+    /* Window settings */
     setWindowTitle("Number of Players");
-
-    setLayout(vbox);
-
-    //setWindowFlags( (windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint);
-    //setWindowFlags(Qt::Window | Qt::WindowMinimizeButtonHint | Qt::WindowCloseButtonHint);
-    //setWindowFlags(Qt::Dialog | Qt::WindowTitleHint);
-    //setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
-    //setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
+    setLayout(windowLayout);
+    setModal(true);
 }
 
-void NumberOfPlayersWindow::confirmButtonClicked() {
+void NumberOfPlayersWindow::confirmButtonClicked()
+{
+    /* Get the number of player selected by means of the radio buttons */
     int numberOfPlayers;
-    for(numberOfPlayers = MIN_NUMBER_OF_PLAYERS; numberOfPlayers <= MAX_NUMBER_OF_PLAYERS; numberOfPlayers++) {
+    for(numberOfPlayers = MIN_NUMBER_OF_PLAYERS; numberOfPlayers <= MAX_NUMBER_OF_PLAYERS;
+        numberOfPlayers++)
         if(numberOfPlayersRadioButton[numberOfPlayers - MIN_NUMBER_OF_PLAYERS]->isChecked())
             break;
-    }
 
+    /* Pass to the NewGameCreator instance the number of players and ask it to open the next
+     * window */
     newGameCreator->setNumberOfPlayers(numberOfPlayers);
     newGameCreator->openNextWindow();
 
-    //this->parentWidget()->close();
-    close();
+    /* Close and destroy window */
     destroy();
-
 }
 
-void NumberOfPlayersWindow::enableConfirmButton() {
+void NumberOfPlayersWindow::enableConfirmButton()
+{
     confirmButton->setDisabled(false);
 }
 
-void NumberOfPlayersWindow::closeEvent(QCloseEvent *e)
+void NumberOfPlayersWindow::closeEvent(QCloseEvent* closeEvent)
 {
-    e->ignore();
+    closeEvent->ignore();
 }
 
+QPushButton* NumberOfPlayersWindow::createConfirmButton()
+{
+    /* Create the button */
+    QPushButton* confirmButton = new QPushButton("Ok", this);
+
+    /* The confirm button is by default disabled to avoid that the user clicks it even when no
+     * radio button has been selected */
+    confirmButton->setDisabled(true);
+
+    /* Invoke confirmButtonClicked() when the confirm button is clicked */
+    connect(confirmButton, SIGNAL (clicked()), this, SLOT (confirmButtonClicked()));
+
+    /* Return the button */
+    return confirmButton;
+}
+
+QGroupBox* NumberOfPlayersWindow::createRadioButtonGroupBox()
+{
+    /* Create a vertical layout and a group box for the radio buttons */
+    QVBoxLayout* layout = new QVBoxLayout;
+    QGroupBox* groupBox = new QGroupBox("Select the number of players");
+
+    /* Create the radio buttons and add them to the groupbox. Moreover, connect each of them
+     * to the enableConfirmButton() slot, which is invoked when the user clicks a radio
+     * button. */
+    for(int i = 0; i < MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1; i++)
+    {
+        std::string numberString = boost::lexical_cast<std::string>(
+            i + MIN_NUMBER_OF_PLAYERS) + " players";
+        QString numberQString = QString::fromStdString(numberString);
+        numberOfPlayersRadioButton[i] = new QRadioButton(numberQString);
+        connect(numberOfPlayersRadioButton[i], SIGNAL (clicked()), this,
+                SLOT (enableConfirmButton()));
+        layout->addWidget(numberOfPlayersRadioButton[i]);
+    }
+
+    /* Set groupbox layout and return the groupbox */
+    groupBox->setLayout(layout);
+    return groupBox;
+}
