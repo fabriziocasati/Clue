@@ -105,6 +105,10 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a7a4c90e2553e4f401fde3ec81e7e3f56"><td class="memItemLeft" align="right" valign="top"><a id="a7a4c90e2553e4f401fde3ec81e7e3f56"></a>
+<a class="el" href="classNewGameCreator.html">NewGameCreator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumberOfPlayersWindow.html#a7a4c90e2553e4f401fde3ec81e7e3f56">newGameCreator</a></td></tr>
+<tr class="memdesc:a7a4c90e2553e4f401fde3ec81e7e3f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="classNewGameCreator.html">NewGameCreator</a> instance. <br /></td></tr>
+<tr class="separator:a7a4c90e2553e4f401fde3ec81e7e3f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56a9fa50a2568bd693ec4ac0b1c4c2a4"><td class="memItemLeft" align="right" valign="top"><a id="a56a9fa50a2568bd693ec4ac0b1c4c2a4"></a>
 QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumberOfPlayersWindow.html#a56a9fa50a2568bd693ec4ac0b1c4c2a4">confirmButton</a></td></tr>
 <tr class="memdesc:a56a9fa50a2568bd693ec4ac0b1c4c2a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The confirm button of the window. <br /></td></tr>
@@ -113,10 +117,6 @@ QPushButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 QRadioButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumberOfPlayersWindow.html#a2faa8f67709fa2da57936c57236be6c7">numberOfPlayersRadioButton</a> [MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS+1]</td></tr>
 <tr class="memdesc:a2faa8f67709fa2da57936c57236be6c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array to keep the pointers to the radio buttons in the window. <br /></td></tr>
 <tr class="separator:a2faa8f67709fa2da57936c57236be6c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a4c90e2553e4f401fde3ec81e7e3f56"><td class="memItemLeft" align="right" valign="top"><a id="a7a4c90e2553e4f401fde3ec81e7e3f56"></a>
-<a class="el" href="classNewGameCreator.html">NewGameCreator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumberOfPlayersWindow.html#a7a4c90e2553e4f401fde3ec81e7e3f56">newGameCreator</a></td></tr>
-<tr class="memdesc:a7a4c90e2553e4f401fde3ec81e7e3f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="classNewGameCreator.html">NewGameCreator</a> instance. <br /></td></tr>
-<tr class="separator:a7a4c90e2553e4f401fde3ec81e7e3f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Window used to insert the number of players in the game. </p>
@@ -160,10 +160,11 @@ QRadioButton *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newGameCreator</td><td>pointer to the <a class="el" href="classNewGameCreator.html">NewGameCreator</a> instance </td></tr>
-    <tr><td class="paramname">parent</td><td>the parent of the window </td></tr>
+    <tr><td class="paramname">parent</td><td>the parent of the window</td></tr>
   </table>
   </dd>
 </dl>
+<p>The pointer to the <a class="el" href="classNewGameCreator.html">NewGameCreator</a> instance is necessary because the window calls this object when all the data have been inserted. </p>
 
 </div>
 </div>
