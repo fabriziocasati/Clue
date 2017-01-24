@@ -46,8 +46,6 @@ void NumberOfPlayersWindow::enableConfirmButton()
     confirmButton->setDisabled(false);
 }
 
-
-
 QPushButton* NumberOfPlayersWindow::createConfirmButton()
 {
     /* Create the button */
