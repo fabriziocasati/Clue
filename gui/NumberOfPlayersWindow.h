@@ -24,6 +24,8 @@ class NumberOfPlayersWindow : public QDialog {
          * \brief Create a window to allow the player to specify the number of players in game
          * \param newGameCreator pointer to the NewGameCreator instance
          * \param parent the parent of the window
+         *
+         * The pointer to the NewGameCreator instance is necessary because the window calls this object when all the data have been inserted.
          */
         explicit NumberOfPlayersWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
 
