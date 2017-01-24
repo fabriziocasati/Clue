@@ -22,4 +22,5 @@ include(gui/gui.pri)
 include(game/game.pri)
 
 DISTFILES += \
-    uncrustify.cfg
+    uncrustify.cfg \
+    README.md

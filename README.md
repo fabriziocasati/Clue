@@ -1,4 +1,4 @@
-# Clue Solver
+# Clue Solver {#mainpage}
 
 ## Overview ##
 
