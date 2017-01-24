@@ -7,7 +7,8 @@ HEADERS += \
     $$PWD/NumberOfCardsForEachPlayerWindow.h \
     $$PWD/NewInquiryWindow.h \
     $$PWD/CardsOfTheUserWindow.h \
-    $$PWD/RecapWindow.h
+    $$PWD/RecapWindow.h \
+    $$PWD/NewGameCreationWindow.h
 
 SOURCES += \
     $$PWD/NumberOfPlayersWindow.cpp \
@@ -18,4 +19,5 @@ SOURCES += \
     $$PWD/NumberOfCardsForEachPlayerWindow.cpp \
     $$PWD/CardsOfTheUserWindow.cpp \
     $$PWD/RecapWindow.cpp \
-    $$PWD/NewInquiryWindow.cpp
+    $$PWD/NewInquiryWindow.cpp \
+    $$PWD/NewGameCreationWindow.cpp
