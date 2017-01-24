@@ -84,5 +84,5 @@ void NumberOfCardsForEachPlayerWindow::confirmButtonClicked() {
                 playerCardsNumber.push_back(j + 3);
     newGameCreator->setNumberOfCardsForEachPlayer(playerCardsNumber);
     newGameCreator->openNextWindow();
-    close();
+    destroy();
 }

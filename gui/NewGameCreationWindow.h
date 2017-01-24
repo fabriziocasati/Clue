@@ -2,6 +2,7 @@
 #define NEWGAMECREATIONWINDOW_H
 
 #include <QDialog>
+#include <QtWidgets> // required by QCloseEvent
 
 /*!
  * \brief Parent class of windows used to create a new game
