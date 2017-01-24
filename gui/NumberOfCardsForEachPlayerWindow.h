@@ -22,8 +22,8 @@ class NumberOfCardsForEachPlayerWindow : public QDialog
 
     private:
         NewGameCreator *newGameCreator;
-        QGroupBox *createNumberOfPlayersGroup();
-        QPushButton *m_button;
+        QGroupBox *createNumberOfPlayersGroupBox();
+        QPushButton *confirmButton;
         int nonEmptyName[6];
         int nonEmptyNames = 0;
         QHash<QLineEdit**, int> hash;
@@ -33,6 +33,8 @@ class NumberOfCardsForEachPlayerWindow : public QDialog
         std::vector<QString> playerName;
         int numberOfPlayers;
         QRadioButton *radioButton[6][4];
+
+        QPushButton* createConfirmButton();
 
     private slots:
         void confirmButtonClicked();

@@ -12,28 +12,35 @@
 NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreator *newGameCreator, QWidget *parent)
     : QDialog(parent) {
 
+    /* Store pointer to the NewGameCreator instance and use it to retrieve the necessary data */
     this->newGameCreator = newGameCreator;
     this->numberOfPlayers = newGameCreator->getNumberOfPlayers();
     this->playerName = newGameCreator->getNamesOfThePlayers();
 
-    QVBoxLayout *v = new QVBoxLayout;
+    /* Create window layout */
+    QVBoxLayout *windowLayout = new QVBoxLayout;
 
-    m_button = new QPushButton("Ok", this);
-    connect(m_button, SIGNAL (clicked()), this, SLOT (confirmButtonClicked()));
+    /* Create the groupbox containing the radio buttons to select the number of cards for each player */
+    windowLayout->addWidget(createNumberOfPlayersGroupBox(), 0, Qt::AlignCenter);
 
-    v->addWidget(createNumberOfPlayersGroup(), 0, Qt::AlignCenter);
-    v->addWidget(m_button, 1, Qt::AlignCenter);
+    /* Create confirm button and add it to the window */
+    confirmButton = createConfirmButton();
+    windowLayout->addWidget(confirmButton, 1, Qt::AlignCenter);
 
-    setLayout(v);
-
+    /* Window settings */
     setWindowTitle("Number of Cards for each Player");
+    setLayout(windowLayout);
+    setModal(true);
 
 }
 
-QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroup() {
+QPushButton* NumberOfCardsForEachPlayerWindow::createConfirmButton() {
+    QPushButton* confirmButton = new QPushButton("Ok", this);
+    connect(confirmButton, SIGNAL (clicked()), this, SLOT (confirmButtonClicked()));
+    return confirmButton;
+}
 
-    std::string numberString = boost::lexical_cast<std::string>(numberOfPlayers);
-    QString numberQString = QString::fromStdString(numberString);
+QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroupBox() {
 
     QGroupBox *groupBox = new QGroupBox("Insert the number of cards held by each player");
 

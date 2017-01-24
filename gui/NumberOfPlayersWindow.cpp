@@ -14,8 +14,7 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator* newGameCreator, QWi
     QVBoxLayout* windowLayout = new QVBoxLayout;
 
     /* Create radio buttons and add them to the window */
-    QGroupBox* radioButtonGroupBox = createRadioButtonGroupBox();
-    windowLayout->addWidget(radioButtonGroupBox, 0, Qt::AlignCenter);
+    windowLayout->addWidget(createRadioButtonGroupBox(), 0, Qt::AlignCenter);
 
     /* Create confirm button and add it to the window */
     confirmButton = createConfirmButton();
