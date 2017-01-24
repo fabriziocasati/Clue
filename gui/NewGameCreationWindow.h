@@ -8,7 +8,7 @@ class NewGameCreationWindow : public QDialog
     Q_OBJECT
 
 public:
-    NewGameCreationWindow();
+    NewGameCreationWindow(QWidget* parent = 0);
 
 private slots:
     /*!

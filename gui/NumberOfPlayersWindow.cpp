@@ -5,7 +5,7 @@
 #include "game/NewGameCreator.h"
 
 NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator* newGameCreator, QWidget* parent)
-    : QDialog(parent)
+    : NewGameCreationWindow(parent)
 {
     /* Save pointer to the NewGameCreator instance */
     this->newGameCreator = newGameCreator;

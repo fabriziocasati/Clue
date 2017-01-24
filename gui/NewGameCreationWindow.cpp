@@ -1,6 +1,6 @@
 #include "NewGameCreationWindow.h"
 
-NewGameCreationWindow::NewGameCreationWindow()
+NewGameCreationWindow::NewGameCreationWindow(QWidget *parent)
 {
 
 }

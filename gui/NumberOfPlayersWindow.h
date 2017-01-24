@@ -6,6 +6,7 @@
 #include <QRadioButton>
 
 #include "ClueSolver.h"
+#include "NewGameCreationWindow.h"
 
 class NewGameCreator;
 
@@ -15,7 +16,7 @@ class NewGameCreator;
  * The valid numbers of players are shown to the user by means of radio buttons, and he can select
  * the correct number.
  */
-class NumberOfPlayersWindow : public QDialog
+class NumberOfPlayersWindow : public NewGameCreationWindow
 {
     Q_OBJECT
 
