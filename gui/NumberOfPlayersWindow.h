@@ -5,7 +5,7 @@
 #include <QGroupBox>
 #include <QRadioButton>
 
-#include "GlobalDefines.h"
+#include "ClueSolver.h"
 
 class NewGameCreator;
 

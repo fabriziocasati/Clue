@@ -1,7 +1,7 @@
-#include <QtWidgets> // required by the QCloseEvent
-#include <boost/lexical_cast.hpp>
-
 #include "NumberOfPlayersWindow.h"
+
+#include <QtWidgets> // required by the QCloseEvent
+
 #include "game/NewGameCreator.h"
 
 NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator* newGameCreator, QWidget* parent)
@@ -82,10 +82,8 @@ QGroupBox* NumberOfPlayersWindow::createRadioButtonGroupBox()
      * button. */
     for(int i = 0; i < MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1; i++)
     {
-        std::string numberString = boost::lexical_cast<std::string>(
-            i + MIN_NUMBER_OF_PLAYERS) + " players";
-        QString numberQString = QString::fromStdString(numberString);
-        numberOfPlayersRadioButton[i] = new QRadioButton(numberQString);
+        numberOfPlayersRadioButton[i] =
+            new QRadioButton(intToQString(i + MIN_NUMBER_OF_PLAYERS) + "players");
         connect(numberOfPlayersRadioButton[i], SIGNAL (clicked()), this,
                 SLOT (enableConfirmButton()));
         layout->addWidget(numberOfPlayersRadioButton[i]);

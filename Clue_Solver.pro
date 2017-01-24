@@ -7,10 +7,11 @@ TEMPLATE = app
 
 
 SOURCES += \
-    main.cpp
+    main.cpp \
+    ClueSolver.cpp
 
 HEADERS += \
-    GlobalDefines.h
+    ClueSolver.h
 
 RESOURCES += \
     resources/resources.qrc
@@ -19,3 +20,6 @@ RESOURCES += \
 include(reasoner/reasoner.pri)
 include(gui/gui.pri)
 include(game/game.pri)
+
+DISTFILES += \
+    uncrustify.cfg

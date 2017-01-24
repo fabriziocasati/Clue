@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['mainwindow',['MainWindow',['../classMainWindow.html',1,'']]]
+  ['namesoftheplayerswindow',['NamesOfThePlayersWindow',['../classNamesOfThePlayersWindow.html',1,'']]],
+  ['newgamecreator',['NewGameCreator',['../classNewGameCreator.html',1,'']]],
+  ['newinquirywindow',['NewInquiryWindow',['../classNewInquiryWindow.html',1,'']]],
+  ['numberofcardsforeachplayerwindow',['NumberOfCardsForEachPlayerWindow',['../classNumberOfCardsForEachPlayerWindow.html',1,'']]],
+  ['numberofplayerswindow',['NumberOfPlayersWindow',['../classNumberOfPlayersWindow.html',1,'NumberOfPlayersWindow'],['../classNumberOfPlayersWindow.html#a522ce7de553a78ef1514cc988abb8d38',1,'NumberOfPlayersWindow::NumberOfPlayersWindow()']]]
 ];

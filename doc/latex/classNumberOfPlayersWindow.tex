@@ -18,32 +18,8 @@ Inheritance diagram for Number\+Of\+Players\+Window\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classNumberOfPlayersWindow_a522ce7de553a78ef1514cc988abb8d38}{Number\+Of\+Players\+Window} (\hyperlink{classNewGameCreator}{New\+Game\+Creator} $\ast$\hyperlink{classNumberOfPlayersWindow_a7a4c90e2553e4f401fde3ec81e7e3f56}{new\+Game\+Creator}, Q\+Widget $\ast$parent=0)
+\hyperlink{classNumberOfPlayersWindow_a522ce7de553a78ef1514cc988abb8d38}{Number\+Of\+Players\+Window} (\hyperlink{classNewGameCreator}{New\+Game\+Creator} $\ast$new\+Game\+Creator, Q\+Widget $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em Create a window to allow the player to specify the number of players in game. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Private Slots}
-\begin{DoxyCompactItemize}
-\item 
-void \hyperlink{classNumberOfPlayersWindow_a7fe10b716af29b5cca42267a391587ec}{enable\+Confirm\+Button} ()
-\begin{DoxyCompactList}\small\item\em Enable the confirm button. \end{DoxyCompactList}\item 
-void \hyperlink{classNumberOfPlayersWindow_aaebac1245ca92099446f0cac82304dab}{confirm\+Button\+Clicked} ()
-\begin{DoxyCompactList}\small\item\em Function called when the confirm button of the window is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \hyperlink{classNumberOfPlayersWindow_afefa90be1b7ddf10ac84744a7b79816d}{close\+Event} (Q\+Close\+Event $\ast$e)
-\begin{DoxyCompactList}\small\item\em Reimplementation of Q\+Dialog\+::close\+Event() \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classNumberOfPlayersWindow_a7a4c90e2553e4f401fde3ec81e7e3f56}\label{classNumberOfPlayersWindow_a7a4c90e2553e4f401fde3ec81e7e3f56}} 
-\hyperlink{classNewGameCreator}{New\+Game\+Creator} $\ast$ \hyperlink{classNumberOfPlayersWindow_a7a4c90e2553e4f401fde3ec81e7e3f56}{new\+Game\+Creator}
-\begin{DoxyCompactList}\small\item\em Pointer to the \hyperlink{classNewGameCreator}{New\+Game\+Creator} instance. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classNumberOfPlayersWindow_a56a9fa50a2568bd693ec4ac0b1c4c2a4}\label{classNumberOfPlayersWindow_a56a9fa50a2568bd693ec4ac0b1c4c2a4}} 
-Q\+Push\+Button $\ast$ \hyperlink{classNumberOfPlayersWindow_a56a9fa50a2568bd693ec4ac0b1c4c2a4}{confirm\+Button}
-\begin{DoxyCompactList}\small\item\em The confirm button of the window. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classNumberOfPlayersWindow_a2faa8f67709fa2da57936c57236be6c7}\label{classNumberOfPlayersWindow_a2faa8f67709fa2da57936c57236be6c7}} 
-Q\+Radio\+Button $\ast$ \hyperlink{classNumberOfPlayersWindow_a2faa8f67709fa2da57936c57236be6c7}{number\+Of\+Players\+Radio\+Button} \mbox{[}M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+L\+A\+Y\+E\+RS -\/ M\+I\+N\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+L\+A\+Y\+E\+RS+1\mbox{]}
-\begin{DoxyCompactList}\small\item\em Array to keep the pointers to the radio buttons in the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -70,44 +46,6 @@ Create a window to allow the player to specify the number of players in game.
 \hline
 \end{DoxyParams}
 The pointer to the \hyperlink{classNewGameCreator}{New\+Game\+Creator} instance is necessary because the window calls this object when all the data have been inserted. 
-
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{classNumberOfPlayersWindow_afefa90be1b7ddf10ac84744a7b79816d}\label{classNumberOfPlayersWindow_afefa90be1b7ddf10ac84744a7b79816d}} 
-\index{Number\+Of\+Players\+Window@{Number\+Of\+Players\+Window}!close\+Event@{close\+Event}}
-\index{close\+Event@{close\+Event}!Number\+Of\+Players\+Window@{Number\+Of\+Players\+Window}}
-\subsubsection{\texorpdfstring{close\+Event()}{closeEvent()}}
-{\footnotesize\ttfamily void Number\+Of\+Players\+Window\+::close\+Event (\begin{DoxyParamCaption}\item[{Q\+Close\+Event $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Reimplementation of Q\+Dialog\+::close\+Event() 
-
-
-\begin{DoxyParams}{Parameters}
-{\em e} & The Q\+Close\+Event instance\\
-\hline
-\end{DoxyParams}
-To avoid that the window is closed by the user not in the proper way (i.\+e., by pressing the confirm button), this function is reimplemented. In particular, when a close event is created, it is ignored by the window and so the window doesn\textquotesingle{}t close. \mbox{\Hypertarget{classNumberOfPlayersWindow_aaebac1245ca92099446f0cac82304dab}\label{classNumberOfPlayersWindow_aaebac1245ca92099446f0cac82304dab}} 
-\index{Number\+Of\+Players\+Window@{Number\+Of\+Players\+Window}!confirm\+Button\+Clicked@{confirm\+Button\+Clicked}}
-\index{confirm\+Button\+Clicked@{confirm\+Button\+Clicked}!Number\+Of\+Players\+Window@{Number\+Of\+Players\+Window}}
-\subsubsection{\texorpdfstring{confirm\+Button\+Clicked}{confirmButtonClicked}}
-{\footnotesize\ttfamily void Number\+Of\+Players\+Window\+::confirm\+Button\+Clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
-
-
-
-Function called when the confirm button of the window is clicked. 
-
-When the confirm button of the window is clicked, this function detects which radio button was selected by the user in order to discover the number of players in the game, which is passed to the \hyperlink{classGame}{Game} class, and then signals to \hyperlink{classMainWindow}{Main\+Window} that the next window for data insertion must be shown. \mbox{\Hypertarget{classNumberOfPlayersWindow_a7fe10b716af29b5cca42267a391587ec}\label{classNumberOfPlayersWindow_a7fe10b716af29b5cca42267a391587ec}} 
-\index{Number\+Of\+Players\+Window@{Number\+Of\+Players\+Window}!enable\+Confirm\+Button@{enable\+Confirm\+Button}}
-\index{enable\+Confirm\+Button@{enable\+Confirm\+Button}!Number\+Of\+Players\+Window@{Number\+Of\+Players\+Window}}
-\subsubsection{\texorpdfstring{enable\+Confirm\+Button}{enableConfirmButton}}
-{\footnotesize\ttfamily void Number\+Of\+Players\+Window\+::enable\+Confirm\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
-
-
-
-Enable the confirm button. 
-
-By default, the confirm button of the window is disabled, since when the window is shown no radio button is checked, which means that the number of players is at that moment not selected. When one of these radio buttons is checked by the user, this radio button calls activate\+Confirm\+Button() to enable the confirm button of the window to allow the user to click it and confirm the selected number of players. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
