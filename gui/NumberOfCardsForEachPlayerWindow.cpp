@@ -116,9 +116,9 @@ void NumberOfCardsForEachPlayerWindow::confirmButtonClicked()
     destroy();
 }
 
-CustomRadioButton::CustomRadioButton(QString text, int playerNumber) : QRadioButton(text)
+CustomRadioButton::CustomRadioButton(QString text, int playerIndex) : QRadioButton(text)
 {
-    playerIndex = playerNumber;
+    this->playerIndex = playerIndex;
 }
 
 int CustomRadioButton::getPlayerNumber()

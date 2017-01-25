@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['enableconfirmbutton',['enableConfirmButton',['../classNumberOfPlayersWindow.html#a7fe10b716af29b5cca42267a391587ec',1,'NumberOfPlayersWindow']]],
-  ['enableordisableconfirmbutton',['enableOrDisableConfirmButton',['../classNamesOfThePlayersWindow.html#ac52d684884838cb8f99a495b3c0f89d9',1,'NamesOfThePlayersWindow']]]
+  ['newgamecreationwindow',['NewGameCreationWindow',['../classNewGameCreationWindow.html#a1b8cd9166289a086a951c2ee9d6bfebe',1,'NewGameCreationWindow']]],
+  ['numberofplayerswindow',['NumberOfPlayersWindow',['../classNumberOfPlayersWindow.html#a522ce7de553a78ef1514cc988abb8d38',1,'NumberOfPlayersWindow']]]
 ];
