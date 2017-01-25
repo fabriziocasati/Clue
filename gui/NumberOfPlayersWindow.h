@@ -33,10 +33,10 @@ public:
 
 private:
     // Attributes
-    //! Pointer to the NewGameCreator instance
+    /*! Pointer to the NewGameCreator instance */
     NewGameCreator* newGameCreator;
 
-    //! Array to keep the pointers to the radio buttons in the window
+    /*! Array to keep the pointers to the radio buttons in the window */
     QRadioButton* numberOfPlayersRadioButton[MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1];
 
     // Functions

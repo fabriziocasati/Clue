@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['area',['area',['../classMainWindow.html#a6e6f045d7a365dbf417c1f4bd5820ed0',1,'MainWindow']]]
+  ['confirmbutton',['confirmButton',['../classNewGameCreationWindow.html#a8d0d915f4fb0df24683813e33442219b',1,'NewGameCreationWindow']]]
 ];

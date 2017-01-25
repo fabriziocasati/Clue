@@ -20,6 +20,19 @@ Inheritance diagram for New\+Game\+Creation\+Window\+:\begin{figure}[H]
 \item 
 \hyperlink{classNewGameCreationWindow_a1b8cd9166289a086a951c2ee9d6bfebe}{New\+Game\+Creation\+Window} (Q\+Widget $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em Create the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Push\+Button $\ast$ \hyperlink{classNewGameCreationWindow_aaa0b36302cf67c363da723e64c92c777}{create\+Confirm\+Button} ()
+\begin{DoxyCompactList}\small\item\em Create and return the confirm button of the window. \end{DoxyCompactList}\item 
+void \hyperlink{classNewGameCreationWindow_ad96277fa809e77e33ade1a93fc4af5d7}{close\+Event} (Q\+Close\+Event $\ast$close\+Event)
+\begin{DoxyCompactList}\small\item\em Reimplementation of Q\+Dialog\+::close\+Event() \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNewGameCreationWindow_a8d0d915f4fb0df24683813e33442219b}\label{classNewGameCreationWindow_a8d0d915f4fb0df24683813e33442219b}} 
+Q\+Push\+Button $\ast$ \hyperlink{classNewGameCreationWindow_a8d0d915f4fb0df24683813e33442219b}{confirm\+Button}
+\begin{DoxyCompactList}\small\item\em The confirm button of the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -44,6 +57,37 @@ Create the window.
 \hline
 \end{DoxyParams}
 Create the window and set it to be modal. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classNewGameCreationWindow_ad96277fa809e77e33ade1a93fc4af5d7}\label{classNewGameCreationWindow_ad96277fa809e77e33ade1a93fc4af5d7}} 
+\index{New\+Game\+Creation\+Window@{New\+Game\+Creation\+Window}!close\+Event@{close\+Event}}
+\index{close\+Event@{close\+Event}!New\+Game\+Creation\+Window@{New\+Game\+Creation\+Window}}
+\subsubsection{\texorpdfstring{close\+Event()}{closeEvent()}}
+{\footnotesize\ttfamily void New\+Game\+Creation\+Window\+::close\+Event (\begin{DoxyParamCaption}\item[{Q\+Close\+Event $\ast$}]{close\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Reimplementation of Q\+Dialog\+::close\+Event() 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The Q\+Close\+Event instance\\
+\hline
+\end{DoxyParams}
+To avoid that the window is closed by the user not in the proper way (i.\+e., by pressing the confirm button), this function is reimplemented. In particular, when a close event is created, it is ignored by the window and so the window doesn\textquotesingle{}t close. \mbox{\Hypertarget{classNewGameCreationWindow_aaa0b36302cf67c363da723e64c92c777}\label{classNewGameCreationWindow_aaa0b36302cf67c363da723e64c92c777}} 
+\index{New\+Game\+Creation\+Window@{New\+Game\+Creation\+Window}!create\+Confirm\+Button@{create\+Confirm\+Button}}
+\index{create\+Confirm\+Button@{create\+Confirm\+Button}!New\+Game\+Creation\+Window@{New\+Game\+Creation\+Window}}
+\subsubsection{\texorpdfstring{create\+Confirm\+Button()}{createConfirmButton()}}
+{\footnotesize\ttfamily Q\+Push\+Button $\ast$ New\+Game\+Creation\+Window\+::create\+Confirm\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Create and return the confirm button of the window. 
+
+\begin{DoxyReturn}{Returns}
+the confirm button of the window
+\end{DoxyReturn}
+A confirm button for the window is created and returned. This button is connected to the confirm\+Button\+Clicked() slot, which is called when the button is clicked by the user. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

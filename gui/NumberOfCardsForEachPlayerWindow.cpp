@@ -3,7 +3,11 @@
 #include <QPushButton>
 #include <QRadioButton>
 
+#include <QDebug>
+
 #include "ClueSolver.h"
+
+#define SPACING 10
 
 NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreator* newGameCreator,
                                                                    QWidget* parent)
@@ -29,6 +33,10 @@ NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreato
     setWindowTitle("Number of Cards for each Player");
     setLayout(windowLayout);
     setModal(true);
+
+    /* Initialize flag array */
+    for(int i = 0; i < numberOfPlayers; i++)
+        checked[i] = false;
 }
 
 QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroupBox()
@@ -48,18 +56,46 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroupBox()
         playerGroupBox = new QGroupBox(*it);
         playerGroupBoxLayout = new QVBoxLayout;
 
-        /* Fill the groupbox with radio buttons to select the number of cards of the player */
+        /* Fill the groupbox with radio buttons to select the number of cards of the player
+         * */
         for(j = 3; j <= 6; j++)
         {
-            radioButton[i][j - 3] = new QRadioButton(intToQString(j) + " cards");
+            radioButton[i][j -
+                           3] = new CustomRadioButton(intToQString(j) + " cards", i);
+            connect(radioButton[i][j - 3], SIGNAL (clicked()), this,
+                    SLOT (enableOrDisableConfirmButton()));
             playerGroupBoxLayout->addWidget(radioButton[i][j - 3]);
         }
         playerGroupBox->setLayout(playerGroupBoxLayout);
         layout->addWidget(playerGroupBox);
-        layout->addSpacing(10);
+        layout->addSpacing(SPACING);
     }
     groupBox->setLayout(layout);
     return groupBox;
+}
+
+void NumberOfCardsForEachPlayerWindow::enableOrDisableConfirmButton()
+{
+    /* Retrieve the pointer to the radio button that was clicked */
+    CustomRadioButton* obj = (CustomRadioButton*) sender();
+
+    /* Retrieve the index of the player associated to the groupbox containing the clicked radio
+     * button */
+    int playerIndex = obj->getPlayerNumber();
+
+    /* A radio button was clicked, which means that the number of cards of the player associated
+     * to the groupbox containing the clicked radio button has been specified */
+    checked[playerIndex] = true;
+
+    /* Check if a number of cards for each player has been specified (i.e., if there is a
+     * checked radio button in each groupbox) */
+    bool flag = true;
+    for(int i = 0; i < numberOfPlayers && flag; i++)
+        if(checked[i] == false)
+            flag = false;
+
+    /* If all the data have been inserted, enable the confirm button, otherwise do nothing */
+    confirmButton->setEnabled(flag);
 }
 
 void NumberOfCardsForEachPlayerWindow::confirmButtonClicked()
@@ -78,4 +114,14 @@ void NumberOfCardsForEachPlayerWindow::confirmButtonClicked()
     newGameCreator->setNumberOfCardsForEachPlayer(playerCardsNumber);
     newGameCreator->openNextWindow();
     destroy();
+}
+
+CustomRadioButton::CustomRadioButton(QString text, int playerNumber) : QRadioButton(text)
+{
+    playerIndex = playerNumber;
+}
+
+int CustomRadioButton::getPlayerNumber()
+{
+    return playerIndex;
 }

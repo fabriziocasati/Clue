@@ -7,6 +7,7 @@ NewGameCreationWindow::NewGameCreationWindow(QWidget* parent) : QDialog(parent)
 
 QPushButton* NewGameCreationWindow::createConfirmButton() {
     QPushButton* confirmButton = new QPushButton("Ok", this);
+    confirmButton->setEnabled(false);
     connect(confirmButton, SIGNAL (clicked()), this, SLOT (confirmButtonClicked()));
     return confirmButton;
 }

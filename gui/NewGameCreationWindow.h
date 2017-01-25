@@ -25,7 +25,7 @@ public:
     NewGameCreationWindow(QWidget* parent = 0);
 
 protected:
-    //! The confirm button of the window
+    /*! The confirm button of the window */
     QPushButton* confirmButton;
 
     /*!
@@ -34,6 +34,8 @@ protected:
      *
      * A confirm button for the window is created and returned. This button is connected to the
      * confirmButtonClicked() slot, which is called when the button is clicked by the user.
+     *
+     * By default, the button is disabled.
      */
     QPushButton* createConfirmButton();
 
