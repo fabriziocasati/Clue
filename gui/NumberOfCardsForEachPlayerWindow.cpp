@@ -63,7 +63,7 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroupBox()
             radioButton[i][j -
                            3] = new CustomRadioButton(intToQString(j) + " cards", i);
             connect(radioButton[i][j - 3], SIGNAL (clicked()), this,
-                    SLOT (enableOrDisableConfirmButton()));
+                    SLOT (checkEnablingConditions()));
             playerGroupBoxLayout->addWidget(radioButton[i][j - 3]);
         }
         playerGroupBox->setLayout(playerGroupBoxLayout);
@@ -74,7 +74,7 @@ QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroupBox()
     return groupBox;
 }
 
-void NumberOfCardsForEachPlayerWindow::enableOrDisableConfirmButton()
+void NumberOfCardsForEachPlayerWindow::checkEnablingConditions()
 {
     /* Retrieve the pointer to the radio button that was clicked */
     CustomRadioButton* obj = (CustomRadioButton*) sender();

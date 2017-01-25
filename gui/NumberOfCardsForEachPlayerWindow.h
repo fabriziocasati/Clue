@@ -25,23 +25,51 @@ public:
     NumberOfCardsForEachPlayerWindow(NewGameCreator* newGameCreator, QWidget* parent = 0);
 
 private:
-
+    /* Pointer to the NewGameCreator instance */
     NewGameCreator* newGameCreator;
-    QGroupBox* createNumberOfPlayersGroupBox();
-    int nonEmptyName[6];
-    int nonEmptyNames = 0;
-    QHash<QLineEdit**, int> hash;
-    QLineEdit* playerNameLineEdit[6];
-    QLabel* playerNameLabel[6];
-    MainWindow* mainWindow;
-    std::vector<QString> playerName;
+
+    /* Number of players in game */
     int numberOfPlayers;
+
+    /* Vector of the names of the players */
+    std::vector<QString> playerName;
+
+    /* Matrix (array of arrays) of radio buttons (or better, CustomRadioButton instances) */
     CustomRadioButton* radioButton[6][4];
+
+    /*! For each groupbox, keep note if there is one radio button that is checked: if the cell
+     * is true, the corresponding groupbox contains a checked radio button */
     bool checked[6];
 
+    /*!
+     * \brief Create the groupbox containing groupboxs of radio buttons
+     * \return a groupbox of groupboxs of radio buttons
+     *
+     * The returned groupbox contains as many groupboxs as the number of players in game
+     * (numberOfPlayers): each of this sub groubox is associated to a player and contains some
+     * radio buttons that allows the player to specify, for each player, the number of cards
+     * that he holds.
+     */
+    QGroupBox* createNumberOfPlayersGroupBox();
+
 private slots:
+    /*!
+     * \brief Function called when the confirm button of the window is clicked
+     *
+     * When the confirm button of the window is clicked, this function detects which radio
+     * buttons were checked by the user in order to compute the number of cards held by each
+     * player; these data are then passed to the Game instance, and then signals to MainWindow
+     * that the next window for data insertion must be shown.
+     */
     void confirmButtonClicked();
-    void enableOrDisableConfirmButton();
+
+    /*!
+     * \brief Check if the confirm button of the window can be enabled
+     *
+     * If for each player the number of held cards has been inserted, the confirm button of the
+     * window can be enabled, otherwise it must remain disabled.
+     */
+    void checkEnablingConditions();
 };
 
 /*!

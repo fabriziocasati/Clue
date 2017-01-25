@@ -1,0 +1,71 @@
+\hypertarget{classCustomRadioButton}{}\section{Custom\+Radio\+Button Class Reference}
+\label{classCustomRadioButton}\index{Custom\+Radio\+Button@{Custom\+Radio\+Button}}
+
+
+Custom class for radio buttons.  
+
+
+
+
+{\ttfamily \#include $<$Number\+Of\+Cards\+For\+Each\+Player\+Window.\+h$>$}
+
+Inheritance diagram for Custom\+Radio\+Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCustomRadioButton}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCustomRadioButton_a0868507b2cbd667b2788eddc38001bc4}{Custom\+Radio\+Button} (Q\+String text, int player\+Index)
+\begin{DoxyCompactList}\small\item\em Construct the custom radio button. \end{DoxyCompactList}\item 
+int \hyperlink{classCustomRadioButton_ad92a16634a48c1cc86cd3848c84accc9}{get\+Player\+Number} ()
+\begin{DoxyCompactList}\small\item\em Return the index of the player associated to the groupbox contaning the radio button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Custom class for radio buttons. 
+
+Objects of this class are radio buttons that have associated an integer number representing a player (0\+: first player; 1\+: second player; etc.). This index is used to check for which player the number of held cards has been specified, i.\+e., in which groupboxs of the \hyperlink{classNumberOfCardsForEachPlayerWindow}{Number\+Of\+Cards\+For\+Each\+Player\+Window} instance (where there is a groupbox of radio buttons, more precisely of \hyperlink{classCustomRadioButton}{Custom\+Radio\+Button} instances, for each each player) a groupbox of radio button) a radio button has been checked. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCustomRadioButton_a0868507b2cbd667b2788eddc38001bc4}\label{classCustomRadioButton_a0868507b2cbd667b2788eddc38001bc4}} 
+\index{Custom\+Radio\+Button@{Custom\+Radio\+Button}!Custom\+Radio\+Button@{Custom\+Radio\+Button}}
+\index{Custom\+Radio\+Button@{Custom\+Radio\+Button}!Custom\+Radio\+Button@{Custom\+Radio\+Button}}
+\subsubsection{\texorpdfstring{Custom\+Radio\+Button()}{CustomRadioButton()}}
+{\footnotesize\ttfamily Custom\+Radio\+Button\+::\+Custom\+Radio\+Button (\begin{DoxyParamCaption}\item[{Q\+String}]{text,  }\item[{int}]{player\+Index }\end{DoxyParamCaption})}
+
+
+
+Construct the custom radio button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & of the radio button \\
+\hline
+{\em player\+Index} & index of the associated player\\
+\hline
+\end{DoxyParams}
+Construct the custom radio button by setting its text (the one that will be shown in the \hyperlink{classNumberOfCardsForEachPlayerWindow}{Number\+Of\+Cards\+For\+Each\+Player\+Window} window) and the index of the associated player. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classCustomRadioButton_ad92a16634a48c1cc86cd3848c84accc9}\label{classCustomRadioButton_ad92a16634a48c1cc86cd3848c84accc9}} 
+\index{Custom\+Radio\+Button@{Custom\+Radio\+Button}!get\+Player\+Number@{get\+Player\+Number}}
+\index{get\+Player\+Number@{get\+Player\+Number}!Custom\+Radio\+Button@{Custom\+Radio\+Button}}
+\subsubsection{\texorpdfstring{get\+Player\+Number()}{getPlayerNumber()}}
+{\footnotesize\ttfamily int Custom\+Radio\+Button\+::get\+Player\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the index of the player associated to the groupbox contaning the radio button. 
+
+\begin{DoxyReturn}{Returns}
+the index representing the player
+\end{DoxyReturn}
+Return the index of the player associated to the groupbox contaning this instance (a radio button that may be checked or not) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+gui/Number\+Of\+Cards\+For\+Each\+Player\+Window.\+h\item 
+gui/Number\+Of\+Cards\+For\+Each\+Player\+Window.\+cpp\end{DoxyCompactItemize}
