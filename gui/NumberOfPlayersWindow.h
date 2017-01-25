@@ -36,22 +36,10 @@ private:
     //! Pointer to the NewGameCreator instance
     NewGameCreator* newGameCreator;
 
-    //! The confirm button of the window
-    QPushButton* confirmButton;
-
     //! Array to keep the pointers to the radio buttons in the window
     QRadioButton* numberOfPlayersRadioButton[MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS + 1];
 
     // Functions
-    /*!
-     * \brief Create and return the confirm button of the window
-     * \return the confirm button of the window
-     *
-     * A confirm button for the window is created and returned. This button is connected to the
-     * confirmButtonClicked() slot, which is called when the button is clicked by the user.
-     */
-    QPushButton* createConfirmButton();
-
     /*!
      * \brief Create and return a groupbox containing all the radio buttons for the selectionf
      * of the number of players

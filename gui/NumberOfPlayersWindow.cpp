@@ -23,22 +23,6 @@ NumberOfPlayersWindow::NumberOfPlayersWindow(NewGameCreator* newGameCreator, QWi
     setLayout(windowLayout);
 }
 
-QPushButton* NumberOfPlayersWindow::createConfirmButton()
-{
-    /* Create the button */
-    QPushButton* confirmButton = new QPushButton("Ok", this);
-
-    /* The confirm button is by default disabled to avoid that the user clicks it even when no
-     * radio button has been selected */
-    confirmButton->setDisabled(true);
-
-    /* Invoke confirmButtonClicked() when the confirm button is clicked */
-    connect(confirmButton, SIGNAL (clicked()), this, SLOT (confirmButtonClicked()));
-
-    /* Return the button */
-    return confirmButton;
-}
-
 QGroupBox* NumberOfPlayersWindow::createRadioButtonGroupBox()
 {
     /* Create a vertical layout and a group box for the radio buttons */

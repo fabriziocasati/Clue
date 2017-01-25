@@ -24,7 +24,19 @@ public:
      */
     NewGameCreationWindow(QWidget* parent = 0);
 
-private:
+protected:
+    //! The confirm button of the window
+    QPushButton* confirmButton;
+
+    /*!
+     * \brief Create and return the confirm button of the window
+     * \return the confirm button of the window
+     *
+     * A confirm button for the window is created and returned. This button is connected to the
+     * confirmButtonClicked() slot, which is called when the button is clicked by the user.
+     */
+    QPushButton* createConfirmButton();
+
     /*!
      * \brief Reimplementation of QDialog::closeEvent()
      * \param e The QCloseEvent instance

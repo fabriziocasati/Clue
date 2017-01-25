@@ -3,24 +3,22 @@
 #include <QPushButton>
 #include <QRadioButton>
 
-#include "NamesOfThePlayersWindow.h"
-#include <QtWidgets>
-#include <boost/lexical_cast.hpp>
-#include <QDebug>
 #include "ClueSolver.h"
 
-NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreator *newGameCreator, QWidget *parent)
-    : NewGameCreationWindow(parent) {
-
+NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreator* newGameCreator,
+                                                                   QWidget* parent)
+    : NewGameCreationWindow(parent)
+{
     /* Store pointer to the NewGameCreator instance and use it to retrieve the necessary data */
     this->newGameCreator = newGameCreator;
     this->numberOfPlayers = newGameCreator->getNumberOfPlayers();
     this->playerName = newGameCreator->getNamesOfThePlayers();
 
     /* Create window layout */
-    QVBoxLayout *windowLayout = new QVBoxLayout;
+    QVBoxLayout* windowLayout = new QVBoxLayout;
 
-    /* Create the groupbox containing the radio buttons to select the number of cards for each player */
+    /* Create the groupbox containing the radio buttons to select the number of cards for each
+     * player */
     windowLayout->addWidget(createNumberOfPlayersGroupBox(), 0, Qt::AlignCenter);
 
     /* Create confirm button and add it to the window */
@@ -31,57 +29,52 @@ NumberOfCardsForEachPlayerWindow::NumberOfCardsForEachPlayerWindow(NewGameCreato
     setWindowTitle("Number of Cards for each Player");
     setLayout(windowLayout);
     setModal(true);
-
 }
 
-QPushButton* NumberOfCardsForEachPlayerWindow::createConfirmButton() {
-    QPushButton* confirmButton = new QPushButton("Ok", this);
-    connect(confirmButton, SIGNAL (clicked()), this, SLOT (confirmButtonClicked()));
-    return confirmButton;
-}
+QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroupBox()
+{
+    /* Create all necessary instances */
+    QGroupBox* groupBox = new QGroupBox("Insert the number of cards held by each player");
+    QHBoxLayout* layout = new QHBoxLayout;
+    QGroupBox* playerGroupBox;
+    QVBoxLayout* playerGroupBoxLayout;
 
-QGroupBox* NumberOfCardsForEachPlayerWindow::createNumberOfPlayersGroupBox() {
+    /* Create all the sub groupboxs */
+    int i = 0, j;
+    for (std::vector<QString>::iterator it = playerName.begin(); it != playerName.end();
+         ++it, i++)
+    {
+        /* Create a groupbox for the player currently considered by the for cycle */
+        playerGroupBox = new QGroupBox(*it);
+        playerGroupBoxLayout = new QVBoxLayout;
 
-    QGroupBox *groupBox = new QGroupBox("Insert the number of cards held by each player");
-
-    QHBoxLayout *vbox = new QHBoxLayout;
-
-    int i=0, j;
-     for (std::vector<QString>::iterator it = playerName.begin() ; it != playerName.end(); ++it, i++) {
-        QGroupBox *v = new QGroupBox(*it);
-
-        QVBoxLayout *vl = new QVBoxLayout;
-
-        for(j=3; j<=6; j++) {
+        /* Fill the groupbox with radio buttons to select the number of cards of the player */
+        for(j = 3; j <= 6; j++)
+        {
             radioButton[i][j - 3] = new QRadioButton(intToQString(j) + " cards");
-            vl->addWidget(radioButton[i][j - 3]);
+            playerGroupBoxLayout->addWidget(radioButton[i][j - 3]);
         }
-
-        v->setLayout(vl);
-        vbox->addWidget(v);
-
-        QFrame* line = new QFrame();
-        line->setFrameShape(QFrame::HLine);
-        line->setFrameShadow(QFrame::Sunken);
-        vbox->addWidget(line);
-
-        vbox->addSpacing(10);
-
+        playerGroupBox->setLayout(playerGroupBoxLayout);
+        layout->addWidget(playerGroupBox);
+        layout->addSpacing(10);
     }
-
-    groupBox->setLayout(vbox);
-
+    groupBox->setLayout(layout);
     return groupBox;
-
 }
 
-void NumberOfCardsForEachPlayerWindow::confirmButtonClicked() {
+void NumberOfCardsForEachPlayerWindow::confirmButtonClicked()
+{
+    /* Check which radio buttons have been selected to retrieve the number of cards for each
+     * player */
     std::vector<int> playerCardsNumber;
     int i, j;
-    for(i=0; i<numberOfPlayers; i++)
-        for(j=0; j<=6 - 3; j++)
+    for(i = 0; i < numberOfPlayers; i++)
+        for(j = 0; j <= MAX_NUMBER_OF_PLAYERS - MIN_NUMBER_OF_PLAYERS; j++)
             if(radioButton[i][j]->isChecked())
-                playerCardsNumber.push_back(j + 3);
+                playerCardsNumber.push_back(j + MIN_NUMBER_OF_PLAYERS);
+
+    /* Pass data to the NewGameCreator instance, ask it to show the next window and then close
+     * the current window */
     newGameCreator->setNumberOfCardsForEachPlayer(playerCardsNumber);
     newGameCreator->openNextWindow();
     destroy();
