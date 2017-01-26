@@ -47,7 +47,7 @@ void CardsOfTheUserWindow::confirmButtonClicked() {
 
     newGameCreator->setCardsOfTheUser(userCards);
     newGameCreator->openNextWindow();
-    close();
+    destroy();
 
 }
 
