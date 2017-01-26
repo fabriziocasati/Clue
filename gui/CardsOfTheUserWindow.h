@@ -9,7 +9,7 @@
 #include <QDialog>
 
 
-class CardsOfTheUserWindow : public QDialog
+class CardsOfTheUserWindow : public NewGameCreationWindow
 {
     Q_OBJECT
 
@@ -18,7 +18,7 @@ class CardsOfTheUserWindow : public QDialog
 
     private:
         NewGameCreator *newGameCreator;
-        QPushButton *m_button;
+        QPushButton *confirmButton;
 
         QGroupBox* createNumberOfPlayersGroup(int numberOfPlayers);
 
@@ -36,7 +36,7 @@ class CardsOfTheUserWindow : public QDialog
         int checkedCheckBoxCount;
 
     private slots:
-        void openNextWindow();
+        void confirmButtonClicked();
         void checkEnablingConditions();
 };
 

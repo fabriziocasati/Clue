@@ -10,27 +10,27 @@
 #include <boost/lexical_cast.hpp>
 
 CardsOfTheUserWindow::CardsOfTheUserWindow(NewGameCreator *newGameCreator, QWidget *parent)
-    : QDialog(parent)
+    : NewGameCreationWindow(parent)
 {
     this->newGameCreator = newGameCreator;
     this->userCardCount = newGameCreator->getNumberOfCardsForEachPlayer().front();
     checkedCheckBoxCount = 0;
 
 
-    m_button = new QPushButton("Ok", this);
-    m_button->setEnabled(false);
-    connect(m_button, SIGNAL (clicked()), this, SLOT (openNextWindow()));
+    confirmButton = new QPushButton("Ok", this);
+    confirmButton->setEnabled(false);
+    connect(confirmButton, SIGNAL (clicked()), this, SLOT (confirmButtonClicked()));
 
     QVBoxLayout *grid = new QVBoxLayout;
     grid->addWidget(createNumberOfPlayersGroup(6), 0, Qt::AlignCenter);
-    grid->addWidget(m_button, 1, Qt::AlignCenter);
+    grid->addWidget(confirmButton, 1, Qt::AlignCenter);
 
     setLayout(grid);
 
     setWindowTitle("Your Cards");
 }
 
-void CardsOfTheUserWindow::openNextWindow() {
+void CardsOfTheUserWindow::confirmButtonClicked() {
 
     std::vector<QString> userCards;
     for(int i=0; i<6; i++) {
@@ -63,7 +63,7 @@ QGroupBox* CardsOfTheUserWindow::createNumberOfPlayersGroup(int numberOfPlayers)
     QHBoxLayout *vbox = new QHBoxLayout;
     vbox->setSpacing(30);
     //vbox->setAlignment(Qt::AlignLeft);
-    vbox->addWidget(m_button);
+    vbox->addWidget(confirmButton);
     //vbox->addStretch(1);
 
     {
@@ -136,7 +136,7 @@ void CardsOfTheUserWindow::checkEnablingConditions() {
     else
         checkedCheckBoxCount--;
     if(checkedCheckBoxCount == userCardCount)
-        m_button->setEnabled(true);
+        confirmButton->setEnabled(true);
     else
-        m_button->setEnabled(false);
+        confirmButton->setEnabled(false);
 }
