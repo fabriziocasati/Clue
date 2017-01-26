@@ -25,6 +25,14 @@ public:
     std::vector<QString> getCardsOfTheUser();
     std::vector<int> getNumberOfCardsForEachPlayer();
 
+    std::vector<QString> suspectCardList;
+    std::vector<QString> weaponCardList;
+    std::vector<QString> roomCardList;
+
+    std::vector<QString> getRoomCardList();
+    std::vector<QString> getSuspectCardList();
+    std::vector<QString> getWeaponCardList();
+
 private:
     int numberOfOpenedWindows;
     Game *game;

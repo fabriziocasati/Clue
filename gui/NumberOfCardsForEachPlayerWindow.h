@@ -1,27 +1,33 @@
 #ifndef NUMBEROFCARDSFOREACHPLAYERWINDOW_H
 #define NUMBEROFCARDSFOREACHPLAYERWINDOW_H
 
-#include <QDialog>
-#include <QGroupBox>
-#include <QHash>
-#include <QObject>
-#include <QPushButton>
-#include <QRadioButton>
-#include <QWidget>
-
 #include "ClueSolver.h"
 #include "NewGameCreationWindow.h"
 #include "game/NewGameCreator.h"
-#include "gui/MainWindow.h"
 
 class NewGameCreator;
 class CustomRadioButton;
 
+/*!
+ * \brief Window used to specify, for each player, the number of held cards
+ *
+ * The user can use this window to specify for each player the number of held cards: since a player
+ * may hold a different number of cards with respect to the other players, the user has to specify
+ * these values for any player.
+ *
+ * The window contains a groubox for each player to insert the number of held cards: each groupbox
+ * (all equal) provides some radio buttons to specify this number (3 cards, 4 cards, ...).
+ */
 class NumberOfCardsForEachPlayerWindow : public NewGameCreationWindow
 {
     Q_OBJECT
 
 public:
+    /*!
+     * \brief Create the window
+     * \param newGameCreator pointer to the NewGameCreator instance
+     * \param parent parent of the window
+     */
     NumberOfCardsForEachPlayerWindow(NewGameCreator* newGameCreator, QWidget* parent = 0);
 
 private:

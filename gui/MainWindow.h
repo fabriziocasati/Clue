@@ -7,7 +7,7 @@
 #include "game/Game.h"
 #include "gui/InquiryHistoryWindow.h"
 #include "gui/GameWindow.h"
-
+#include "game/NewGameCreator.h"
 
 class QPushButton;
 class QRadioButton;

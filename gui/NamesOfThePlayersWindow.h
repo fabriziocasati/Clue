@@ -1,11 +1,7 @@
 #ifndef NAMESOFTHEPLAYERSWINDOW_H
 #define NAMESOFTHEPLAYERSWINDOW_H
 
-#include <QWidget>
-#include <QHash>
-#include "gui/MainWindow.h"
-#include "game/NewGameCreator.h"
-#include <QDialog>
+#include "NewGameCreationWindow.h"
 
 class QGroupBox;
 class QPushButton;
@@ -13,7 +9,7 @@ class QLineEdit;
 class QLabel;
 class NewGameCreator;
 
-class NamesOfThePlayersWindow  : public QDialog
+class NamesOfThePlayersWindow  : public NewGameCreationWindow
 {
      Q_OBJECT
 
@@ -21,7 +17,6 @@ class NamesOfThePlayersWindow  : public QDialog
         NamesOfThePlayersWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
 
     public slots:
-        void openNumberOfCardsForEachPlayerWindow();
         void enableOrDisableConfirmButton(const QString &text);
 
     private:
@@ -32,9 +27,19 @@ class NamesOfThePlayersWindow  : public QDialog
         QHash<QLineEdit**, int> hash;
         QLineEdit *playerNameLineEdit[6];
         QLabel *playerNameLabel[6];
-        MainWindow *mainWindow;
         NewGameCreator *newGameCreator;
         int numberOfPlayers;
+
+private slots:
+    /*!
+     * \brief Function called when the confirm button of the window is clicked
+     *
+     * When the confirm button of the window is clicked, this function detects which radio
+     * buttons were checked by the user in order to compute the number of cards held by each
+     * player; these data are then passed to the Game instance, and then signals to MainWindow
+     * that the next window for data insertion must be shown.
+     */
+    void confirmButtonClicked();
 
 };
 

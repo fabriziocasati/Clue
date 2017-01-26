@@ -1,7 +1,6 @@
 #ifndef NUMBEROFPLAYERSWINDOW_H
 #define NUMBEROFPLAYERSWINDOW_H
 
-#include <QDialog>
 #include <QGroupBox>
 #include <QRadioButton>
 

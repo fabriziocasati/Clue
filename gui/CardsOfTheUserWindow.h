@@ -9,7 +9,6 @@
 #include <QDialog>
 
 
-
 class CardsOfTheUserWindow : public QDialog
 {
     Q_OBJECT
@@ -28,14 +27,17 @@ class CardsOfTheUserWindow : public QDialog
         QHash<QLineEdit**, int> hash;
         QLineEdit *playerNameLineEdit[6];
         QLabel *playerNameLabel[6];
-        MainWindow *mainWindow;
 
         QCheckBox *roomCardCheckBox[9];
         QCheckBox *suspectCardCheckBox[9];
         QCheckBox *weaponCardCheckBox[9];
 
+        int userCardCount;
+        int checkedCheckBoxCount;
+
     private slots:
         void openNextWindow();
+        void checkEnablingConditions();
 };
 
 #endif // CARDSOFTHEUSERWINDOW_H

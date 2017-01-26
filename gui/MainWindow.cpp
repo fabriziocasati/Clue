@@ -114,8 +114,7 @@ void MainWindow::createMenus()
 }
 
 void MainWindow::createNewGame() {
-    //NewGameCreator *newGameCreator =
-    new NewGameCreator(this);
+    NewGameCreator *newGameCreator = new NewGameCreator(this);
 }
 
 void MainWindow::showCardTableWindow() {

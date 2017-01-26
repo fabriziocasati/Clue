@@ -13,8 +13,12 @@ CardsOfTheUserWindow::CardsOfTheUserWindow(NewGameCreator *newGameCreator, QWidg
     : QDialog(parent)
 {
     this->newGameCreator = newGameCreator;
+    this->userCardCount = newGameCreator->getNumberOfCardsForEachPlayer().front();
+    checkedCheckBoxCount = 0;
+
 
     m_button = new QPushButton("Ok", this);
+    m_button->setEnabled(false);
     connect(m_button, SIGNAL (clicked()), this, SLOT (openNextWindow()));
 
     QVBoxLayout *grid = new QVBoxLayout;
@@ -51,10 +55,10 @@ void CardsOfTheUserWindow::openNextWindow() {
 QGroupBox* CardsOfTheUserWindow::createNumberOfPlayersGroup(int numberOfPlayers)
 {
 
-    std::string numberString = boost::lexical_cast<std::string>(numberOfPlayers);
-    QString numberQString = QString::fromStdString(numberString);
+    std::string numberString = boost::lexical_cast<std::string>(userCardCount);
+    QString numberQString = QString::fromStdString("Select the " + numberString + " cards you were given");
 
-    QGroupBox *groupBox = new QGroupBox("Select which cards you were given");
+    QGroupBox *groupBox = new QGroupBox(numberQString);
 
     QHBoxLayout *vbox = new QHBoxLayout;
     vbox->setSpacing(30);
@@ -67,10 +71,12 @@ QGroupBox* CardsOfTheUserWindow::createNumberOfPlayersGroup(int numberOfPlayers)
 
         QVBoxLayout *vl = new QVBoxLayout;
 
-        for(int i=0; i<9; i++) {
-            std::string numberString = boost::lexical_cast<std::string>(i);
-            QString numberQString = QString::fromStdString(numberString);
-            roomCardCheckBox[i] = new QCheckBox(numberQString);
+        std::vector<QString> roomCardList = newGameCreator->getRoomCardList();
+        std::vector<QString>::iterator it = roomCardList.begin();
+
+        for(int i=0; i<9; i++, ++it) {
+            roomCardCheckBox[i] = new QCheckBox(*it);
+            connect(roomCardCheckBox[i], SIGNAL(clicked()), this, SLOT (checkEnablingConditions()));
             vl->addWidget(roomCardCheckBox[i]);
         }
 
@@ -84,10 +90,12 @@ QGroupBox* CardsOfTheUserWindow::createNumberOfPlayersGroup(int numberOfPlayers)
 
         QVBoxLayout *vl = new QVBoxLayout;
 
-        for(int i=0; i<6; i++) {
-            std::string numberString = boost::lexical_cast<std::string>(i);
-            QString numberQString = QString::fromStdString(numberString);
-            suspectCardCheckBox[i] = new QCheckBox(numberQString);
+        std::vector<QString> suspectCardList = newGameCreator->getSuspectCardList();
+        std::vector<QString>::iterator it = suspectCardList.begin();
+
+        for(int i=0; i<6; i++, ++it) {
+            suspectCardCheckBox[i] = new QCheckBox(*it);
+            connect(suspectCardCheckBox[i], SIGNAL(clicked()), this, SLOT (checkEnablingConditions()));
             vl->addWidget(suspectCardCheckBox[i]);
         }
 
@@ -101,10 +109,12 @@ QGroupBox* CardsOfTheUserWindow::createNumberOfPlayersGroup(int numberOfPlayers)
 
         QVBoxLayout *vl = new QVBoxLayout;
 
-        for(int i=0; i<6; i++) {
-            std::string numberString = boost::lexical_cast<std::string>(i);
-            QString numberQString = QString::fromStdString(numberString);
-            weaponCardCheckBox[i] = new QCheckBox(numberQString);
+        std::vector<QString> weaponCardList = newGameCreator->getWeaponCardList();
+        std::vector<QString>::iterator it = weaponCardList.begin();
+
+        for(int i=0; i<6; i++, ++it) {
+            weaponCardCheckBox[i] = new QCheckBox(*it);
+            connect(weaponCardCheckBox[i], SIGNAL(clicked()), this, SLOT (checkEnablingConditions()));
             vl->addWidget(weaponCardCheckBox[i]);
         }
 
@@ -116,4 +126,17 @@ QGroupBox* CardsOfTheUserWindow::createNumberOfPlayersGroup(int numberOfPlayers)
     groupBox->setLayout(vbox);
 
     return groupBox;
+}
+
+void CardsOfTheUserWindow::checkEnablingConditions() {
+    QCheckBox* obj = (QCheckBox*) sender();
+
+    if(obj->isChecked())
+        checkedCheckBoxCount++;
+    else
+        checkedCheckBoxCount--;
+    if(checkedCheckBoxCount == userCardCount)
+        m_button->setEnabled(true);
+    else
+        m_button->setEnabled(false);
 }
