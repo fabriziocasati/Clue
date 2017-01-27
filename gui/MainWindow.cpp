@@ -66,10 +66,12 @@ MainWindow::MainWindow(QWidget *parent) :
     game = new Game(this, 4, names, num, names2);
     g = new GameWindow(game, this);
     i = new InquiryHistoryWindow(game, this);
-    NewInquiryWindow *n = new NewInquiryWindow(game, i, this);
+    n = new NewInquiryWindow(game, i, this);
+    /*
     setSubwindow(g);
     setSubwindow(n);
     setSubwindow(i);
+    */
 
 }
 
@@ -88,8 +90,7 @@ void MainWindow::createMenus()
     fileMenu->addAction(newGameAction);
     connect(newGameAction, &QAction::triggered, this, &MainWindow::createNewGame);
 
-
-    QMenu *windowMenu = menuBar()->addMenu(tr("&Window"));
+    windowMenu = menuBar()->addMenu(tr("&Window"));
     QAction *showCardTableWindowAction = new QAction(tr("Show &Card Table Window"), this);
     windowMenu->addAction(showCardTableWindowAction);
     //showCardTableWindowAction->setCheckable(true);
@@ -111,6 +112,8 @@ void MainWindow::createMenus()
     a4->setCheckable(true);
     */
 
+    windowMenu->setEnabled(false);
+
 }
 
 void MainWindow::createNewGame() {
@@ -118,18 +121,15 @@ void MainWindow::createNewGame() {
 }
 
 void MainWindow::showCardTableWindow() {
-    //GameWindow *w = new GameWindow(game, this);
-    //setSubwindow(w);
+    setSubwindow(g);
 }
 
 void MainWindow::showNewInquiryInsertionWindow() {
-    NewInquiryWindow *w = new NewInquiryWindow(game, i, this);
-    setSubwindow(w);
+    setSubwindow(n);
 }
 
 void MainWindow::showInquiryHistoryWindow() {
-    InquiryHistoryWindow *w = new InquiryHistoryWindow(game, this);
-    setSubwindow(w);
+    setSubwindow(i);
 }
 
 void MainWindow::setSubwindow(QWidget *q) {
@@ -149,6 +149,7 @@ void MainWindow::setSubwindow(QWidget *q) {
 
 void MainWindow::setGame(Game *game) {
     this->game = game;
+    windowMenu->setEnabled(true);
 }
 
 void MainWindow::myupdate() {

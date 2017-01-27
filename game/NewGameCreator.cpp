@@ -54,12 +54,6 @@ void NewGameCreator::openNextWindow() {
     } else {
         game = new Game(mainWindow, numberOfPlayers, playerName, playerCardsNumber, userCards);
         mainWindow->setGame(game);
-        GameWindow *g = new GameWindow(game, mainWindow);
-        InquiryHistoryWindow *i = new InquiryHistoryWindow(game, mainWindow);
-        NewInquiryWindow *n = new NewInquiryWindow(game, i, mainWindow);
-        mainWindow->setSubwindow(g);
-        mainWindow->setSubwindow(n);
-        mainWindow->setSubwindow(i);
     }
 }
 

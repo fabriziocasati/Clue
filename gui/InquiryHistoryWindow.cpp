@@ -106,11 +106,6 @@ InquiryHistoryWindow::InquiryHistoryWindow(Game *g, QWidget *parent)
 
 }
 
-void InquiryHistoryWindow::closeEvent(QCloseEvent *e)
-{
-//e->ignore();
-}
-
 void InquiryHistoryWindow::myupdate() {
 
     inquiryHistoryTable->setItem(2, 2, new QTableWidgetItem("Hello"));
@@ -159,4 +154,10 @@ void InquiryHistoryWindow::myupdate() {
       //setLayout(l);
 
 
+}
+
+void InquiryHistoryWindow::closeEvent(QCloseEvent *e)
+{
+    e->ignore();
+    hide();
 }

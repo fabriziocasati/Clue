@@ -17,6 +17,7 @@ class Main;
 class QMdiArea;
 class Game;
 class GameWindow;
+class NewInquiryWindow;
 
 
 class MainWindow : public QMainWindow
@@ -48,10 +49,10 @@ private:
     void createMenus();
 
     InquiryHistoryWindow *i;
-
     GameWindow *g;
+    NewInquiryWindow *n;
 
-
+    QMenu *windowMenu;
 
 private slots:
     void showCardTableWindow();

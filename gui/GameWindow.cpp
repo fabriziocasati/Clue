@@ -402,7 +402,8 @@ void GameWindow::updateCardTable(QString card, QString player, QString value) {
 
 void GameWindow::closeEvent(QCloseEvent *e)
 {
-e->ignore();
+    e->ignore();
+    hide();
 }
 
 void GameWindow::myupdate2()

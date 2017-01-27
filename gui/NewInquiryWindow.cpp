@@ -280,11 +280,6 @@ void NewInquiryWindow::openNewWindow() {
     //this->close();
 }
 
-void NewInquiryWindow::closeEvent(QCloseEvent *e)
-{
-//e->ignore();
-}
-
 void NewInquiryWindow::mydo() {
     QRadioButton* obj = (QRadioButton*)(sender());
     if (obj->isChecked())
@@ -293,3 +288,8 @@ void NewInquiryWindow::mydo() {
         qDebug() << "No";
 }
 
+void NewInquiryWindow::closeEvent(QCloseEvent *e)
+{
+    e->ignore();
+    hide();
+}
