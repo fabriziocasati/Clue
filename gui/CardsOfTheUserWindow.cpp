@@ -1,39 +1,49 @@
 #include "CardsOfTheUserWindow.h"
 
 #include "NumberOfCardsForEachPlayerWindow.h"
+#include <QCheckBox>
 #include <QGridLayout>
 #include <QPushButton>
-#include <QCheckBox>
 
 #include "NamesOfThePlayersWindow.h"
 #include <QtWidgets>
 #include <boost/lexical_cast.hpp>
 
-CardsOfTheUserWindow::CardsOfTheUserWindow(NewGameCreator *newGameCreator, QWidget *parent)
+#define SPACING 30
+
+CardsOfTheUserWindow::CardsOfTheUserWindow(NewGameCreator* newGameCreator, QWidget* parent)
     : NewGameCreationWindow(parent)
 {
+    /* Store constructor arguments */
     this->newGameCreator = newGameCreator;
     this->userCardCount = newGameCreator->getNumberOfCardsForEachPlayer().front();
+
+    /* Set to zero the number of currently checked check boxes */
     checkedCheckBoxCount = 0;
 
+    /* Create and set window layout */
+    QVBoxLayout* layout = new QVBoxLayout;
+    setLayout(layout);
 
+    /* Create cards group boxes and add them to window */
+    layout->addWidget(createGroupBoxes(), 0, Qt::AlignCenter);
+
+    /* Create confirm button and add it to window */
     confirmButton = new QPushButton("Ok", this);
     confirmButton->setEnabled(false);
     connect(confirmButton, SIGNAL (clicked()), this, SLOT (confirmButtonClicked()));
+    layout->addWidget(confirmButton, 1, Qt::AlignCenter);
 
-    QVBoxLayout *grid = new QVBoxLayout;
-    grid->addWidget(createNumberOfPlayersGroup(6), 0, Qt::AlignCenter);
-    grid->addWidget(confirmButton, 1, Qt::AlignCenter);
-
-    setLayout(grid);
-
+    /* Window settings */
     setWindowTitle("Your Cards");
 }
 
-void CardsOfTheUserWindow::confirmButtonClicked() {
-
+void CardsOfTheUserWindow::confirmButtonClicked()
+{
+    /* Detect the cards selected by the user and pass them to the newGameCreator instance */
     std::vector<QString> userCards;
-    for(int i=0; i<6; i++) {
+    for(int i = 0; i < 6; i++)
+    {
         if(roomCardCheckBox[i]->isChecked())
             userCards.push_back(roomCardCheckBox[i]->text());
         if(suspectCardCheckBox[i]->isChecked())
@@ -41,94 +51,63 @@ void CardsOfTheUserWindow::confirmButtonClicked() {
         if(weaponCardCheckBox[i]->isChecked())
             userCards.push_back(weaponCardCheckBox[i]->text());
     }
-    for(int i=6; i<9; i++)
+    for(int i = 6; i < 9; i++)
         if(roomCardCheckBox[i]->isChecked())
             userCards.push_back(roomCardCheckBox[i]->text());
-
     newGameCreator->setCardsOfTheUser(userCards);
+
+    /* Open next window and close current one */
     newGameCreator->openNextWindow();
     destroy();
-
 }
 
-
-QGroupBox* CardsOfTheUserWindow::createNumberOfPlayersGroup(int numberOfPlayers)
+QGroupBox* CardsOfTheUserWindow::createGroupBoxes()
 {
+    /* Create main group box and its layout */
+    QGroupBox* mainGroupBox = new QGroupBox("Select the " + intToQString(
+                            userCardCount) + " cards you were given");
+    QHBoxLayout* mainLayout = new QHBoxLayout;
+    mainLayout->setSpacing(SPACING);
+    mainGroupBox->setLayout(mainLayout);
 
-    std::string numberString = boost::lexical_cast<std::string>(userCardCount);
-    QString numberQString = QString::fromStdString("Select the " + numberString + " cards you were given");
+    /* Create and add child group boxes */
+    mainLayout->addWidget(foo("Room Cards",
+                              newGameCreator->getRoomCardList(),
+                              roomCardCheckBox));
+    mainLayout->addWidget(foo("Suspect Cards",
+                              newGameCreator->getSuspectCardList(),
+                              suspectCardCheckBox));
+    mainLayout->addWidget(foo("Weapon Cards",
+                              newGameCreator->getWeaponCardList(),
+                              weaponCardCheckBox));
 
-    QGroupBox *groupBox = new QGroupBox(numberQString);
-
-    QHBoxLayout *vbox = new QHBoxLayout;
-    vbox->setSpacing(30);
-    //vbox->setAlignment(Qt::AlignLeft);
-    vbox->addWidget(confirmButton);
-    //vbox->addStretch(1);
-
-    {
-        QGroupBox *v = new QGroupBox("Room Cards");
-
-        QVBoxLayout *vl = new QVBoxLayout;
-
-        std::vector<QString> roomCardList = newGameCreator->getRoomCardList();
-        std::vector<QString>::iterator it = roomCardList.begin();
-
-        for(int i=0; i<9; i++, ++it) {
-            roomCardCheckBox[i] = new QCheckBox(*it);
-            connect(roomCardCheckBox[i], SIGNAL(clicked()), this, SLOT (checkEnablingConditions()));
-            vl->addWidget(roomCardCheckBox[i]);
-        }
-
-        v->setLayout(vl);
-        vbox->addWidget(v);
-
-    }
-
-    {
-        QGroupBox *v = new QGroupBox("Suspect Cards");
-
-        QVBoxLayout *vl = new QVBoxLayout;
-
-        std::vector<QString> suspectCardList = newGameCreator->getSuspectCardList();
-        std::vector<QString>::iterator it = suspectCardList.begin();
-
-        for(int i=0; i<6; i++, ++it) {
-            suspectCardCheckBox[i] = new QCheckBox(*it);
-            connect(suspectCardCheckBox[i], SIGNAL(clicked()), this, SLOT (checkEnablingConditions()));
-            vl->addWidget(suspectCardCheckBox[i]);
-        }
-
-        v->setLayout(vl);
-        vbox->addWidget(v);
-
-    }
-
-    {
-        QGroupBox *v = new QGroupBox("Weapon Cards");
-
-        QVBoxLayout *vl = new QVBoxLayout;
-
-        std::vector<QString> weaponCardList = newGameCreator->getWeaponCardList();
-        std::vector<QString>::iterator it = weaponCardList.begin();
-
-        for(int i=0; i<6; i++, ++it) {
-            weaponCardCheckBox[i] = new QCheckBox(*it);
-            connect(weaponCardCheckBox[i], SIGNAL(clicked()), this, SLOT (checkEnablingConditions()));
-            vl->addWidget(weaponCardCheckBox[i]);
-        }
-
-        v->setLayout(vl);
-        vbox->addWidget(v);
-
-    }
-
-    groupBox->setLayout(vbox);
-
-    return groupBox;
+    return mainGroupBox;
 }
 
-void CardsOfTheUserWindow::checkEnablingConditions() {
+QGroupBox* CardsOfTheUserWindow::foo(QString string,
+                                     std::vector<QString> cardList,
+                                     QCheckBox* cardArray[])
+{
+    /* Create group box and set its layout */
+    QGroupBox* v = new QGroupBox(string);
+    QVBoxLayout* vl = new QVBoxLayout;
+    v->setLayout(vl);
+
+    /* Fill the group box */
+    std::vector<QString>::iterator it = cardList.begin();
+    int i = 0;
+    for(; it != cardList.end(); i++, ++it)
+    {
+        cardArray[i] = new QCheckBox(*it);
+        connect(cardArray[i], SIGNAL(clicked()), this, SLOT (checkEnablingConditions()));
+        vl->addWidget(cardArray[i]);
+    }
+
+    return v;
+}
+
+void CardsOfTheUserWindow::checkEnablingConditions()
+{
     QCheckBox* obj = (QCheckBox*) sender();
 
     if(obj->isChecked())

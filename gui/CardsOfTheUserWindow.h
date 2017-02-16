@@ -16,11 +16,10 @@ class CardsOfTheUserWindow : public NewGameCreationWindow
     public:
         CardsOfTheUserWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
 
-    private:
         NewGameCreator *newGameCreator;
         QPushButton *confirmButton;
 
-        QGroupBox* createNumberOfPlayersGroup(int numberOfPlayers);
+        QGroupBox* createGroupBoxes();
 
         int nonEmptyName[6];
         int nonEmptyNames = 0;
@@ -34,6 +33,8 @@ class CardsOfTheUserWindow : public NewGameCreationWindow
 
         int userCardCount;
         int checkedCheckBoxCount;
+
+        QGroupBox* foo(QString string, std::vector<QString> cardList, QCheckBox *cardArray[]);
 
     private slots:
         void confirmButtonClicked();
