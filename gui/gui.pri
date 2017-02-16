@@ -8,8 +8,7 @@ HEADERS += \
     $$PWD/NewInquiryWindow.h \
     $$PWD/CardsOfTheUserWindow.h \
     $$PWD/RecapWindow.h \
-    $$PWD/NewGameCreationWindow.h \
-    $$PWD/RoomCardGroupBox.h
+    $$PWD/NewGameCreationWindow.h
 
 SOURCES += \
     $$PWD/NumberOfPlayersWindow.cpp \
@@ -21,5 +20,4 @@ SOURCES += \
     $$PWD/CardsOfTheUserWindow.cpp \
     $$PWD/RecapWindow.cpp \
     $$PWD/NewInquiryWindow.cpp \
-    $$PWD/NewGameCreationWindow.cpp \
-    $$PWD/RoomCardGroupBox.cpp
+    $$PWD/NewGameCreationWindow.cpp
