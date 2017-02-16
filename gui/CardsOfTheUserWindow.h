@@ -16,6 +16,7 @@ class CardsOfTheUserWindow : public NewGameCreationWindow
     public:
         CardsOfTheUserWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
 
+    private:
         NewGameCreator *newGameCreator;
         QPushButton *confirmButton;
 
