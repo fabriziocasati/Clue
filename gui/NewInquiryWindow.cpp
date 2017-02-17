@@ -268,7 +268,7 @@ void NewInquiryWindow::openNewWindow() {
 
     game->addInquiry(q, i);
 
-    gw->myupdate();
+    //gw->myupdate();
 
     QCoreApplication::processEvents();
     parentWidget()->update();

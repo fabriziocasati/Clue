@@ -153,5 +153,5 @@ void MainWindow::setGame(Game *game) {
 }
 
 void MainWindow::myupdate() {
-    g->myupdate2();
+    //g->myupdate2();
 }
