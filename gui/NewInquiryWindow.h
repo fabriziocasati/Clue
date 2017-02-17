@@ -8,14 +8,14 @@
 #include <QCheckBox>
 #include <QHBoxLayout>
 #include <game/Game.h>
-#include <gui/GameWindow.h>
+#include <gui/CardTableWindow.h>
 #include <QRadioButton>
 #include <boost/lexical_cast.hpp>
 #include <QDialog>
 #include "gui/InquiryHistoryWindow.h"
 
 class Game;
-class GameWindow;
+class CardTableWindow;
 class InquiryHistoryWindow;
 
 class NewInquiryWindow : public QDialog
@@ -25,7 +25,7 @@ class NewInquiryWindow : public QDialog
 public:
     NewInquiryWindow(Game *g, InquiryHistoryWindow *i, QWidget *parent = 0);
     Game *game;
-    GameWindow *gw;
+    CardTableWindow *gw;
 
 private:
     QRadioButton *callerRadioButton[6];

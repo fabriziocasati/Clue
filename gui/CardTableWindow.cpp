@@ -5,16 +5,20 @@
 #include <QtGui>
 
 
-GameWindow::GameWindow(Game *game, QWidget *parent)
+CardTableWindow::CardTableWindow(Game *game, QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(tr("Group Boxes"));
+    setWindowTitle(tr("Card Table Window"));
 
+    /* Store constructor arguments */
     this->game = game;
-    roomCardList = game->getRoomCardList();
+
+    /* Get lists */
+    playerList      = game->getPlayerList();
+    roomCardList    = game->getRoomCardList();
     suspectCardList = game->getSuspectCardList();
-    weaponCardList = game->getWeaponCardList();
-    playerList = game->getPlayerList();
+    weaponCardList  = game->getWeaponCardList();
+
 
 
     QVBoxLayout *l = new QVBoxLayout;
@@ -339,7 +343,12 @@ GameWindow::GameWindow(Game *game, QWidget *parent)
 
 }
 
-void GameWindow::myupdate() {
+void CardTableWindow::foo() {
+
+}
+
+
+void CardTableWindow::myupdate() {
 /*
     std::string numberString = boost::lexical_cast<std::string>(game->inquiryList->front()->i) ;
     QString numberQString = QString::fromStdString(numberString);
@@ -350,7 +359,7 @@ void GameWindow::myupdate() {
 */
 }
 
-void GameWindow::updateCardTable(QString card, QString player, QString value) {
+void CardTableWindow::updateCardTable(QString card, QString player, QString value) {
     /*
     std::vector<QString> userCards = game->getUserCards();
     std::vector<QString>::iterator it = roomCardList.begin();
@@ -400,13 +409,13 @@ void GameWindow::updateCardTable(QString card, QString player, QString value) {
         */
 }
 
-void GameWindow::closeEvent(QCloseEvent *e)
+void CardTableWindow::closeEvent(QCloseEvent *e)
 {
     e->ignore();
     hide();
 }
 
-void GameWindow::myupdate2()
+void CardTableWindow::myupdate2()
 {
     QTableWidgetItem *q = new QTableWidgetItem("Yes");
     q->setBackground(QBrush(QColor(Qt::blue)));

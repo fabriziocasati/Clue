@@ -64,7 +64,7 @@ MainWindow::MainWindow(QWidget *parent) :
     names2.push_back(QString("Library"));
 
     game = new Game(this, 4, names, num, names2);
-    g = new GameWindow(game, this);
+    g = new CardTableWindow(game, this);
     i = new InquiryHistoryWindow(game, this);
     n = new NewInquiryWindow(game, i, this);
     /*

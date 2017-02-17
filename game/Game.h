@@ -5,7 +5,7 @@
 #include <list>
 #include "Inquiry.h"
 #include "game/Player.h"
-#include "gui/GameWindow.h"
+#include "gui/CardTableWindow.h"
 #include "gui/MainWindow.h"
 #include <QString>
 #include "gui/InquiryHistoryWindow.h"

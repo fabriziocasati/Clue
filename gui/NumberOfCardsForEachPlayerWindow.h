@@ -16,7 +16,6 @@ class CustomRadioButton;
  * these values for any player.
  *
  *
- *
  * The window contains a groubox for each player to insert the number of held cards: each groupbox
  * (all equal) provides some radio buttons to specify this number (3 cards, 4 cards, ...).
  */

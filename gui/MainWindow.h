@@ -6,7 +6,7 @@
 #include <QMdiArea>
 #include "game/Game.h"
 #include "gui/InquiryHistoryWindow.h"
-#include "gui/GameWindow.h"
+#include "gui/CardTableWindow.h"
 #include "game/NewGameCreator.h"
 
 class QPushButton;
@@ -16,7 +16,7 @@ class QGridLayout;
 class Main;
 class QMdiArea;
 class Game;
-class GameWindow;
+class CardTableWindow;
 class NewInquiryWindow;
 
 
@@ -49,7 +49,7 @@ private:
     void createMenus();
 
     InquiryHistoryWindow *i;
-    GameWindow *g;
+    CardTableWindow *g;
     NewInquiryWindow *n;
 
     QMenu *windowMenu;

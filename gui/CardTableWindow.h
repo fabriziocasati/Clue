@@ -15,12 +15,12 @@
 class Game;
 class QPushButton;
 
-class GameWindow : public QDialog
+class CardTableWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    GameWindow(Game *game, QWidget *parent = 0);
+    CardTableWindow(Game *game, QWidget *parent = 0);
 
     Game *game;
     QTableWidget *roomCardTable;
@@ -38,7 +38,7 @@ private:
     std::vector<QString> suspectCardList;
     std::vector<QString> weaponCardList;
 
-    GameWindow *g;
+    CardTableWindow *g;
 
 };
 
