@@ -10,6 +10,7 @@
 #include "gui/RecapWindow.h"
 
 class MainWindow;
+class Game;
 
 class NewGameCreator
 {

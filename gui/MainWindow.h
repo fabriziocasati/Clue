@@ -18,6 +18,7 @@ class QMdiArea;
 class Game;
 class CardTableWindow;
 class NewInquiryWindow;
+class InquiryHistoryWindow;
 
 
 class MainWindow : public QMainWindow
