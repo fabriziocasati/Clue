@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['inquiry',['Inquiry',['../classInquiry.html#ae4001d759383bd9c5220ee8ea4e3f5d1',1,'Inquiry']]],
-  ['inquiryhistorywindow',['InquiryHistoryWindow',['../classInquiryHistoryWindow.html#a9a590b61cb46dfbaf2062defd4ecc1a3',1,'InquiryHistoryWindow']]],
-  ['inttoqstring',['intToQString',['../ClueSolver_8cpp.html#a4b80477743828c27b839a9ddc9b4e2a9',1,'intToQString(int number):&#160;ClueSolver.cpp'],['../ClueSolver_8h.html#a4b80477743828c27b839a9ddc9b4e2a9',1,'intToQString(int number):&#160;ClueSolver.cpp']]]
+  ['newgamecreationwindow',['NewGameCreationWindow',['../classNewGameCreationWindow.html#a1b8cd9166289a086a951c2ee9d6bfebe',1,'NewGameCreationWindow']]],
+  ['newinquirywindow',['NewInquiryWindow',['../classNewInquiryWindow.html#a97d4865cb01ce94a4b042e40dcb6156a',1,'NewInquiryWindow']]],
+  ['numberofcardsforeachplayerwindow',['NumberOfCardsForEachPlayerWindow',['../classNumberOfCardsForEachPlayerWindow.html#aadd6710e807d6ac5a401c1ecbe51792b',1,'NumberOfCardsForEachPlayerWindow']]],
+  ['numberofplayerswindow',['NumberOfPlayersWindow',['../classNumberOfPlayersWindow.html#a522ce7de553a78ef1514cc988abb8d38',1,'NumberOfPlayersWindow']]]
 ];

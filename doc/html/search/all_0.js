@@ -1,6 +1,7 @@
 var searchData=
 [
   ['cardsoftheuserwindow',['CardsOfTheUserWindow',['../classCardsOfTheUserWindow.html',1,'CardsOfTheUserWindow'],['../classCardsOfTheUserWindow.html#a2196040b2451a78b75855244f7ab52e2',1,'CardsOfTheUserWindow::CardsOfTheUserWindow()']]],
+  ['cardtablewindow',['CardTableWindow',['../classCardTableWindow.html',1,'CardTableWindow'],['../classCardTableWindow.html#a33e045d1c86fdf5ab05e3da2c5a575e1',1,'CardTableWindow::CardTableWindow()']]],
   ['closeevent',['closeEvent',['../classNewGameCreationWindow.html#ad96277fa809e77e33ade1a93fc4af5d7',1,'NewGameCreationWindow']]],
   ['confirmbutton',['confirmButton',['../classNewGameCreationWindow.html#a8d0d915f4fb0df24683813e33442219b',1,'NewGameCreationWindow']]],
   ['createconfirmbutton',['createConfirmButton',['../classNewGameCreationWindow.html#aaa0b36302cf67c363da723e64c92c777',1,'NewGameCreationWindow']]],

@@ -1,5 +1,14 @@
 \hypertarget{classInquiryHistoryWindow}{}\section{Inquiry\+History\+Window Class Reference}
 \label{classInquiryHistoryWindow}\index{Inquiry\+History\+Window@{Inquiry\+History\+Window}}
+
+
+Window that show the history of inquiries.  
+
+
+
+
+{\ttfamily \#include $<$Inquiry\+History\+Window.\+h$>$}
+
 Inheritance diagram for Inquiry\+History\+Window\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,25 +18,49 @@ Inheritance diagram for Inquiry\+History\+Window\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classInquiryHistoryWindow_a9a590b61cb46dfbaf2062defd4ecc1a3}\label{classInquiryHistoryWindow_a9a590b61cb46dfbaf2062defd4ecc1a3}} 
-{\bfseries Inquiry\+History\+Window} (\hyperlink{classGame}{Game} $\ast$g, Q\+Widget $\ast$parent=0)
-\item 
-\mbox{\Hypertarget{classInquiryHistoryWindow_a38d5323261a7ba223517235f608fcae6}\label{classInquiryHistoryWindow_a38d5323261a7ba223517235f608fcae6}} 
-void {\bfseries close\+Event} (Q\+Close\+Event $\ast$e)
-\item 
-\mbox{\Hypertarget{classInquiryHistoryWindow_ac57591d79ca9911cd085d80411a7d440}\label{classInquiryHistoryWindow_ac57591d79ca9911cd085d80411a7d440}} 
-void {\bfseries myupdate} ()
-\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classInquiryHistoryWindow_ad3c99570687772e595bffd9160678471}\label{classInquiryHistoryWindow_ad3c99570687772e595bffd9160678471}} 
-\hyperlink{classGame}{Game} $\ast$ {\bfseries g}
-\item 
-\mbox{\Hypertarget{classInquiryHistoryWindow_a21f2011f43eadd1c236ba1ffc6a035ae}\label{classInquiryHistoryWindow_a21f2011f43eadd1c236ba1ffc6a035ae}} 
-Q\+Table\+Widget $\ast$ {\bfseries inquiry\+History\+Table}
-\end{DoxyCompactItemize}
+\hyperlink{classInquiryHistoryWindow_aad56e5a394ab749c4621a57016a7dfe0}{Inquiry\+History\+Window} (\hyperlink{classGame}{Game} $\ast$game, Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Create the window. \end{DoxyCompactList}\item 
+void \hyperlink{classInquiryHistoryWindow_ac57591d79ca9911cd085d80411a7d440}{myupdate} ()
+\begin{DoxyCompactList}\small\item\em Update the history table. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Window that show the history of inquiries. 
+
+By means of a table, the user can checl all the inquiries that were made during the game. For each inquiry, inquirier, called cards and giver are shown. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classInquiryHistoryWindow_aad56e5a394ab749c4621a57016a7dfe0}\label{classInquiryHistoryWindow_aad56e5a394ab749c4621a57016a7dfe0}} 
+\index{Inquiry\+History\+Window@{Inquiry\+History\+Window}!Inquiry\+History\+Window@{Inquiry\+History\+Window}}
+\index{Inquiry\+History\+Window@{Inquiry\+History\+Window}!Inquiry\+History\+Window@{Inquiry\+History\+Window}}
+\subsubsection{\texorpdfstring{Inquiry\+History\+Window()}{InquiryHistoryWindow()}}
+{\footnotesize\ttfamily Inquiry\+History\+Window\+::\+Inquiry\+History\+Window (\begin{DoxyParamCaption}\item[{\hyperlink{classGame}{Game} $\ast$}]{game,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Create the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & pointer to the \hyperlink{classGame}{Game} instance \\
+\hline
+{\em parent} & the parent of the window \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classInquiryHistoryWindow_ac57591d79ca9911cd085d80411a7d440}\label{classInquiryHistoryWindow_ac57591d79ca9911cd085d80411a7d440}} 
+\index{Inquiry\+History\+Window@{Inquiry\+History\+Window}!myupdate@{myupdate}}
+\index{myupdate@{myupdate}!Inquiry\+History\+Window@{Inquiry\+History\+Window}}
+\subsubsection{\texorpdfstring{myupdate()}{myupdate()}}
+{\footnotesize\ttfamily void Inquiry\+History\+Window\+::myupdate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update the history table. 
+
+The table that shows all the historical inquiries is updated when a new inquiry has to be added. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
