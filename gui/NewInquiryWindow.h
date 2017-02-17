@@ -21,7 +21,8 @@ class InquiryHistoryWindow;
 /*!
  * \brief Window to insert a new inquiry
  *
- * When one player has made a new inquiry, the user can use this window to insert it: the user can specify the inquirer, the called cards and the giver.
+ * When one player has made a new inquiry, the user can use this window to insert it: the user can
+ * specify the inquirer, the called cards and the giver.
  */
 class NewInquiryWindow : public QDialog
 {

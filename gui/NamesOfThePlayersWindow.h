@@ -9,28 +9,40 @@ class QLineEdit;
 class QLabel;
 class NewGameCreator;
 
-class NamesOfThePlayersWindow  : public NewGameCreationWindow
+/*!
+ * \brief Window to insert the names of the players
+ *
+ * The user can use this window to insert, for each player, his/her names. The first player is the
+ * user himself/herself, the second player is the player that plays, during the game, immediately
+ * after the user, and so on. The window takes into account the number of players that the user has
+ * previously specify to display the corrent number of edit lanes (one for each player).
+ */
+class NamesOfThePlayersWindow : public NewGameCreationWindow
 {
-     Q_OBJECT
+    Q_OBJECT
 
-    public:
-        NamesOfThePlayersWindow(NewGameCreator *newGameCreator, QWidget *parent = 0);
+public:
+    /*!
+     * \brief Create the window
+     * \param newGameCreator pointer to the NewGameCreator instance
+     * \param parent the parent of the window
+     */
+    NamesOfThePlayersWindow(NewGameCreator* newGameCreator, QWidget* parent = 0);
 
-    public slots:
-        void enableOrDisableConfirmButton(const QString &text);
-
-    private:
-        QGroupBox *createNumberOfPlayersGroup();
-        QPushButton *m_button;
-        int nonEmptyName[6];
-        int nonEmptyNames = 0;
-        QHash<QLineEdit**, int> hash;
-        QLineEdit *playerNameLineEdit[6];
-        QLabel *playerNameLabel[6];
-        NewGameCreator *newGameCreator;
-        int numberOfPlayers;
+private:
+    QGroupBox* createNumberOfPlayersGroup();
+    QPushButton* m_button;
+    int nonEmptyName[6];
+    int nonEmptyNames = 0;
+    QHash<QLineEdit**, int> hash;
+    QLineEdit* playerNameLineEdit[6];
+    QLabel* playerNameLabel[6];
+    NewGameCreator* newGameCreator;
+    int numberOfPlayers;
 
 private slots:
+    void enableOrDisableConfirmButton(const QString &text);
+
     /*!
      * \brief Function called when the confirm button of the window is clicked
      *
@@ -40,7 +52,6 @@ private slots:
      * that the next window for data insertion must be shown.
      */
     void confirmButtonClicked();
-
 };
 
 #endif // NAMESOFTHEPLAYERSWINDOW_H
