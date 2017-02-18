@@ -19,6 +19,7 @@ class Game;
 class CardTableWindow;
 class NewInquiryWindow;
 class InquiryHistoryWindow;
+class Reasoner;
 
 /*!
  * \brief The main window
@@ -61,6 +62,8 @@ private:
     NewInquiryWindow* n;
 
     QMenu* windowMenu;
+
+    Reasoner *reasoner;
 
 private slots:
     void showCardTableWindow();

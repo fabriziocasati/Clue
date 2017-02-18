@@ -38,7 +38,7 @@ CardTableWindow::CardTableWindow(Game* game, QWidget* parent)
     /* Create subtables */
     roomCardTable = createCardSubTable(roomCardList);
     suspectCardTable = createCardSubTable(suspectCardList);
-    weaponCardTable = createCardSubTable(suspectCardList);
+    weaponCardTable = createCardSubTable(weaponCardList);
 
     /* Create window layout and fill it with all the subtables */
     QVBoxLayout* l = new QVBoxLayout;

@@ -1,5 +1,5 @@
 #include "Reasoner.h"
-#include <QDebug><
+#include <QDebug>
 
 Reasoner::Reasoner(Game* game, MainWindow *mainWindow)
 {
@@ -7,6 +7,8 @@ Reasoner::Reasoner(Game* game, MainWindow *mainWindow)
 
     this->game = game;
     this->mainWindow = mainWindow;
+    this->userName = game->getPlayerList().front();
+    qDebug() << userName;
 
     userCards = game->getUserCards();
     userCardQList = game->getUserCardQList();
@@ -40,14 +42,13 @@ Reasoner::Reasoner(Game* game, MainWindow *mainWindow)
     QList<QString>::iterator it = roomCardQList.begin();
 
     for(; it != roomCardQList.end(); ++it) {
-        qDebug() << "HERE: " << (*it);
         roomCardTable[*it]["Player"] = "No";
     }
 
 
     std::vector<QString>::iterator it2 = userCards.begin();
     for(; it2 != userCards.end(); ++it2) {
-        qDebug() << *it2;
+        qDebug() << "User card: " << *it2;
         roomCardTable[*it2]["Player"] = "Yes";
     }
 
@@ -56,35 +57,37 @@ Reasoner::Reasoner(Game* game, MainWindow *mainWindow)
     for(; it3 != roomCardTable.end(); ++it3)
         qDebug() << (*it3)["Player"];
 
+    setUserCards();
 
 }
 
 void Reasoner::signalNewInquiry(Inquiry* inquiry) {
-    setUserCards();
+
 }
 
 void Reasoner::setUserCards() {
     std::vector<QString>::iterator it = userCards.begin();
-    for(; it != userCards.end(); ++it)
+    for(; it != userCards.end(); ++it) {
+        qDebug() << *it;
         //mainWindow->getCardTableWindow()->updateCardTable(*it, "Fabrizio", "Yes");
-        foo(*it, "Cristina");
+        foo(*it, userName);
+    }
 
     QList<QString>::iterator it2 = roomCardQList.begin();
 
     for(; it2 != roomCardQList.end(); ++it2)
         if (!(userCardQList.contains(*it2)))
-            mainWindow->getCardTableWindow()->updateCardTable(*it2, "Cristina", "No");
+            mainWindow->getCardTableWindow()->updateCardTable(*it2, userName, "No");
 
     it2 = suspectCardQList.begin();
     for(; it2 != suspectCardQList.end(); ++it2)
         if (!(userCardQList.contains(*it2)))
-            mainWindow->getCardTableWindow()->updateCardTable(*it2, "Cristina", "No");
+            mainWindow->getCardTableWindow()->updateCardTable(*it2, userName, "No");
 
     it2 = weaponCardQList.begin();
     for(; it2 != weaponCardQList.end(); ++it2) {
-        qDebug() << "HERE2: " << *it2;
         if (!(userCardQList.contains(*it2)))
-            mainWindow->getCardTableWindow()->updateCardTable(*it2, "Cristina", "No");
+            mainWindow->getCardTableWindow()->updateCardTable(*it2, userName, "No");
     }
 
 }

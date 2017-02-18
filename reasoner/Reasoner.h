@@ -20,12 +20,14 @@ private:
     MainWindow *mainWindow;
     std::vector<QString> userCards;
     QHash< QString, QHash<QString, QString> > roomCardTable;
-    std::vector<QString> roomCards;
+    //std::vector<QString> roomCards;
 
     QList<QString> roomCardQList;
     QList<QString> suspectCardQList;
     QList<QString> weaponCardQList;
     QList<QString> userCardQList;
+
+    QString userName;
 
     void setUserCards();
 };

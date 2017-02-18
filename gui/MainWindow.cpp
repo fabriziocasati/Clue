@@ -64,10 +64,7 @@ MainWindow::MainWindow(QWidget *parent) :
     names2.push_back(QString("Peacock"));
     names2.push_back(QString("Rivoltella"));
 
-    game = new Game(this, 4, names, num, names2);
-    g = new CardTableWindow(game, this);
-    i = new InquiryHistoryWindow(game, this);
-    n = new NewInquiryWindow(game, i, this);
+
     /*
     setSubwindow(g);
     setSubwindow(n);
@@ -151,6 +148,11 @@ void MainWindow::setSubwindow(QWidget *q) {
 void MainWindow::setGame(Game *game) {
     this->game = game;
     windowMenu->setEnabled(true);
+    //game = new Game(this, 4, names, num, names2);
+    g = new CardTableWindow(game, this);
+    i = new InquiryHistoryWindow(game, this);
+    n = new NewInquiryWindow(game, i, this);
+    reasoner = new Reasoner(game, this);
 }
 
 void MainWindow::myupdate() {

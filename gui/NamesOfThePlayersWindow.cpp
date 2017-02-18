@@ -85,6 +85,9 @@ void NamesOfThePlayersWindow::confirmButtonClicked()
     std::vector<QString> playerName;
     for(int i = 0; i < numberOfPlayers; i++)
         playerName.push_back(playerNameLineEdit[i]->text());
+    std::vector<QString>::iterator it = playerName.begin();
+    for(int i = 0; i < numberOfPlayers; i++, it++)
+        qDebug() << "Player Name: " << (*it);
     newGameCreator->setNamesOfThePlayers(playerName);
     newGameCreator->openNextWindow();
 
