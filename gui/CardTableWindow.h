@@ -40,7 +40,7 @@ public:
     CardTableWindow(Game* game, QWidget* parent = 0);
 
     //void myupdate();
-    //void updateCardTable(QString card, QString player, QString value);
+    void updateCardTable(QString card, QString player, QString value);
     //void myupdate2();
 
 private:
@@ -51,6 +51,15 @@ private:
     std::vector<QString> roomCardList;
     std::vector<QString> suspectCardList;
     std::vector<QString> weaponCardList;
+
+    QTableWidget* roomCardTable;
+    QTableWidget* suspectCardTable;
+    QTableWidget* weaponCardTable;
+
+    QHash<QString, int> roomCardHash;
+    QHash<QString, int> suspectCardHash;
+    QHash<QString, int> weaponCardHash;
+    QHash<QString, int> playerHash;
 
     QTableWidget* createCardSubTable(std::vector<QString> cardList);
     void closeEvent(QCloseEvent* e);

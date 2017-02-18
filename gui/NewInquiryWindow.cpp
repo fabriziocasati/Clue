@@ -122,7 +122,7 @@ void NewInquiryWindow::openNewWindow()
     game->addInquiry(q, inquiryHistoryWindow);
 
     QCoreApplication::processEvents();
-    parentWidget()->update();
+    //parentWidget()->update();
     inquiryHistoryWindow->myupdate();
 }
 

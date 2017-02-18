@@ -42,6 +42,8 @@ public:
 
     void myupdate();
 
+    CardTableWindow* getCardTableWindow();
+
 private:
     Main* main;
     QMenu* fileMenu;

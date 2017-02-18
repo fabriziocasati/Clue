@@ -61,7 +61,8 @@ MainWindow::MainWindow(QWidget *parent) :
     std::vector<QString> names2;
     names2.push_back(QString("Kitchen"));
     names2.push_back(QString("Lounge"));
-    names2.push_back(QString("Library"));
+    names2.push_back(QString("Peacock"));
+    names2.push_back(QString("Rivoltella"));
 
     game = new Game(this, 4, names, num, names2);
     g = new CardTableWindow(game, this);
@@ -154,4 +155,8 @@ void MainWindow::setGame(Game *game) {
 
 void MainWindow::myupdate() {
     //g->myupdate2();
+}
+
+CardTableWindow* MainWindow::getCardTableWindow() {
+    return g;
 }

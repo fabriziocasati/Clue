@@ -9,9 +9,11 @@
 #include "gui/MainWindow.h"
 #include <QString>
 #include "gui/InquiryHistoryWindow.h"
+#include "reasoner/Reasoner.h"
 
 class Inquiry;
 class MainWindow;
+class Reasoner;
 
 class Game
 {
@@ -21,7 +23,13 @@ public:
     std::vector<QString> suspectCardList;
     std::vector<QString> weaponCardList;
     std::vector<QString> roomCardList;
-    int playerNumberOfCards[];
+
+    QList<QString> roomCardQList;
+    QList<QString> suspectCardQList;
+    QList<QString> weaponCardQList;
+    QList<QString> userCardQList;
+
+    //int playerNumberOfCards[];
     int numberOfPlayers;
     std::list<Inquiry*> *inquiryList;
     Player player[6];
@@ -43,7 +51,15 @@ public:
 
     int getTurnNumber();
 
+    Reasoner* reasoner;
+
+    QList<QString> getRoomCardQList();
+    QList<QString> getSuspectCardQList();
+    QList<QString> getWeaponCardQList();
+    QList<QString> getUserCardQList();
+
 };
 
 #endif // GAME_H
+
 

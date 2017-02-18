@@ -19,11 +19,32 @@ CardTableWindow::CardTableWindow(Game* game, QWidget* parent)
     suspectCardList = game->getSuspectCardList();
     weaponCardList  = game->getWeaponCardList();
 
-    /* Create and fill window layout */
+    std::vector<QString>::iterator it = roomCardList.begin();
+    for(int i = 0; it != roomCardList.end(); ++it, i++)
+        roomCardHash[*it] = i;
+
+    it = suspectCardList.begin();
+    for(int i = 0; it != suspectCardList.end(); ++it, i++)
+        suspectCardHash[*it] = i;
+
+    it = weaponCardList.begin();
+    for(int i = 0; it != weaponCardList.end(); ++it, i++)
+        weaponCardHash[*it] = i;
+
+    it = playerList.begin();
+    for(int i = 0; it != playerList.end(); ++it, i++)
+        playerHash[*it] = i;
+
+    /* Create subtables */
+    roomCardTable = createCardSubTable(roomCardList);
+    suspectCardTable = createCardSubTable(suspectCardList);
+    weaponCardTable = createCardSubTable(suspectCardList);
+
+    /* Create window layout and fill it with all the subtables */
     QVBoxLayout* l = new QVBoxLayout;
-    l->addWidget(createCardSubTable(roomCardList),    0, Qt::AlignCenter);
-    l->addWidget(createCardSubTable(suspectCardList), 1, Qt::AlignCenter);
-    l->addWidget(createCardSubTable(weaponCardList),  2, Qt::AlignCenter);
+    l->addWidget(roomCardTable,    0, Qt::AlignCenter);
+    l->addWidget(suspectCardTable, 1, Qt::AlignCenter);
+    l->addWidget(weaponCardTable,  2, Qt::AlignCenter);
 
     /* Window settings */
     setWindowTitle(tr("Card Table Window"));
@@ -97,58 +118,23 @@ void CardTableWindow::myupdate()
 }
 */
 
-/*
 void CardTableWindow::updateCardTable(QString card, QString player, QString value)
 {
 
-     *    std::vector<QString> userCards = game->getUserCards();
-     *    std::vector<QString>::iterator it = roomCardList.begin();
-     *    int ok = 0;
-     *    int i=0;
-     *    while(!ok && it != roomCardList.end())
-     *     if((*it).compare(card) == 0)
-     *         ok=1;
-     *     else {
-     ++it, i++;
-     *     }
-     *
-     *    qDebug() << i;
-     *
-     *    std::vector<QString>::iterator it2;
-     *    QTableWidgetItem *q;
-     *     for(it = roomCardList.begin(); !ok && it != roomCardList.end(); ++it)
-     *         if((*it).compare(*it2) == 0)
-     *             ok = 1;
-     *     if(value.compare("Yes") == 0) {
-     *         q = new QTableWidgetItem("Yes");
-     *         q->setTextColor(QColor(Qt::green));
-     *         q->setTextAlignment(Qt::AlignCenter);
-     *         roomCardTable->setItem(i, 3, q);
-     *         q = new QTableWidgetItem("No");
-     *         q->setTextColor(QColor(Qt::red));
-     *         q->setTextAlignment(Qt::AlignCenter);
-     *         roomCardTable->setItem(i, 0, q);
-     *         q = new QTableWidgetItem("No");
-     *         q->setTextColor(QColor(Qt::red));
-     *         q->setTextAlignment(Qt::AlignCenter);
-     *         roomCardTable->setItem(i, 1, q);
-     *         q = new QTableWidgetItem("No");
-     *         q->setTextColor(QColor(Qt::red));
-     *         q->setTextAlignment(Qt::AlignCenter);
-     *         roomCardTable->setItem(i, 2, q);
-     *         q = new QTableWidgetItem("No");
-     *         q->setTextColor(QColor(Qt::red));
-     *         q->setTextAlignment(Qt::AlignCenter);
-     *         roomCardTable->setItem(i, 4, q);
-     *     } else {
-     *         q = new QTableWidgetItem("No");
-     *         q->setTextColor(QColor(Qt::red));
-     *         q->setTextAlignment(Qt::AlignCenter);
-     *         roomCardTable->setItem(i, 3, q);
-     *     }
-     *
+    QTableWidgetItem *q = new QTableWidgetItem(value);
+    if(value.compare("Yes") == 0)
+        q->setTextColor(QColor(Qt::green));
+    else
+        q->setTextColor(QColor(Qt::red));
+    q->setTextAlignment(Qt::AlignCenter);
+
+    if(roomCardHash.contains(card))
+        roomCardTable->setItem(roomCardHash[card], playerHash[player], q);
+    else if(suspectCardHash.contains(card))
+        suspectCardTable->setItem(suspectCardHash[card], playerHash[player], q);
+    else
+        weaponCardTable->setItem(weaponCardHash[card], playerHash[player], q);
 }
-*/
 
 void CardTableWindow::closeEvent(QCloseEvent* e)
 {

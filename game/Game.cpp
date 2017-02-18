@@ -33,6 +33,15 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
     roomCardList.push_back(QString("Hall"));
     roomCardList.push_back(QString("Study"));
 
+    roomCardQList << "Kitchen" << "Ballroom" << "Conservatory" << "Dining Room"
+                  << "Billiard Room" << "Library" << "Lounge" << "Hall" << "Study";
+
+    suspectCardQList << "Peacock" << "White" << "Plumb" << "Green" << "Scarlet" << "Mustard";
+
+    weaponCardQList << "Candeliere" << "Tubo" << "Rivoltella" << "Fune" << "Pugnale" << "???";
+
+    userCardQList << "Kitchen" << "Lounge" << "Peacock" << "Rivoltella";
+
     this->userCards = userCards;
     this->playerName = playerName;
 
@@ -64,6 +73,8 @@ Game::Game(MainWindow *mainWindow, int numberOfPlayers, std::vector<QString> pla
 
     //mainWindow->call();
 
+    reasoner = new Reasoner(this, mainWindow);
+
 }
 
 void Game::addInquiry(Inquiry *q, InquiryHistoryWindow *i) {
@@ -73,6 +84,9 @@ void Game::addInquiry(Inquiry *q, InquiryHistoryWindow *i) {
     //i->show();
     //mainWindow->setSubwindow(new InquiryHistoryWindow(this, mainWindow));
     //mainWindow->myupdate();
+
+    reasoner->signalNewInquiry(q);
+
 }
 
 std::vector<QString> Game::getPlayerList() {
@@ -93,6 +107,22 @@ std::vector<QString> Game::getSuspectCardList() {
 
 std::vector<QString> Game::getWeaponCardList() {
     return weaponCardList;
+}
+
+QList<QString> Game::getRoomCardQList() {
+    return roomCardQList;
+}
+
+QList<QString> Game::getSuspectCardQList() {
+    return suspectCardQList;
+}
+
+QList<QString> Game::getWeaponCardQList() {
+    return weaponCardQList;
+}
+
+QList<QString> Game::getUserCardQList() {
+    return userCardQList;
 }
 
 int Game::getTurnNumber() {
