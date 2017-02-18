@@ -1,6 +1,6 @@
 # Clue Solver
 
-**NB**
+**NOTA BENE. This project is a work in progress: the following description refers to how the program will work once completed.**
 
 ## Overview ##
 
